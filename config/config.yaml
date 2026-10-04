@@ -1,0 +1,57 @@
+paths:
+  data_dir: ./data
+  output_dir: ./data/out
+llm:
+  provider: anthropic
+  models:
+    parse: "<model-id-small>"
+    compose: "<model-id-strong>"
+    judge: "<model-id-strong-different-prompt-role>"
+    classify: "<model-id-small>"
+  temperature:
+    parse: 0.0
+    compose: 0.4
+    judge: 0.0
+    classify: 0.0
+  max_retries: 3
+  daily_token_budget: 2000000
+  redact_pii_in_logs: true
+principal:
+  timezone: "Europe/Kiev"
+  work_window_local:
+    start: "09:00"
+    end: "18:00"
+  min_overlap_hours: 3
+  target_overlap_hours: 4
+router:
+  min_score_to_apply: 65
+  rate_floor_usd_month: 2000
+  rate_ceiling_usd_month: 4000
+  allow_below_floor_if_hours_leq: 10
+  countries_allow: []
+  countries_deny: []
+  engagement_types_allow: [contractor, b2b, freelance, project]
+send:
+  autosend:
+    enabled: false
+    allowed_channels: []
+  max_per_day: 20
+  min_gap_seconds: 90
+  quiet_hours_local:
+    start: "21:00"
+    end: "07:00"
+followups:
+  schedule_business_days: [5, 10]
+  max_followups: 2
+capacity:
+  max_total_hours_week: 40
+  max_active_contracts: 3
+  warn_at_utilization: 0.8
+fx:
+  fx_as_of: "2026-10-01"
+  rates:
+    EUR: 1.08
+    GBP: 1.27
+    USD: 1.0
+    RUB: 0.011
+    UAH: 0.025

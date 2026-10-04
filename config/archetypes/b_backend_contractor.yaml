@@ -1,0 +1,20 @@
+id: b_backend_contractor
+name: "Senior Backend Engineer (contract)"
+headline_templates:
+  - "Senior Backend Engineer — Python, services, high-throughput data"
+must_have_keywords: [python, backend, api, sql]
+nice_to_have_keywords: [fastapi, postgres, event-driven, observability]
+jd_match_signals: [backend, api, services, database, python, "event-driven"]
+fact_selection:
+  prefer_tags: [backend, python, performance, data]
+  suppress_kinds: [strategy, budget]
+  max_bullets_per_role:
+    recent: 5
+    older: 2
+cover_letter:
+  proof_points_tags: [backend, performance, data]
+  avoid_phrases: ["passionate", "rockstar", "ninja", "thought leader"]
+rate_guidance_usd_month:
+  min: 2500
+  max: 4000
+typical_hours_week: [15, 30]

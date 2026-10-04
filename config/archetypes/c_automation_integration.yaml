@@ -1,0 +1,20 @@
+id: c_automation_integration
+name: "Automation & Integration Engineer"
+headline_templates:
+  - "Automation & Integration Engineer — APIs, workflows, data pipelines"
+must_have_keywords: [python, api, automation, integration]
+nice_to_have_keywords: [airflow, celery, webhooks, etl, n8n, zapier]
+jd_match_signals: [automation, integration, workflow, pipeline, api, etl, "third-party"]
+fact_selection:
+  prefer_tags: [backend, data, python, integration]
+  suppress_kinds: [strategy, budget]
+  max_bullets_per_role:
+    recent: 5
+    older: 2
+cover_letter:
+  proof_points_tags: [data, backend, integration]
+  avoid_phrases: ["passionate", "rockstar", "ninja"]
+rate_guidance_usd_month:
+  min: 2000
+  max: 3500
+typical_hours_week: [15, 25]

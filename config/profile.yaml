@@ -1,0 +1,146 @@
+version: 1
+identity:
+  full_name: "Jane A. Doe"
+  public_alias: null
+  email: "jane.doe@example.com"
+  phone: null
+  location:
+    city: "Kiev"
+    country: "UA"
+    timezone: "Europe/Kiev"
+  links:
+    github: null
+    linkedin: null
+    site: null
+  languages:
+    - lang: "English"
+      level: "C1"
+    - lang: "Russian"
+      level: "native"
+summary_facts:
+  - id: sum.1
+    text: "Backend & AI/LLM engineer with 12 years across SaaS, fintech, and data platforms; shipped event-driven systems at 2M req/day."
+    tags: [backend, ai, performance]
+experience:
+  - id: exp.acme
+    employer_real: "Acme Corp"
+    employer_display_options:
+      full: "Acme Corp"
+      anonymized: "B2B SaaS company (~300 employees)"
+    title_real: "CTO"
+    title_display_options:
+      exact: "CTO"
+      handson_descriptor: "CTO (hands-on, backend & ML)"
+    start: "2019-03"
+    end: "2024-08"
+    employment_type: "full_time"
+    concurrent: false
+    bullets:
+      - id: exp.acme.b1
+        text: "Designed event-driven ingestion pipeline handling 2M req/day; p99 latency -40%."
+        tags: [backend, performance, python]
+        kind: hands_on
+        metrics:
+          - name: "req/day"
+            value: 2000000
+          - name: "p99_latency_change"
+            value: -0.40
+        evidence: "internal dashboard, verifiable on request"
+      - id: exp.acme.b2
+        text: "Led migration from monolith to service-oriented architecture across 9 services."
+        tags: [architecture, backend]
+        kind: strategy
+        metrics: []
+        evidence: "architecture decision records"
+      - id: exp.acme.b3
+        text: "Built RAG pipeline over internal docs; reduced support ticket volume by 25%."
+        tags: [ai, rag, evals]
+        kind: hands_on
+        metrics:
+          - name: "support_ticket_reduction"
+            value: -0.25
+        evidence: "support analytics export"
+  - id: exp.globex
+    employer_real: "Globex"
+    employer_display_options:
+      full: "Globex"
+      anonymized: "Fintech (~150 employees)"
+    title_real: "Staff Engineer"
+    title_display_options:
+      exact: "Staff Engineer"
+      handson_descriptor: "Staff Engineer (hands-on, payments & data)"
+    start: "2014-06"
+    end: "2019-02"
+    employment_type: "full_time"
+    concurrent: false
+    bullets:
+      - id: exp.globex.b1
+        text: "Owned payments reconciliation service processing $40M/month; cut discrepancy rate by 60%."
+        tags: [backend, python, data]
+        kind: hands_on
+        metrics:
+          - name: "monthly_volume_usd"
+            value: 40000000
+          - name: "discrepancy_reduction"
+            value: -0.60
+        evidence: "finance reconciliation reports"
+      - id: exp.globex.b2
+        text: "Introduced feature-flag rollout process; release frequency doubled."
+        tags: [process, backend]
+        kind: strategy
+        metrics:
+          - name: "release_frequency_change"
+            value: 2.0
+        evidence: "deployment metrics"
+education:
+  - id: edu.1
+    institution: "National University of Civil Engineering"
+    degree: "Bachelor"
+    field: "Computer Science"
+    start: "2009-09"
+    end: "2014-06"
+certifications:
+  - id: cert.1
+    name: "AWS Solutions Architect Associate"
+    issuer: "Amazon Web Services"
+    date: "2022-05"
+projects:
+  - id: prj.1
+    name: "openrag-bench"
+    url: null
+    summary: "Open-source evaluation harness for RAG pipelines; 400+ stars."
+    tags: [ai, evals, rag]
+    bullets:
+      - id: prj.1.b1
+        text: "Implemented citation-accuracy metric used by 12 downstream projects."
+        evidence: "GitHub public repo"
+skills:
+  - id: skill.python
+    name: "Python"
+    level: expert
+    years: 12
+    last_used: "2026"
+    evidence_fact_ids: [exp.acme.b1, exp.globex.b1]
+  - id: skill.sql
+    name: "SQL"
+    level: expert
+    years: 11
+    last_used: "2026"
+    evidence_fact_ids: [exp.globex.b1]
+  - id: skill.rag
+    name: "RAG"
+    level: working
+    years: 3
+    last_used: "2026"
+    evidence_fact_ids: [exp.acme.b3]
+  - id: skill.kubernetes
+    name: "Kubernetes"
+    level: working
+    years: 4
+    last_used: "2025"
+    evidence_fact_ids: []
+disclosure_rules:
+  allow_employer_anonymization: true
+  must_disclose_real_employer_on: [offer_stage, background_check]
+  never_claim:
+    - "Kubernetes certified"

@@ -1,0 +1,13 @@
+target_level: senior_ic
+suppress_kinds_default: [strategy, budget]
+leadership_visibility: minimal
+recency_window_years: 10
+employer_display: anonymized
+title_display: handson_descriptor
+rate_expectation_usd_month:
+  min: 2000
+  max: 4000
+hours_week:
+  min: 15
+  max: 30
+engagement_label: "Independent contractor (ICA/B2B)"

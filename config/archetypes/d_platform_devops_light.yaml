@@ -1,0 +1,20 @@
+id: d_platform_devops_light
+name: "Platform / DevOps Engineer (light)"
+headline_templates:
+  - "Platform Engineer — CI/CD, observability, infra-as-code (part-time)"
+must_have_keywords: [python, ci, observability, infra]
+nice_to_have_keywords: [terraform, docker, kubernetes, aws, gitlab]
+jd_match_signals: [platform, devops, ci/cd, infra, observability, monitoring]
+fact_selection:
+  prefer_tags: [backend, architecture, infrastructure]
+  suppress_kinds: [budget]
+  max_bullets_per_role:
+    recent: 5
+    older: 2
+cover_letter:
+  proof_points_tags: [architecture, backend, infrastructure]
+  avoid_phrases: ["passionate", "rockstar", "ninja"]
+rate_guidance_usd_month:
+  min: 2000
+  max: 3500
+typical_hours_week: [10, 20]

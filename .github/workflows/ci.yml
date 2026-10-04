@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.12
+        shell: bash
+
+      - name: Sync dependencies
+        run: uv sync
+        shell: bash
+
+      - name: Ruff
+        run: uv run ruff check src/ tests/
+        shell: bash
+
+      - name: Mypy (strict)
+        run: uv run mypy
+        shell: bash
+
+      - name: Pytest (unit + integration)
+        run: uv run pytest tests/unit tests/integration -q
+        shell: bash
+
+      - name: jh init + profile validate
+        run: |
+          uv run jh init
+          uv run jh profile validate --path config/profile.example.yaml
+        shell: bash

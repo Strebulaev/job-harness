@@ -1,0 +1,6 @@
+{
+    "$schema": "https://app.kilo.ai/config.json",
+    "skills": {
+        "urls": ["https://raw.githubusercontent.com/vivantel/kms/master/plugins/kms/skills"]
+    }
+}

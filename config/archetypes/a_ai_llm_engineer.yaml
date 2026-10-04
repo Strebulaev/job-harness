@@ -1,0 +1,20 @@
+id: a_ai_llm_engineer
+name: "AI/LLM Application Engineer"
+headline_templates:
+  - "AI/LLM Application Engineer — RAG, agents, evaluation"
+must_have_keywords: [llm, rag, python, evaluation]
+nice_to_have_keywords: [langchain, vector db, fine-tuning, agents, mcp]
+jd_match_signals: [llm, "language model", rag, agent, prompt, embeddings]
+fact_selection:
+  prefer_tags: [ai, llm, rag, python, evals]
+  suppress_kinds: [strategy, budget]
+  max_bullets_per_role:
+    recent: 5
+    older: 2
+cover_letter:
+  proof_points_tags: [ai, evals]
+  avoid_phrases: ["passionate", "rockstar", "ninja"]
+rate_guidance_usd_month:
+  min: 2500
+  max: 4000
+typical_hours_week: [15, 30]

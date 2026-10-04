@@ -1,0 +1,20 @@
+id: f_fullstack_mvp
+name: "Full-Stack MVP Builder"
+headline_templates:
+  - "Full-Stack Engineer — ship MVPs end-to-end (frontend + backend)"
+must_have_keywords: [python, frontend, fullstack, mvp]
+nice_to_have_keywords: [react, nextjs, typescript, fastapi, tailwind]
+jd_match_signals: [fullstack, full-stack, mvp, frontend, product, "end-to-end"]
+fact_selection:
+  prefer_tags: [backend, python, data, architecture]
+  suppress_kinds: [strategy]
+  max_bullets_per_role:
+    recent: 5
+    older: 2
+cover_letter:
+  proof_points_tags: [backend, python, data]
+  avoid_phrases: ["passionate", "rockstar", "ninja"]
+rate_guidance_usd_month:
+  min: 2000
+  max: 3500
+typical_hours_week: [15, 30]
