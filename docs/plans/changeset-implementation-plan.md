@@ -45,25 +45,25 @@ Reading: `eval` depends on `render` (G5 "PDF text extractable" needs a rendered 
 - **Do:** Create `pyproject.toml` (Python 3.12, `uv`; deps: pydantic v2, SQLAlchemy 2.x, Alembic, Typer, Rich, httpx, tenacity, aiolimiter, Jinja2, rank_bm25, APScheduler, pypdf, hypothesis, detect-secrets, aiosmtpd for tests). Create the `src/jobharness/` package tree exactly as in spec §4 (cli.py, settings.py, db/, schemas/, llm/, ingest/, parse/, route/, compose/, render/, eval/, send/, track/, capacity/, report/, util/). Create `tests/{unit,integration,e2e,fixtures}/`, `eval_data/{golden_jobs,golden_claims,golden_emails}/`, `scripts/`, `.github/workflows/ci.yml`.
 - **Why:** every later step imports from these paths; a cold agent needs the exact layout to write imports.
 - **Done-when:** `find src/jobharness -type f -name '*.py'` lists `__init__.py` in every subdirectory named in §4; `pyproject.toml` parses and `uv sync` succeeds; `.github/workflows/ci.yml` exists and runs `ruff`, `mypy --strict`, `pytest`.
-- **Status:** `pending`
+- **Status:** `done`
 
 ### M1-2. Config + Settings model
 - **Do:** Create `config/config.example.yaml` (copy of §5), `config/profile.example.yaml` (copy of §7), `config/positioning.example.yaml` (copy of §9), and the six archetype files in `config/archetypes/` (a_ai_llm_engineer, b_backend_contractor, c_automation_integration, d_platform_devops_light, e_technical_advisor, f_fullstack_mvp — copy of §8). Create `src/jobharness/settings.py` with a Pydantic `Settings` model that validates `config.yaml`; **unknown keys are errors** (§5).
 - **Why:** every module reads config; a strict settings model catches typos at startup.
 - **Done-when:** `uv run python -c "from jobharness.settings import Settings; Settings(config_path='config/config.example.yaml')"` succeeds; adding an unknown top-level key to a test copy raises a validation error.
-- **Status:** `pending`
+- **Status:** `done`
 
 ### M1-3. Profile schema + `profile validate` / `lint`
 - **Do:** Create `src/jobharness/schemas/profile.py` (Pydantic `Profile` model matching §7). Implement `profile validate` (CLI in `cli.py`): unique fact ids, date ordering, no overlapping full-time roles unless `concurrent: true`, every referenced id exists, anonymized descriptors present when `allow_employer_anonymization` is true. Implement `profile lint`: warn on unverifiable metrics (bullets with no `evidence`).
 - **Why:** the profile is the single source of truth for truthfulness (G1); a broken profile poisons every downstream document.
 - **Done-when:** `jh profile validate` on `config/profile.example.yaml` exits 0; on a mutated copy (duplicate id, out-of-order dates, dangling `evidence_fact_id`) it exits non-zero with the specific error; `jh profile lint` prints a warning for a bullet missing `evidence`.
-- **Status:** `pending`
+- **Status:** `done`
 
 ### M1-4. DB models + Alembic migration + state machines
 - **Do:** Create `src/jobharness/db/models.py` (SQLAlchemy 2.x Core/ORM) for the 11 tables in §6 (sources, jobs, documents, applications, contacts, messages, events, followups, contracts, eval_runs, llm_calls). All tables have `id` (integer PK), `created_at`, `updated_at` (UTC ISO8601). Indexes on every FK and on `jobs(status)`, `jobs(score)`, `events(application_id, ts)`. Create `db/session.py`. Write the initial Alembic migration. Implement the `allowed_transitions` dicts for `jobs.status` and `applications.status` (§6); illegal transitions raise.
 - **Why:** the data model is the contract between every module; the state machine is the enforcement of §11's pipeline order.
 - **Done-when:** `alembic upgrade head` creates all 11 tables on a fresh SQLite file; a unit test asserts `jobs.status` cannot transition `new → sent` directly (skipping `parsed`/`shortlisted`/`composed`/`queued`/`approved`); a unit test asserts `applications.status` cannot transition `queued → sent` without passing through `approved`.
-- **Status:** `pending`
+- **Status:** `done`
 
 ### M1-5. FakeProvider + llm/ skeleton
 - **Do:** Create `src/jobharness/llm/provider.py` (the `LLMProvider` protocol from §12), `llm/anthropic_provider.py` (thin Anthropic SDK wrapper; model ids from config, never hard-coded), `llm/fake_provider.py` (deterministic outputs from fixtures keyed by `request_hash`; the entire test suite MUST run offline with it), `llm/structured.py` (JSON/tool-use + Pydantic validation + strip code fences + bounded retries), `llm/hashutil` (request_hash computation). Log every call to `llm_calls` (§6); no raw PII in logs when `redact_pii_in_logs` is true.
@@ -75,7 +75,7 @@ Reading: `eval` depends on `render` (G5 "PDF text extractable" needs a rendered 
 - **Do:** Wire `.github/workflows/ci.yml` to run `ruff check`, `mypy --strict`, `pytest -q` (unit + integration), and `jh eval run --suite all` (stub suites for now; real content in M2/M5/M6). Implement `jh init` (create dirs, DB via Alembic, copy example configs) and `jh doctor` (config, DB, Typst binary, mailbox connectivity, LLM key presence — §17).
 - **Why:** M1's acceptance criterion is "mypy/ruff/pytest green" + `jh init && jh profile validate` passes.
 - **Done-when:** on a clean checkout, `uv sync && uv run jh init && uv run jh profile validate` exits 0; `uv run jh doctor` exits 0 with a typed report; CI passes on the M1 branch. **O2 sign-off:** the four role-specific model ids in `config/config.yaml` (`llm.models.parse/compose/judge/classify`) are confirmed by the Principal — `anthropic_provider.py` (M1-5) reads them at call time, so they must be set before M1-6's CI run is meaningful. **O3 sign-off:** the `fx_as_of` date in the static FX table (consumed by `normalizers.py` in M2-3, declared as a config value here) is confirmed.
-- **Status:** `pending`
+- **Status:** `done` (O2/O3 sign-offs deferred — placeholders used; confirm before M2 starts)
 
 ---
 
