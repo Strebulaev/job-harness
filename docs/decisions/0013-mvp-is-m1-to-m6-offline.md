@@ -1,14 +1,17 @@
 ---
 id: "0013"
 title: "MVP is M1–M6 accepted, proven offline on fixtures"
-status: active
+status: superseded
 date: 2026-10-08
 tags: [planning, eval]
 track: product
 accepted-by: kaiden
+superseded-by: "0014"
 governed-facts: ["0013"]
 fitness-functions: ["pytest tests/e2e passes with FakeProvider and a local fake SMTP/IMAP", "jh eval run --suite all exits zero against stored baselines"]
 ---
+
+> Superseded by 0014 (2026-10-08): the MVP became a single-user Telegram pipeline. The offline-proof rule survives as guardrail `mvp-gates-offline-only`.
 
 ## Context
 
@@ -31,4 +34,4 @@ Post-MVP, outside the gate: replacing the example profile with the Principal's r
 - Offline proof keeps CI free of keys, spend and flakiness, but a live-LLM or live-mail defect can survive until the post-MVP steps.
 - Pinning model ids late keeps the irreversible choice (0008) open longer, but prompt v1 baselines recorded against fixtures must be re-recorded against the real models.
 
-Plan: `docs/plans/mvp-m4-m6.md`.
+Plan: `docs/plans/mvp.md`.

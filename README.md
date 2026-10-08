@@ -6,7 +6,7 @@ Full spec: [`spec.md`](spec.md). Decision log: [`docs/DECISIONS.md`](docs/DECISI
 
 ## Quickstart (≤ 10 steps)
 
-> Assumptions: Python 3.12, `uv` installed, `typst` binary on PATH (or Pandoc as fallback — see `docs/DECISIONS.md` O4), a dedicated mailbox + LLM provider key in the environment.
+> Assumptions: Python 3.12, `uv` installed, `typst` binary on PATH (installed in CI automatically; install locally only if you want to render PDFs there — decision 0012), a dedicated mailbox + LLM provider key in the environment.
 
 1. **Clone and install deps.**
    ```bash

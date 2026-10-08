@@ -4,7 +4,7 @@
 
 **Track:** all decisions are product-track (see `docs/DECISIONS.md` D9). **Plan is not a 5th artifact type** — it carries no `track`, no `status` from the decision enum, no `expires`.
 
-**M4–M6 are now tracked in `docs/plans/mvp-m4-m6.md`** (decision 0013); the status markers for those milestones below are no longer maintained.
+**M4–M5 are now tracked in `docs/plans/mvp.md`** (decisions 0014, 0015); M6 is deferred (mvp.md step 7.1) and its steps below remain the reference for it. Status markers for M4–M6 below are no longer maintained.
 
 ---
 

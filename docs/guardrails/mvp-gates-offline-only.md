@@ -1,21 +1,21 @@
 ---
 id: mvp-gates-offline-only
-title: "MVP acceptance steps must run offline with FakeProvider"
+title: "Automated MVP checks must run offline with fakes"
 status: active
 date: 2026-10-08
 tags: [testing, llm]
-governed-by: "0013"
+governed-by: "0014"
 grounded-in: ["facts/0013"]
 derivation-note: >
-  Given decision 0013 (MVP is proven offline on fixtures) and fact 0013
+  Given decision 0014 (MVP is proven by offline automated checks plus one human live smoke test) and fact 0013
   (no real model ids are pinned), no MVP test or acceptance command may
   need a live LLM key or network access.
 go-getter:
   enforcement:
     - tier: 1
-      check: Run MVP acceptance commands with ANTHROPIC_API_KEY unset and the provider set to fake; a step that needs a live call is out of MVP scope
+      check: Run automated checks with no provider keys in the environment and the provider set to fake; a check needing a live call belongs in the human smoke test
 ---
 
 ## Guardrail
 
-Tests and acceptance checks for M1–M6 MUST pass with `FakeProvider` fixtures and no network access. A step needing a live provider call, real model ids or a real mailbox belongs after the MVP gate.
+Automated tests and acceptance commands MUST pass with `FakeProvider`, mocked HTTP (SuperJob, OpenRouter, RSS) and a fake Telegram messenger, with no network access. Live calls with real keys happen only in the human smoke test (plan step 6.3).

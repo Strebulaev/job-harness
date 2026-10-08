@@ -32,6 +32,14 @@ jobs:
         run: uv run mypy
         shell: bash
 
+      - name: Install Typst
+        run: |
+          TYPST_VERSION=0.13.1
+          curl -fsSL "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz" \
+            | sudo tar -xJ --strip-components=1 -C /usr/local/bin --wildcards '*/typst'
+          typst --version
+        shell: bash
+
       - name: Pytest (unit + integration)
         run: uv run pytest tests/unit tests/integration -q
         shell: bash

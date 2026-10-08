@@ -31,5 +31,5 @@ Maps each human-facing doc section to what it describes and the paths whose chan
 | docs/RUNBOOK.md | Morning / Midday / Weekly / On an offer | Daily `jh` workflow (spec §19) | src/jobharness/cli.py | |
 | docs/RUNBOOK.md | Safety reminders | Spec §2 | spec.md | |
 | docs/plans/changeset-implementation-plan.md | M1–M8 steps, sign-off list, matrix | Decisions 0001, 0004, 0005 | spec.md, src/jobharness/ | |
-| docs/plans/mvp-m4-m6.md | all steps | MVP plan; decisions 0012, 0013; guardrail mvp-gates-offline-only | spec.md, docs/decisions/0013-mvp-is-m1-to-m6-offline.md, src/jobharness/ | |
+| docs/plans/mvp.md | all steps | MVP plan; decisions 0012, 0014, 0015; guardrails mvp-gates-offline-only, provider-keys-never-persisted-in-clear | spec.md, docs/decisions/0014-mvp-is-single-user-telegram-pipeline.md, src/jobharness/ | |
 | spec.md | all | Source of record for the project | spec.md | |
