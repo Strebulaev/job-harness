@@ -1,0 +1,8 @@
+{
+  "snippet": "Implemented citation-accuracy metric used by 120 downstream projects.",
+  "cited_fact_ids": [
+    "prj.1.b1"
+  ],
+  "expected_label": "unsupported",
+  "fabrication_type": "number_inflation"
+}

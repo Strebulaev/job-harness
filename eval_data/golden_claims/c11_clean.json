@@ -1,0 +1,8 @@
+{
+  "snippet": "Cut discrepancy rate by 60% in a payments reconciliation service handling $40M/month.",
+  "cited_fact_ids": [
+    "exp.globex.b1"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

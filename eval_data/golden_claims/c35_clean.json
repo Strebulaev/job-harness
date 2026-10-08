@@ -1,0 +1,8 @@
+{
+  "snippet": "Built a RAG pipeline over internal docs.",
+  "cited_fact_ids": [
+    "exp.acme.b3"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

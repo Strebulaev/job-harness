@@ -1,158 +1,111 @@
 # jobharness
 
-Local-first contractor job-search agent harness. Ingests permitted job postings, normalizes them, scores them against the Principal's constraints, generates a tailored resume (PDF) and cover letter per posting strictly derived from a single factual profile, gates every document through automated truthfulness and quality evals, queues approved applications for human-confirmed sending, and tracks all communications, state, and active-contract capacity.
+Local-first contractor job-search assistant, driven from Telegram. You fill in a profile once; it searches for jobs that fit (SuperJob API and RSS feeds you add), writes a tailored resume and cover letter for each good match, checks them for truthfulness, and sends you the job link, the resume and the cover letter in the chat. Nothing is ever sent to an employer.
 
-Full spec: [`spec.md`](spec.md). Decision log: [`docs/DECISIONS.md`](docs/DECISIONS.md).
+Full spec: [`spec.md`](spec.md). Decisions: [`docs/decisions/`](docs/decisions/) (legacy log: [`docs/DECISIONS.md`](docs/DECISIONS.md)). Daily use: [`docs/RUNBOOK.md`](docs/RUNBOOK.md).
 
-## Quickstart (≤ 10 steps)
+## Quickstart (10 steps)
 
-> Assumptions: Python 3.12, `uv` installed, `typst` binary on PATH (or Pandoc as fallback — see `docs/DECISIONS.md` O4), a dedicated mailbox + LLM provider key in the environment.
+> You need Docker (or Python 3.12 + `uv` + the `typst` binary), a Telegram account, an [OpenRouter](https://openrouter.ai) key and, optionally, a SuperJob application key.
 
-1. **Clone and install deps.**
+1. **Create the bot.** In Telegram, talk to @BotFather: /newbot. Keep the token it gives you.
+2. **Find your Telegram user id** (message @userinfobot). Only this user can use the bot.
+3. **Generate the master key** that encrypts the keys you paste later:
    ```bash
-   git clone <repo> jobharness && cd jobharness
-   uv sync
+   python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
    ```
-2. **Initialize the workspace.** Creates `data/`, the SQLite DB (WAL mode), and copies example configs.
+4. **Create `.env`** from `.env.example` with `TELEGRAM_BOT_TOKEN`, `TELEGRAM_OWNER_ID` and `JH_MASTER_KEY`.
+5. **Start it.**
    ```bash
-   uv run jh init
+   docker compose up -d --build        # or: uv sync && uv run jh bot run
+   uv run jh doctor                    # lists any missing environment variable
    ```
-3. **Fill in your profile.** Edit `config/profile.yaml` (copy from `config/profile.example.yaml`). Every leaf fact that may appear in a document has a stable `fact_id`.
-   ```bash
-   uv run jh profile validate   # fatal on error
-   uv run jh profile lint       # warns on unverifiable metrics
-   ```
-4. **Pick the LLM provider + model ids** (irreversible — see `docs/DECISIONS.md` O2). Edit `config/config.yaml`:
-   ```yaml
-   llm:
-     provider: anthropic
-     models:
-       parse: <small-model-id>
-       compose: <strong-model-id>
-       judge: <strong-model-id>
-       classify: <small-model-id>
-   ```
-   Set the provider key in the environment (e.g. `ANTHROPIC_API_KEY`).
-5. **Confirm the two API adapters** (irreversible — see `docs/DECISIONS.md` O1). The spec mandates 1–2 permitted API/RSS adapters in addition to `manual`, `rss`, and `email_alerts`. Edit `config/config.yaml` to add the chosen feeds/APIs and record their ToS in `docs/SOURCES.md`.
-6. **Pick the PDF renderer** (O4). Default: Typst. If you prefer Pandoc/WeasyPrint, set the flag in `config/config.yaml` before M4.
-7. **Run the doctor check.**
-   ```bash
-   uv run jh doctor   # config, DB, Typst binary, mailbox connectivity, LLM key
-   ```
-8. **Ingest + parse + route.**
-   ```bash
-   uv run jh ingest run --source all --since 7d
-   uv run jh parse run --limit 50
-   uv run jh route run --explain <JOB_ID>   # inspect one job's filters + score breakdown
-   ```
-9. **Compose + gate + queue.**
-   ```bash
-   uv run jh compose run --all-shortlisted
-   uv run jh eval doc <DOC_ID>             # run G1-G7 on one document
-   uv run jh queue list                    # see the approval queue
-   ```
-10. **Approve + send.**
-    ```bash
-    uv run jh queue approve <APP_ID>
-    uv run jh send run --dry-run
-    uv run jh send run
-    ```
+6. **Open your bot in Telegram** and send `/start`, then `/profile_start`. Answer the questions; every statement on your resume comes only from what you type.
+7. **Set preferences:** `/preferences` (rate, hours, timezone, countries, display options).
+8. **Connect OpenRouter:** `/connect openrouter`, paste the key (the message is deleted at once), then choose models with `/models set parse <model-id>` (also `classify`, `compose`, `judge`).
+9. **Add job sources:** `/connect superjob` (paste the key) and/or `/feed_add <rss-url>`.
+10. **Start the search:** `/run`. Check `/status` any time; stop with `/pause`.
 
-That's the loop. Day-to-day, follow [`docs/RUNBOOK.md`](docs/RUNBOOK.md).
+That is the whole loop. Each matching job arrives as a message with the link, a resume file and a cover letter; press Applied or Skip to keep the list tidy.
 
-## Architecture (Mermaid)
+## Architecture
 
 ```mermaid
 flowchart LR
-  subgraph Ingest
-    M[manual]:::src
-    R[rss]:::src
-    EA[email_alerts]:::src
-    A1[API-1]:::src
-    A2[API-2]:::src
+  subgraph Sources
+    SJ[SuperJob API]:::src
+    RSS[RSS feeds you add]:::src
   end
   subgraph Pipeline
     P[parse<br/>JDParsed]:::mod
-    RT[route<br/>hard filters + scoring<br/>archetype + overqualification]:::mod
+    RT[route<br/>hard filters + scoring<br/>archetype]:::mod
     C[compose<br/>retrieval + LLM<br/>ResumeContent / cover]:::mod
-    RD[render<br/>Typst → PDF + .txt + .json]:::mod
-    EV[eval<br/>G1-G7 gates + LLM judges]:::mod
+    RD[render<br/>Typst PDF + txt + json]:::mod
+    EV[gates G1-G7<br/>+ LLM judges]:::mod
   end
-  subgraph Delivery
-    Q[send/queue<br/>max_per_day, quiet hours]:::mod
-    S[email | platform_manual<br/>form_manual]:::mod
-  end
-  subgraph Feedback
-    TB[track<br/>inbox poll + classifier<br/>follow-ups + status]:::mod
-    CP[capacity<br/>contracts + planner]:::mod
-    RP[report<br/>funnel + weekly + experiments]:::mod
+  subgraph Telegram
+    BOT[bot<br/>wizards, commands]:::mod
+    DL[delivery<br/>link + resume + cover]:::mod
   end
   subgraph Knowledge
     PROF[profile.yaml<br/>single source of truth]:::data
-    ARCH[config/archetypes/*.yaml<br/>6 archetypes]:::data
-    POS[positioning.yaml]:::data
-    LLM[llm/<br/>provider + prompts vN]:::data
+    SET[settings overlay<br/>preferences, feeds]:::data
+    SEC[(encrypted secrets)]:::data
+    LLM[OpenRouter<br/>models you choose]:::data
   end
-  M --> P
-  R --> P
-  EA --> P
-  A1 --> P
-  A2 --> P
+  BOT --> PROF
+  BOT --> SET
+  BOT --> SEC
+  SJ --> P
+  RSS --> P
   P --> RT
   RT --> C
   PROF --> C
-  ARCH --> C
-  POS --> C
+  LLM --> P
   LLM --> C
   C --> RD
   RD --> EV
-  EV -->|pass| Q
-  EV -->|fail: gated_fail| C
-  Q --> S
-  S --> TB
-  TB --> CP
-  S --> RP
-  TB --> RP
-  CP --> RP
+  EV -->|pass| DL
+  EV -->|fail: regenerate x2, then drop| C
+  DL --> BOT
   classDef src fill:#e8f0fe,stroke:#4285f4
   classDef mod fill:#f3e8fe,stroke:#a142f4
   classDef data fill:#fff3e0,stroke:#ffa726
 ```
 
-## CLI reference
-
-Full reference: spec §14. Summary:
+## Telegram commands
 
 | Group | Commands | Notes |
 |---|---|---|
-| Setup | `jh init` | Create dirs, DB, copy example configs. Idempotent. |
-| Profile | `jh profile validate` · `jh profile lint` · `jh profile show` | `validate` is fatal on error; `lint` warns. |
-| Ingest | `jh ingest run [--source NAME] [--since 7d]` · `jh job add --url URL [--paste]` | Manual import via `--paste`. |
-| Parse | `jh parse run [--limit N]` | Batch concurrency 4; cache by `(jd_raw_hash, prompt_version, model)`. |
-| Route | `jh route run [--explain JOB_ID]` | Hard filters + scoring + archetype + overqualification. |
-| Compose | `jh compose run [--job JOB_ID \| --all-shortlisted] [--variant NAME]` | Regeneration loop up to `max_iterations=2` on gate failure. |
-| Eval | `jh eval doc DOC_ID` · `jh eval run --suite {router,claims,emails,all}` | `all` exits non-zero on regression. |
-| Queue | `jh queue list` · `show APP_ID` · `edit APP_ID` · `approve APP_ID` · `reject APP_ID` · `approve-batch --min-score N` | Human-in-the-loop gate. |
-| Send | `jh send run [--dry-run]` · `jh sent mark APP_ID` | `--dry-run` previews; manual channels via `sent mark`. |
-| Inbox | `jh inbox poll` | IMAP poll, default every 10 min under `jh daemon`. |
-| Follow-ups | `jh followups list` · `draft` · `approve` | Business-day scheduling in recipient's timezone. |
-| Contracts | `jh contract add` · `list` · `plan` | Capacity wizard + planner. |
-| Reports | `jh report funnel` · `weekly [--since]` | Wilson CIs; rule-based recommendations. |
-| Export | `jh export package APP_ID` | Application-package folder for manual channels. |
-| Ops | `jh db backup` · `jh doctor` | Encrypted backup; env/config/mailbox/LLM checks. |
+| Start | `/start` · `/help` · `/back` · `/skip` · `/cancel` | `/back`, `/skip`, `/cancel` work inside any question flow. |
+| Profile | `/profile_start` · `/profile` · `/profile_identity` · `/profile_summary` · `/profile_role` · `/profile_education` · `/profile_skills` · `/profile_disclosure` · `/profile_export` | Guided setup, then edit one part at a time. |
+| Preferences | `/preferences` | Rate, hours, timezone, countries, employer/title display, search interval. |
+| Providers | `/providers` · `/connect` · `/disconnect` · `/models` | Keys are deleted from the chat and stored encrypted. |
+| Sources | `/feeds` · `/feed_add` · `/feed_remove` | You confirm each feed's terms allow automated reading. |
+| Run | `/run` · `/pause` · `/search_now` · `/status` | The search state survives restarts. |
 
-All commands: `--json` output option, non-zero exit on error, idempotent where reasonable, `--dry-run` where side effects exist.
+## CLI reference
+
+| Group | Commands | Notes |
+|---|---|---|
+| Setup | `jh init` · `jh doctor` | `doctor` reports missing environment variables by name. |
+| Bot | `jh bot run` | Long polling; no public URL needed. |
+| Pipeline | `jh pipeline run-once` | One search cycle without Telegram delivery. |
+| Profile | `jh profile validate` · `jh profile lint` · `jh profile show` | For the CLI flow with `config/profile.yaml`. |
+| Ingest | `jh ingest run --source {rss,email_alerts,superjob}` · `jh job add` | |
+| Parse / Route | `jh parse run` · `jh route run --explain JOB_ID` | |
+| Eval | `jh eval run --suite {router,claims,all}` · `jh eval doc DOC_ID` | `all` exits non-zero on regression. |
 
 ## Safety constraints (from spec §2, non-negotiable)
 
-1. **Truthfulness.** All resume/cover content MUST be derivable from `profile.yaml`. No invented employers, titles, dates, degrees, certifications, technologies, metrics, or references. G1 blocks any document with an unsupported claim.
-2. **Positioning is selection, not falsification.** Allowed: choosing which true achievements to show, limiting the detailed window to the last N years, anonymizing an employer by a truthful descriptor (keeping the real name + dates in the profile for verification). Forbidden: changing a job title to a different level, shifting dates, removing employment periods to hide gaps in a misleading way, claiming skills not in the profile.
-3. **Human in the loop.** No application is sent without an explicit `approve` action until `send.autosend.enabled` is `true` (default: `false`).
-4. **Platform terms.** No CAPTCHA bypass, no fingerprint evasion, no fake accounts, no bulk automated form submission. Each adapter declares `tos_notes` and `allowed_actions` (see `docs/SOURCES.md`).
-5. **ICA only.** Employment-only, exclusivity-required, or fixed on-site postings are hard-filtered.
-6. **Third-party data + AI-tool policy.** Every accepted contract records whether AI tools and subcontracting are permitted and the NDA/data scope. The system warns when work items would be processed by AI tools on a contract where `ai_tools_allowed` is `no` or `unknown`.
-7. **Privacy.** All PII stays local. Minimum necessary text sent to LLM providers. No telemetry. Secrets via environment variables or OS keyring, never committed.
-8. **Reproducibility.** Every generated document stores prompt version, model id, temperature, input hashes, eval results. Any document can be regenerated and diffed.
+1. **Truthfulness.** All resume/cover content MUST be derivable from the profile. No invented employers, titles, dates, degrees, certifications, technologies, metrics or references. Gate G1 blocks any document with an unsupported claim.
+2. **Positioning is selection, not falsification.** Allowed: choosing which true achievements to show, limiting the detailed window, anonymizing an employer by a truthful descriptor you wrote. Forbidden: changing a title level, shifting dates, hiding gaps misleadingly, claiming skills not in the profile.
+3. **Nothing goes to employers.** The bot only sends to you. You apply yourself; there is no automated submission.
+4. **Platform terms.** No CAPTCHA bypass, no fingerprint evasion, no fake accounts, no bulk form submission. Each source records its terms in `docs/SOURCES.md`; the SuperJob terms are still unverified there.
+5. **Owner only.** The bot answers one Telegram user id and ignores everyone else.
+6. **Secrets.** Keys you paste are deleted from the chat immediately and stored encrypted (Telegram bot chats are not end-to-end encrypted). They are never logged or committed. Losing `JH_MASTER_KEY` means reconnecting.
+7. **Privacy.** Your profile text and job descriptions are sent to OpenRouter and the model provider behind the model you choose. No telemetry.
+8. **Reproducibility.** Every generated document stores prompt version, model id, temperature and input hash.
 
 ## Out of scope (spec §21)
 
@@ -160,8 +113,8 @@ The system MUST NOT build: automated submission to platforms that forbid automat
 
 ## Repository layout
 
-See spec §4. Top-level: `pyproject.toml`, `README.md` (this file), `spec.md`, `docs/` (DECISIONS, SOURCES, PROMPTS, RUNBOOK, plans/), `config/` (config.example.yaml, profile.example.yaml, archetypes/ ×6, positioning.example.yaml), `src/jobharness/` (cli, settings, db/, schemas/, llm/, ingest/, parse/, route/, compose/, render/, eval/, send/, track/, capacity/, report/, util/), `tests/` (unit/, integration/, e2e/, fixtures/), `eval_data/` (golden_jobs/, golden_claims/, golden_emails/), `scripts/`, `.github/workflows/ci.yml`.
+`pyproject.toml`, `README.md`, `spec.md`, `Dockerfile`, `docker-compose.yml`, `.env.example`, `docs/` (decisions/, facts/, guardrails/, skills/, plans/, DECISIONS, SOURCES, PROMPTS, RUNBOOK), `config/` (config.example.yaml, profile.example.yaml, archetypes/, positioning.example.yaml), `src/jobharness/` (cli, settings, db/, schemas/, llm/, ingest/, parse/, route/, compose/, render/, eval/, bot/, pipeline/, secrets/), `tests/` (unit/, integration/, e2e/, fixtures/), `eval_data/` (golden_jobs/, golden_claims/, baselines/), `scripts/`, `.github/workflows/ci.yml`.
 
 ## Implementation status
 
-See `docs/plans/changeset-implementation-plan.md` for the milestone-ordered (M1→M8) step list with per-step status markers. The two irreversible items (adapter count O1, LLM provider/model choice O2) are flagged there and in `docs/DECISIONS.md`.
+The MVP plan is [`docs/plans/mvp.md`](docs/plans/mvp.md) (decision 0014). Email sending, inbox tracking, capacity planning, reports and a website are deferred.

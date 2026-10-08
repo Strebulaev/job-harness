@@ -1,0 +1,8 @@
+{
+  "snippet": "Created openrag-bench, an open-source evaluation harness for RAG pipelines.",
+  "cited_fact_ids": [
+    "prj.1"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

@@ -1,0 +1,9 @@
+{
+  "snippet": "Owned payments reconciliation at $40M/month and doubled release frequency through feature flags.",
+  "cited_fact_ids": [
+    "exp.globex.b1",
+    "exp.globex.b2"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

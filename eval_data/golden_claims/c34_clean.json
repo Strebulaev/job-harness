@@ -1,0 +1,8 @@
+{
+  "snippet": "Migrated a monolith across 9 services as part of a service-oriented architecture.",
+  "cited_fact_ids": [
+    "exp.acme.b2"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

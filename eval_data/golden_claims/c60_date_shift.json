@@ -1,0 +1,8 @@
+{
+  "snippet": "Worked as Staff Engineer at Globex from 2015 to 2020.",
+  "cited_fact_ids": [
+    "exp.globex"
+  ],
+  "expected_label": "partial",
+  "fabrication_type": "date_shift"
+}

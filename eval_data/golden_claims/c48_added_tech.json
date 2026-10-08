@@ -1,0 +1,8 @@
+{
+  "snippet": "Implemented citation-accuracy metric in PyTorch used by 12 downstream projects.",
+  "cited_fact_ids": [
+    "prj.1.b1"
+  ],
+  "expected_label": "partial",
+  "fabrication_type": "added_tech"
+}

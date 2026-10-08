@@ -1,0 +1,8 @@
+{
+  "recall": 1.0,
+  "clean_pass_rate": 1.0,
+  "n_fabricated": 24,
+  "n_clean": 36,
+  "recorded_at": "2026-10-08",
+  "notes": "Produced by `jh eval run --suite claims` on 2026-10-08."
+}

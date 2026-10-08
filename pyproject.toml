@@ -22,6 +22,9 @@ dependencies = [
     "anthropic>=0.34",
     "python-dotenv>=1.0",
     "pyyaml>=6.0",
+    "cryptography>=42",
+    "tzdata>=2024.1",
+    "aiogram>=3.13,<4",
 ]
 
 [project.scripts]
@@ -57,6 +60,10 @@ mypy_path = "src"
 packages = ["jobharness"]
 warn_unreachable = true
 
+[[tool.mypy.overrides]]
+module = ["rank_bm25", "apscheduler", "apscheduler.*"]
+ignore_missing_imports = true
+
 
 
 [tool.ruff]
@@ -64,6 +71,8 @@ line-length = 100
 target-version = "py312"
 
 [tool.ruff.lint]
+# Line length is handled by `ruff format`; E501 is ignored so long strings do not fail CI.
+ignore = ["E501"]
 select = [
     "E",   # pycodestyle errors
     "W",   # pycodestyle warnings

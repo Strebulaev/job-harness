@@ -275,3 +275,25 @@ async def test_parse_golden_job_offline(provider: FakeProvider, path: Path) -> N
             )
             continue
         assert got == want, f"{path.name}: {field} = {got!r}, expected {want!r}"
+
+
+def test_evidence_span_check_works_on_cyrillic() -> None:
+    """SuperJob postings are mostly Russian (plan step 3.3)."""
+    jd = "Python разработчик. Удалённая работа, договор ГПХ, 20 часов в неделю."
+    parsed = JDParsed(
+        title="Python разработчик",
+        remote_policy="remote",
+        engagement_type="contractor",
+        evidence_spans={
+            "remote_policy": "Удалённая работа",
+            "engagement_type": "договор ГПХ",
+        },
+    )
+    kept, downgraded = verify_evidence_spans(parsed, jd)
+    assert downgraded == [] and kept.remote_policy == "remote"
+
+    bad = JDParsed(
+        title="x", remote_policy="remote", evidence_spans={"remote_policy": "полностью удалённо"}
+    )
+    out, down = verify_evidence_spans(bad, jd)
+    assert down == ["remote_policy"] and out.remote_policy == "unknown"

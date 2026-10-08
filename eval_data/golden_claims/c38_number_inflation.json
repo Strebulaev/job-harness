@@ -1,0 +1,8 @@
+{
+  "snippet": "Designed an event-driven ingestion pipeline handling 2M req/day and cut p99 latency by 60%.",
+  "cited_fact_ids": [
+    "exp.acme.b1"
+  ],
+  "expected_label": "partial",
+  "fabrication_type": "number_inflation"
+}

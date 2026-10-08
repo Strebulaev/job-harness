@@ -2,6 +2,8 @@
 
 One-paragraph entries. Each records a genuine choice (with rationale), a descriptive fact (what is true now), or an open decision (needs Principal sign-off). New entries append to the bottom; do not renumber or reorder.
 
+**Frozen legacy log.** Since 2026-10-08 (decision 0010 supersedes D2), new decisions and facts live in `docs/decisions/` and `docs/facts/`; D1–D9 are stubbed there as 0001–0009 and point back here for full text.
+
 **Track:** every entry here is product-track (the harness is a single-user product; build-related choices are decisions about *what* the harness is, not how the team ships).
 
 **Legend:**
@@ -18,7 +20,7 @@ One-paragraph entries. Each records a genuine choice (with rationale), a descrip
 The changeset implementation plan for the spec is organized by the spec's eight milestones (M1→M8, §20). Each step is self-sufficient for a *cold* agent: it names the exact file paths to create or edit, what to do, why it matters, and what "done" looks like. No step refers to "as discussed above" or to another step's context. Status markers (done / pending / blocked) are maintained in place as work progresses. **Rationale:** the spec §0 mandates "implement milestones in order; do not start N+1 until all acceptance criteria of N pass in CI." A milestone-ordered plan matches that rule; a flat list or a dependency-driven plan would obscure the CI-gate boundary between milestones.
 
 ### D2 — Knowledge artifacts follow the spec's existing `docs/` convention
-**Track:** product · **Status:** active · **Accepted-by:** Principal · **Date:** 2026-10-03
+**Track:** product · **Status:** superseded by 0010 (2026-10-08) · **Accepted-by:** Principal · **Date:** 2026-10-03
 Durable knowledge lives in the paths the spec already mandates: `docs/DECISIONS.md` (decision log — this file), `docs/SOURCES.md` (per-adapter ToS notes, §19), `docs/PROMPTS.md` (prompt catalogue + versioning rules, §19), `docs/RUNBOOK.md` (Principal's daily/weekly workflow, §19), and the top-level `README.md` (§19). No new NNNN-slug directory tree (`docs/facts/`, `docs/guardrails/`, etc.) is invented. **Rationale:** the spec is self-contained about where knowledge goes; inventing a parallel convention would split the source of truth and force every future reader to learn two layouts.
 
 ### D3 — Open items resolve to the simplest option; a visible flag list is maintained

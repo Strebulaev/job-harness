@@ -1,0 +1,8 @@
+{
+  "snippet": "Owned payments reconciliation processing $400M/month and cut discrepancy rate by 60%.",
+  "cited_fact_ids": [
+    "exp.globex.b1"
+  ],
+  "expected_label": "partial",
+  "fabrication_type": "number_inflation"
+}

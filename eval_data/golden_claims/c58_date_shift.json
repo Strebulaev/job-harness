@@ -1,0 +1,8 @@
+{
+  "snippet": "Graduated from National University of Civil Engineering in 2016.",
+  "cited_fact_ids": [
+    "edu.1"
+  ],
+  "expected_label": "unsupported",
+  "fabrication_type": "date_shift"
+}

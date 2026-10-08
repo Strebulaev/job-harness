@@ -1,0 +1,62 @@
+{
+  "objects": [
+    {
+      "id": 900001,
+      "profession": "Python backend developer (contract)",
+      "firm_name": "Acme Logistics",
+      "firm_id": 111,
+      "payment_from": 150000,
+      "payment_to": 220000,
+      "currency": "rub",
+      "agreement": false,
+      "town": {
+        "id": 4,
+        "title": "Москва"
+      },
+      "type_of_work": {
+        "id": 6,
+        "title": "Удалённая работа"
+      },
+      "place_of_work": {
+        "id": 2,
+        "title": "Удалённая работа"
+      },
+      "vacancyRichText": "<p>Разработка backend-сервисов на Python и FastAPI. Требуется опыт с PostgreSQL и Docker. Сотрудничество по договору ГПХ, 20 часов в неделю.</p>",
+      "candidat": "Python, PostgreSQL, Docker",
+      "work": "Разработка API",
+      "compensation": "Оплата по договору",
+      "link": "https://www.superjob.ru/vakansii/python-developer-900001.html",
+      "date_published": 1759900000
+    },
+    {
+      "id": 900002,
+      "profession": "Data engineer",
+      "firm_name": "Globex Analytics",
+      "firm_id": 222,
+      "payment_from": 0,
+      "payment_to": 0,
+      "currency": "rub",
+      "agreement": true,
+      "town": {
+        "id": 14,
+        "title": "Санкт-Петербург"
+      },
+      "type_of_work": {
+        "id": 6,
+        "title": "Проектная работа"
+      },
+      "place_of_work": {
+        "id": 1,
+        "title": "Офис"
+      },
+      "vacancyRichText": "",
+      "candidat": "SQL, Airflow",
+      "work": "Построение ETL-пайплайнов на Airflow",
+      "compensation": "",
+      "link": "https://www.superjob.ru/vakansii/data-engineer-900002.html",
+      "date_published": 1759800000
+    }
+  ],
+  "total": 2,
+  "more": false
+}

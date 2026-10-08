@@ -1,0 +1,8 @@
+{
+  "snippet": "Served as CTO at Acme Corp from 2019 to 2024.",
+  "cited_fact_ids": [
+    "exp.acme"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

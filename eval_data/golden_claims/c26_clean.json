@@ -1,0 +1,8 @@
+{
+  "snippet": "Expert in SQL with 11 years of experience.",
+  "cited_fact_ids": [
+    "skill.sql"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

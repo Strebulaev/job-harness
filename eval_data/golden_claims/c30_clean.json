@@ -1,0 +1,8 @@
+{
+  "snippet": "Maintains openrag-bench with 400+ stars.",
+  "cited_fact_ids": [
+    "prj.1"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}
