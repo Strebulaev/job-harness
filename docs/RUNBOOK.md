@@ -1,50 +1,38 @@
-# RUNBOOK — Principal's daily / weekly workflow
+# RUNBOOK — daily use from Telegram
 
-Source: spec §19 (daily workflow) and §14 (CLI). This is the operating manual, not the implementation spec. The implementing agent should treat this file as *read-only reference* — the commands listed here must exist and behave as described by the time M8 is accepted.
+This is the operating manual for the Telegram bot (decision 0014). The bot only talks to you; nothing is sent to employers.
 
 ## Prerequisites
 
-- `config/config.yaml` is valid (`jh doctor` passes).
-- LLM provider key is in the environment or OS keyring (never in a file). See `docs/DECISIONS.md` O2 for the provider choice.
-- A dedicated mailbox/domain with SPF/DKIM/DMARC is configured (§16). Do **not** use the Principal's primary inbox.
-- `jh init` has been run at least once (creates `data/`, DB, example configs).
+- The bot is running (`docker compose up -d`) and `jh doctor` reports no missing environment variables.
+- You completed setup once: `/profile_start`, `/preferences`, `/connect openrouter`, `/models set ...` for parse, classify, compose and judge, a source (`/connect superjob` and/or `/feed_add <url>`), then `/run`.
+- `JH_MASTER_KEY` is backed up somewhere safe. Without it, stored keys cannot be decrypted.
 
-## Morning (~15 min)
+## Daily (about 5 minutes)
 
-1. `jh inbox poll` — pull new inbound email from the dedicated label; the classifier runs and writes `messages` rows.
-2. `jh queue list --json` — see the approval queue (applications with `status=queued`).
-3. For each queued application: `jh queue show <APP_ID>` → read the resume PDF, cover letter, score breakdown, gate results.
-4. Approve: `jh queue approve <APP_ID>` (or `jh queue approve-batch --min-score N` for a bulk pass on a trusted day). Reject: `jh queue reject <APP_ID>` with a reason.
-5. `jh report funnel --since 7d` — check the last week's funnel; look for gate-failure spikes or a reply-rate drop on one archetype.
+1. Open the chat. Each new match is a message with title, company, match score, flags and the job link, followed by the resume file and the cover letter.
+2. Read the resume and cover letter. Edit them as you like and apply on the job's own site or by email yourself.
+3. Press **Applied** or **Skip** on the message so the job is never suggested again.
+4. `/status` shows whether the search is active, the last cycle, deliveries today and tokens used against the daily budget.
 
-## Midday (~10 min)
+## Weekly
 
-1. `jh send run --dry-run` — preview what would be sent today, respecting `max_per_day`, `min_gap_seconds`, and quiet hours.
-2. If the dry-run looks right: `jh send run`. For `platform_manual` / `form_manual` channels: `jh export package <APP_ID>` opens the application-package folder; submit manually; then `jh sent mark <APP_ID>`.
-3. `jh followups list` — see due follow-ups; `jh followups draft` then `jh followups approve` for any that are ready.
-4. Check `needs_human` items (low-confidence classifications, unmatched inbox messages): `jh queue show` the related application if one exists.
+1. `/profile` — check the profile is complete; add new roles or accomplishments with `/profile_role` (true facts only; metrics need evidence).
+2. `/preferences` — adjust rate, hours, countries or the search interval if results are too many or too few.
+3. `/feeds` — remove feeds that produce noise (`/feed_remove`).
+4. `/models` — review the models; a stronger compose model usually improves letters, a cheaper parse model lowers cost.
 
-## Weekly (Monday, ~30 min)
+## When something is off
 
-1. `jh report weekly --since 14d` — the Markdown report includes:
-   - Funnel by archetype / source / prompt_version / week.
-   - Conversion rates with Wilson confidence intervals.
-   - Top rejection reasons + gate-failure reasons.
-   - LLM spend (`llm_calls` aggregates).
-   - Capacity status (utilization vs `capacity.max_total_hours_week`, active-contract count vs `max_active_contracts`).
-   - Rule-based recommendations (e.g. "archetype C: n=60, reply rate 3% < baseline 9%; review").
-2. Review the recommendations; tune archetypes (`config/archetypes/*.yaml`) or prompt versions (see `docs/PROMPTS.md`) as needed. A prompt change requires a new version + an eval-run artifact in the PR (§13.3).
-3. `jh contract list` — review active contracts; confirm no contract has `ai_tools_allowed != yes` that the weekly report flagged.
-4. `jh db backup` — encrypted backup (age/gpg optional, §16).
-
-## On an offer
-
-1. `jh contract add` — CLI wizard captures rate, hours/week, AI-tools + subcontracting permissions, NDA scope, exclusivity, IP terms, meeting-overlap windows.
-2. `jh contract plan` — the capacity planner recomputes weekly committed hours, utilization, calendar overlaps; it blocks new `approved` applications when `active_contracts >= max_active_contracts` unless `--override` (§11.9).
+- **No jobs arrive:** `/status` shows the last cycle and any error; `/search_now` runs one cycle immediately. Check `/providers` and `/feeds`.
+- **A key stops working:** `/connect <provider>` again with a new key.
+- **Daily token budget reached:** the bot says so and pauses LLM work until tomorrow; raise `llm.daily_token_budget` in `config/config.yaml` if intended.
+- **Jobs failing quality checks:** `/status` counts them; they are not delivered. Usually the profile lacks matching facts, so add them with `/profile_role` or `/profile_skills`.
+- **Stop everything:** `/pause`. Remove stored keys with `/disconnect openrouter` and `/disconnect superjob`.
 
 ## Safety reminders (from §2, non-negotiable)
 
-- **Truthfulness.** No resume/cover letter content may appear that is not derivable from `profile.yaml`. G1 blocks any document with an unsupported claim.
-- **Human in the loop.** No application is sent without an explicit `approve` action until `send.autosend.enabled` is `true` (default: `false`).
-- **Platform ToS.** No CAPTCHA bypass, no fingerprint evasion, no fake accounts, no bulk automated form submission. See `docs/SOURCES.md`.
-- **PII stays local.** Only the minimum necessary text is sent to LLM providers. No telemetry.
+- **Truthfulness.** Nothing appears on a resume or letter that is not derivable from your profile. Gate G1 blocks unsupported claims.
+- **You apply.** The bot never contacts employers.
+- **Platform terms.** Only add feeds whose terms allow automated reading; the SuperJob terms are not yet verified (`docs/SOURCES.md`).
+- **Keys.** Pasted keys are deleted from the chat at once and stored encrypted; never share `JH_MASTER_KEY`.

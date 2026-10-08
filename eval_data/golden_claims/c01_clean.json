@@ -1,0 +1,8 @@
+{
+  "snippet": "Designed event-driven ingestion pipeline handling 2M req/day; p99 latency -40%.",
+  "cited_fact_ids": [
+    "exp.acme.b1"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

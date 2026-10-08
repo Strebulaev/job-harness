@@ -93,7 +93,9 @@ class RssAdapter:
         *,
         user_agent: str = "jobharness/0.1",
         timeout: float = 30.0,
+        transport: httpx.AsyncBaseTransport | None = None,
     ) -> None:
+        self._transport = transport
         self._feeds = list(feed_urls)
         self._ua = user_agent
         self._timeout = timeout
@@ -110,7 +112,7 @@ class RssAdapter:
     ) -> AsyncIterator[RawJob]:
         """Yield one :class:`RawJob` per feed item."""
         headers: dict[str, str] = {"User-Agent": self._ua}
-        async with httpx.AsyncClient(timeout=self._timeout) as client:
+        async with httpx.AsyncClient(timeout=self._timeout, transport=self._transport) as client:
             for feed_url in self._feeds:
                 cached = self._cache_get(feed_url)
                 etag = cached.get("etag")

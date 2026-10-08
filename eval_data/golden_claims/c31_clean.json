@@ -1,0 +1,9 @@
+{
+  "snippet": "Designed an event-driven ingestion pipeline at 2M req/day and built a RAG pipeline that cut support tickets by 25%.",
+  "cited_fact_ids": [
+    "exp.acme.b1",
+    "exp.acme.b3"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

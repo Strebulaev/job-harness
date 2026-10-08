@@ -1,0 +1,8 @@
+{
+  "snippet": "Led migration to service-oriented architecture on Kubernetes across 9 services.",
+  "cited_fact_ids": [
+    "exp.acme.b2"
+  ],
+  "expected_label": "partial",
+  "fabrication_type": "added_tech"
+}

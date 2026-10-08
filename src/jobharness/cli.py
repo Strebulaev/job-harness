@@ -125,14 +125,34 @@ def doctor(as_json: bool = typer.Option(False, "--json", help="JSON output")) ->
     typst = shutil.which("typst")
     checks["typst"] = {"ok": typst is not None, "path": typst}
 
-    # 4. LLM key
+    # 4. LLM key (CLI mode only; the bot stores the OpenRouter key encrypted)
     import os
 
-    key_present = bool(os.environ.get("ANTHROPIC_API_KEY"))
-    checks["llm_key"] = {"ok": key_present}
+    checks["llm_key"] = {
+        "ok": True,
+        "note": "ANTHROPIC_API_KEY set"
+        if os.environ.get("ANTHROPIC_API_KEY")
+        else "not set (bot mode: connect OpenRouter in Telegram with /connect openrouter)",
+    }
 
-    # 5. Mailbox (informational; not a hard fail in M1)
-    checks["mailbox"] = {"ok": False, "note": "mailbox check is wired in M6"}
+    # 5. Telegram bot environment (plan step 4.1 / 3.4)
+    from jobharness.secrets.store import master_key_from_env, master_key_valid
+
+    checks["telegram_bot_token"] = {
+        "ok": bool(os.environ.get("TELEGRAM_BOT_TOKEN")),
+        "error": None if os.environ.get("TELEGRAM_BOT_TOKEN") else "TELEGRAM_BOT_TOKEN is not set",
+    }
+    owner = os.environ.get("TELEGRAM_OWNER_ID", "")
+    checks["telegram_owner_id"] = {
+        "ok": owner.isdigit(),
+        "error": None if owner.isdigit() else "TELEGRAM_OWNER_ID must be your numeric Telegram id",
+    }
+    mk = master_key_from_env()
+    checks["master_key"] = {
+        "ok": master_key_valid(mk),
+        "error": None if master_key_valid(mk) else "JH_MASTER_KEY is missing or invalid "
+        "(generate: python -c \"from cryptography.fernet import Fernet;print(Fernet.generate_key().decode())\")",
+    }
 
     all_ok = all(c["ok"] for c in checks.values() if c.get("ok") is not None)
     if as_json:
@@ -609,6 +629,35 @@ def ingest_run(
             _fail(f"ingest failed: {e}", as_json=as_json)
             return
 
+    elif source == "superjob":
+        import os as _os
+
+        from jobharness.ingest.base import RawJob
+        from jobharness.ingest.superjob import SuperJobAdapter, build_superjob_queries
+        from jobharness.schemas.profile import load_profile
+
+        sj_key = _os.environ.get("SUPERJOB_API_KEY")
+        if not sj_key:
+            _fail("SUPERJOB_API_KEY is not set", as_json=as_json)
+            return
+        profile_path = Path("config/profile.yaml")
+        if not profile_path.is_absolute():
+            profile_path = Path.cwd() / profile_path
+        if not profile_path.exists():
+            _fail("config/profile.yaml not found (queries are built from it)", as_json=as_json)
+            return
+        sj_queries = build_superjob_queries(load_profile(str(profile_path)))
+
+        async def _collect_sj() -> list[RawJob]:
+            adapter = SuperJobAdapter(lambda: sj_key, sj_queries)
+            return [r async for r in adapter.fetch(since=since_dt)]
+
+        try:
+            raw_jobs = asyncio.run(_collect_sj())
+        except Exception as e:
+            _fail(f"ingest failed: {e}", as_json=as_json)
+            return
+
     else:
         _fail(f"unknown source: {source}", as_json=as_json)
         return
@@ -873,31 +922,201 @@ def eval_run(
         return
     archetypes = load_archetypes(arch_dir)
 
-    if suite == "router":
+    if suite not in ("router", "claims", "all"):
+        _fail(f"unknown suite: {suite}", as_json=as_json)
+        return
+
+    problems: list[str] = []
+    payload: dict[str, object] = {"ok": True}
+
+    if suite in ("router", "all"):
         golden_dir = _resolve("eval_data/golden_jobs")
         metrics = evaluate_router(golden_dir, prof, pos, archetypes, settings)
-        if as_json:
-            console.print_json(_json.dumps({"ok": True, **metrics.as_dict()}))
-        else:
-            msg = (
-                f"precision={metrics.precision:.3f} "
-                f"recall={metrics.recall:.3f} "
-                f"arch_acc={metrics.archetype_accuracy:.3f}"
+        payload["router"] = metrics.as_dict()
+        if not as_json:
+            print(
+                f"router: precision={metrics.precision:.3f} "
+                f"recall={metrics.recall:.3f} arch_acc={metrics.archetype_accuracy:.3f}"
             )
-            print(msg)
-        # Compare to baseline if exists
         baseline_path = _resolve("eval_data/golden_jobs/baseline.json")
         if baseline_path.exists():
-            import json as _json2
-            baseline = _json2.loads(baseline_path.read_text())
+            baseline = _json.loads(baseline_path.read_text())
             if metrics.precision < baseline["precision"] - 0.03:
-                _fail(
+                problems.append(
                     f"router precision dropped > 3 points: "
-                    f"{metrics.precision:.3f} < {baseline['precision']:.3f} - 0.03",
-                    as_json=as_json,
+                    f"{metrics.precision:.3f} < {baseline['precision']:.3f} - 0.03"
                 )
+
+    if suite in ("claims", "all"):
+        from jobharness.eval.runner import CLAIMS_MIN_RECALL, evaluate_claims
+
+        claims_res = evaluate_claims(_resolve("eval_data/golden_claims"), prof)
+        payload["claims"] = claims_res.as_dict()
+        if not as_json:
+            print(
+                f"claims: recall={claims_res.recall:.3f} "
+                f"clean_pass_rate={claims_res.clean_pass_rate:.3f} "
+                f"({claims_res.n_fabricated} fabricated, {claims_res.n_clean} clean)"
+            )
+        if claims_res.recall < CLAIMS_MIN_RECALL:
+            problems.append(
+                f"claims fabrication recall {claims_res.recall:.3f} < {CLAIMS_MIN_RECALL}"
+            )
+        cbase = _resolve("eval_data/baselines/claims.json")
+        if cbase.exists():
+            base = _json.loads(cbase.read_text())
+            if claims_res.clean_pass_rate < base["clean_pass_rate"] - 0.03:
+                problems.append(
+                    f"claims clean pass rate dropped > 3 points: "
+                    f"{claims_res.clean_pass_rate:.3f} < {base['clean_pass_rate']:.3f} - 0.03"
+                )
+
+    if as_json:
+        payload["ok"] = not problems
+        payload["problems"] = problems
+        console.print_json(_json.dumps(payload))
+        if problems:
+            raise typer.Exit(code=1)
+        return
+    if problems:
+        _fail("; ".join(problems), as_json=False)
+
+
+@eval_app.command("doc")
+def eval_doc(
+    doc_id: int = typer.Argument(..., help="documents.id of a resume"),
+    config: str = typer.Option("config/config.yaml", help="config path"),
+    profile: str = typer.Option("config/profile.yaml", help="profile path"),
+    positioning: str = typer.Option("config/positioning.yaml", help="positioning path"),
+    as_json: bool = typer.Option(False, "--json"),
+) -> None:
+    """Run gates G1-G7 on one stored resume (+ its cover letter) and record an eval run."""
+    import json as _json
+    from pathlib import Path
+
+    from sqlalchemy import select
+
+    from jobharness.db.models import Document, Job
+    from jobharness.db.session import get_session, init_session_factory, make_engine
+    from jobharness.eval.gates import run_gates
+    from jobharness.eval.runner import record_eval_run
+    from jobharness.schemas.archetype import load_archetypes
+    from jobharness.schemas.documents import CoverLetter, ResumeContent
+    from jobharness.schemas.jd import JDParsed
+    from jobharness.schemas.positioning import load_positioning
+    from jobharness.schemas.profile import load_profile
+    from jobharness.settings import Settings
+
+    def _resolve(p: str) -> Path:
+        path = Path(p)
+        return path if path.is_absolute() else Path.cwd() / path
+
+    cfg_path = _resolve(config)
+    if not cfg_path.exists():
+        _fail(f"config not found: {config}", as_json=as_json)
+        return
+    settings = Settings.from_yaml(cfg_path)
+    data_dir = Path(settings.paths.data_dir)
+    if not data_dir.is_absolute():
+        data_dir = cfg_path.parent / data_dir
+    init_session_factory(make_engine(data_dir / "jobharness.db"))
+    prof = load_profile(str(_resolve(profile)))
+    pos = load_positioning(_resolve(positioning))
+    archetypes = load_archetypes(_resolve("config/archetypes"))
+
+    with get_session()() as s:
+        doc = s.get(Document, doc_id)
+        if doc is None or doc.kind != "resume" or not doc.content_json:
+            _fail(f"resume document {doc_id} not found", as_json=as_json)
+            return
+        job = s.get(Job, doc.job_id) if doc.job_id else None
+        cover_doc = s.execute(
+            select(Document).where(Document.job_id == doc.job_id, Document.kind == "cover")
+        ).scalars().first()
+        content = ResumeContent.model_validate_json(doc.content_json)
+        letter = (
+            CoverLetter.model_validate_json(cover_doc.content_json)
+            if cover_doc and cover_doc.content_json
+            else None
+        )
+        jd = JDParsed.model_validate_json((job.jd_parsed_json if job else None) or '{"title": ""}')
+        arch = archetypes.get((job.archetype if job else None) or "") or next(iter(archetypes.values()))
+        pdf = Path(doc.pdf_path) if doc.pdf_path and Path(doc.pdf_path).exists() else None
+        gates = run_gates(
+            content, letter, prof, pos, arch, jd,
+            company=job.company if job else None, pdf_path=pdf,
+        )
+        passed = all(g.passed for g in gates)
+        results = {"gates": [{"gate": g.gate, "passed": g.passed, "messages": list(g.messages)} for g in gates]}
+        record_eval_run(s, "doc", doc_id, results, passed)
+        doc.eval_json = _json.dumps(results, sort_keys=True)
+        doc.eval_pass = passed
+        s.commit()
+
+    if as_json:
+        console.print_json(_json.dumps({"ok": passed, **results}))
     else:
-        _fail(f"unknown suite: {suite}", as_json=as_json)
+        table = Table(title=f"jh eval doc {doc_id}")
+        table.add_column("gate")
+        table.add_column("result")
+        table.add_column("messages")
+        for g in gates:
+            table.add_row(g.gate, "[green]pass[/green]" if g.passed else "[red]fail[/red]", "; ".join(g.messages))
+        console.print(table)
+    if not passed:
+        raise typer.Exit(code=1)
+
+
+# ---------------------------------------------------------------- bot
+bot_app = typer.Typer(help="Telegram bot.")
+app.add_typer(bot_app, name="bot")
+
+
+@bot_app.command("run")
+def bot_run() -> None:
+    """Run the Telegram bot (long polling). Needs TELEGRAM_BOT_TOKEN, TELEGRAM_OWNER_ID, JH_MASTER_KEY."""
+    import asyncio
+
+    from jobharness.bot.app import ConfigError, run_bot
+
+    try:
+        asyncio.run(run_bot())
+    except ConfigError as e:
+        _fail(str(e))
+
+
+# ---------------------------------------------------------------- pipeline
+pipeline_app = typer.Typer(help="Search pipeline.")
+app.add_typer(pipeline_app, name="pipeline")
+
+
+@pipeline_app.command("run-once")
+def pipeline_run_once(as_json: bool = typer.Option(False, "--json")) -> None:
+    """Run one search cycle (no Telegram delivery) using the bot's data directory."""
+    import asyncio
+
+    from jobharness.bot.app import ConfigError, build_services_from_env, default_provider_factory
+    from jobharness.bot.provider_commands import SUPERJOB_SECRET
+    from jobharness.bot.user_settings import load_runtime
+    from jobharness.pipeline.cycle import CycleDeps, run_cycle
+
+    try:
+        services = build_services_from_env()
+        rt = load_runtime(services.config_path, services.data_dir)
+    except (ConfigError, RuntimeError) as e:
+        _fail(str(e), as_json=as_json)
+        return
+    deps = CycleDeps(
+        rt, default_provider_factory(rt, services),
+        lambda: services.secrets.get(SUPERJOB_SECRET), services.clock(), services.transport,
+    )
+    report = asyncio.run(run_cycle(deps))
+    if as_json:
+        console.print_json(json.dumps({"ok": report.refused is None, **report.as_dict()}))
+    else:
+        console.print(report.as_dict())
+    if report.refused:
+        raise typer.Exit(code=1)
 
 
 if __name__ == "__main__":

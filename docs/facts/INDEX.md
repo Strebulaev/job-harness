@@ -14,4 +14,5 @@ id,title,tags,status
 0012,"CI enforces ruff, mypy strict, pytest, init/validate, router baseline","ci, testing",active
 0013,config/config.yaml model ids are still placeholders,"llm, config",active
 0014,Telegram bot chats are not end-to-end encrypted,safety,active
+superjob-api-shape-unverified,SuperJob API v2 shape is assumed not verified against official docs,"ingest, compliance",draft
 docs-manifest,Docs manifest: doc sections mapped to content and watch paths,docs,active

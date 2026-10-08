@@ -15,16 +15,16 @@ Source: spec §12. Prompts live in `src/jobharness/llm/prompts/<name>/v<N>.md` w
 | Prompt | Purpose | Schema (Pydantic) | Temperature | Eval coverage |
 |---|---|---|---|---|
 | `jd_parse` | Parse a raw JD into `JDParsed` | `JDParsed` (§10) | 0.0 (§5) | `golden_jobs` ≥ 30; parser post-check verifies every non-"unknown" categorical field has an `evidence_spans` entry that is a substring of `jd_raw` (§10). |
-| `claims_extract` | Extract atomic claims from a generated resume/cover | (internal) | 0.0 | `golden_claims` ≥ 60; G1 structural check (a): every bullet has `source_fact_ids` that exist. |
-| `claims_verify` | Secondary per-claim check: supported / unsupported / partial | (internal) | 0.0 | `golden_claims`; G1 check (c); fabrication recall ≥ 0.95 on injected fabrications (number inflation, added tech, title change, date shift). |
-| `resume_compose` | Given ONLY selected facts (with ids), produce `ResumeContent` where every bullet carries `source_fact_ids` | `ResumeContent` (§11.4) | 0.4 (§5) | G1–G5 gates; property test: after G1 passes, `ResumeContent` never includes numbers absent from cited facts (§18). |
-| `cover_compose` | 120–180 word cover letter; 4-part structure (§11.4) | (internal) | 0.4 (§5) | G6, G7 gates; banned-phrase check; engagement-format sentence present. |
-| `judge_resume` | LLM judge: relevance + specificity (1–5) | (JSON rubric) | 0.0 | Non-blocking scores stored; default blocking threshold < 3/5. |
-| `judge_cover` | LLM judge: personalization (1–5) | (JSON rubric) | 0.0 | Same as above. |
-| `fit_sound_judge` | "too senior/expensive \| on target \| too junior" for this posting | (JSON rubric) | 0.0 | If `too senior`, composer re-runs once with `handson_focus` (§13.2). |
-| `email_classify` | Classify inbound email into 9 classes (§11.8) | (internal) | 0.0 | `golden_emails` ≥ 50; macro-F1 ≥ 0.85; confidence < 0.7 → `needs_human`. |
-| `followup_draft` | 40–70 word follow-up; adds one new value point; never pushy (§11.8) | (internal) | 0.4 (§5) | Manual review in the approval queue; no golden set (low-risk, human-gated). |
-| `interview_prep` | Generate `prep/<application_id>.md` for `screen_request`/`interview_invite` (§11.8) | (markdown) | 0.4 (§5) | Manual review; no golden set. |
+| `claims_extract` | *(not used in the MVP: claims are extracted by code, `compose/claims.py`)* | — | — | G1 structural check (a): every bullet has `source_fact_ids` that exist. |
+| `claims_verify` | Secondary per-claim check: supported / unsupported / partial | `ClaimsVerifyOutput` | 0.0 | `golden_claims`; G1 check (c); fabrication recall ≥ 0.95 on injected fabrications (number inflation, added tech, title change, date shift). |
+| `resume_compose` | Given ONLY selected facts (with ids), rewrite bullets; each carries `source_fact_ids`. Code assembles the rest of `ResumeContent` and validates every bullet, falling back to the original text | `ResumeDraft` (`schemas/documents.py`) | 0.4 (§5) | G1–G5 gates; property test: after G1 passes, `ResumeContent` never includes numbers absent from cited facts (§18). |
+| `cover_compose` | Observation, proof point and closing; code adds the engagement-format sentence and checks 120–180 words (§11.4) | `CoverDraft` | 0.4 (§5) | G6, G7 gates; banned-phrase check; engagement-format sentence present. |
+| `judge_resume` | LLM judge: relevance + specificity (1–5) | `JudgeScores` | 0.0 | Non-blocking scores stored; default blocking threshold < 3/5. |
+| `judge_cover` | LLM judge: personalization (1–5) | `JudgeScores` | 0.0 | Same as above. |
+| `fit_sound_judge` | "too senior/expensive \| on target \| too junior" for this posting | `FitJudgement` | 0.0 | If `too senior`, composer re-runs once with `handson_focus` (§13.2). |
+| `email_classify` *(deferred, plan 7.1)* | Classify inbound email into 9 classes (§11.8) | (internal) | 0.0 | `golden_emails` ≥ 50; macro-F1 ≥ 0.85; confidence < 0.7 → `needs_human`. |
+| `followup_draft` *(deferred, plan 7.1)* | 40–70 word follow-up; adds one new value point; never pushy (§11.8) | (internal) | 0.4 (§5) | Manual review in the approval queue; no golden set (low-risk, human-gated). |
+| `interview_prep` *(deferred, plan 7.1)* | Generate `prep/<application_id>.md` for `screen_request`/`interview_invite` (§11.8) | (markdown) | 0.4 (§5) | Manual review; no golden set. |
 
 ## Roles → model mapping (config-driven, O2)
 
@@ -42,3 +42,9 @@ Judges use a different system prompt and, where possible, a different model than
 ## FakeProvider
 
 For tests: `FakeProvider` returns deterministic outputs keyed by `request_hash` from fixtures in `tests/fixtures/`. The entire test suite MUST run offline with it (§12, §18). A cold agent writing tests MUST NOT hit a real LLM provider.
+
+## Providers
+
+`llm.provider` is `openrouter` (decision 0015), `anthropic` or `fake`. OpenRouter calls go to `https://openrouter.ai/api/v1/chat/completions` with the key from the encrypted store; structured output uses `response_format: json_schema` (support varies by model and upstream provider, so requests set `provider.require_parameters`) and is always re-validated with Pydantic. `provider.data_collection: deny` is sent by default; both provider preference keys are unverified against the live API (plan step 3.1). In the Telegram bot, the four model ids are chosen with `/models set <role> <model-id>` and stored in `data/user_settings.yaml`.
+
+`ScriptedProvider` (`llm/scripted_provider.py`) is the offline test double keyed by prompt purpose, used by the pipeline, bot and end-to-end tests next to `FakeProvider`.

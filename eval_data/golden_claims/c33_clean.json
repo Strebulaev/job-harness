@@ -1,0 +1,9 @@
+{
+  "snippet": "Shipped event-driven systems handling 2M req/day over a 12 year career.",
+  "cited_fact_ids": [
+    "sum.1",
+    "exp.acme.b1"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

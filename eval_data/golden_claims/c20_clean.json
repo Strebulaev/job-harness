@@ -1,0 +1,8 @@
+{
+  "snippet": "Held the CTO role at Acme Corp.",
+  "cited_fact_ids": [
+    "exp.acme"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

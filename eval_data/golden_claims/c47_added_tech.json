@@ -1,0 +1,8 @@
+{
+  "snippet": "Introduced feature-flag rollout with LaunchDarkly; release frequency doubled.",
+  "cited_fact_ids": [
+    "exp.globex.b2"
+  ],
+  "expected_label": "partial",
+  "fabrication_type": "added_tech"
+}

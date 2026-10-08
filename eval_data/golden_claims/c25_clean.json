@@ -1,0 +1,8 @@
+{
+  "snippet": "Expert in Python with 12 years of experience.",
+  "cited_fact_ids": [
+    "skill.python"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

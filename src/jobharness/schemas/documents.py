@@ -104,7 +104,7 @@ class ResumeContent(_Strict):
         return self.model_dump(mode="json", exclude={"verification_block"})
 
 
-CoverRole = Literal["observation", "proof", "format", "rationale", "cta"]
+CoverRole = Literal["observation", "proof", "format", "rationale", "cta", "style"]
 
 
 class CoverSentence(_Strict):
@@ -127,8 +127,38 @@ class CoverLetter(_Strict):
         return len(self.text.split())
 
 
+class BulletDraft(_Strict):
+    text: str
+    source_fact_ids: list[str] = Field(default_factory=list)
+
+
+class RoleDraft(_Strict):
+    role_id: str
+    bullets: list[BulletDraft] = Field(default_factory=list)
+
+
+class ResumeDraft(_Strict):
+    """LLM output of the ``resume_compose`` prompt (rewritten bullets only)."""
+
+    roles: list[RoleDraft] = Field(default_factory=list)
+    projects: list[RoleDraft] = Field(default_factory=list)
+
+
+class CoverDraft(_Strict):
+    """LLM output of the ``cover_compose`` prompt (the free-text parts)."""
+
+    observation: str
+    proof: str
+    proof_fact_ids: list[str] = Field(default_factory=list)
+    closing: str
+
+
 __all__ = [
+    "BulletDraft",
+    "CoverDraft",
     "CoverLetter",
+    "ResumeDraft",
+    "RoleDraft",
     "CoverRole",
     "CoverSentence",
     "PositioningApplied",

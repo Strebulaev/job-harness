@@ -1,0 +1,8 @@
+{
+  "snippet": "Implemented the citation-accuracy metric now used by 12 downstream projects.",
+  "cited_fact_ids": [
+    "prj.1.b1"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

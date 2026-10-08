@@ -1,0 +1,8 @@
+{
+  "snippet": "Introduced feature-flag rollout process; release frequency doubled.",
+  "cited_fact_ids": [
+    "exp.globex.b2"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

@@ -1,0 +1,10 @@
+services:
+  jobharness:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - jh-data:/data
+
+volumes:
+  jh-data:

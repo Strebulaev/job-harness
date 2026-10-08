@@ -19,6 +19,7 @@ class IllegalTransition(Exception):
 
 # jobs.status: new | parsed | rejected | shortlisted | composed | gated_fail
 #               | queued | approved | sent | closed
+#               | delivered | applied | skipped   (Telegram MVP, decision 0014)
 JOB_STATUSES: Final[tuple[str, ...]] = (
     "new",
     "parsed",
@@ -30,6 +31,9 @@ JOB_STATUSES: Final[tuple[str, ...]] = (
     "approved",
     "sent",
     "closed",
+    "delivered",
+    "applied",
+    "skipped",
 )
 
 JOB_ALLOWED_TRANSITIONS: Final[dict[str, frozenset[str]]] = {
@@ -38,9 +42,12 @@ JOB_ALLOWED_TRANSITIONS: Final[dict[str, frozenset[str]]] = {
     "shortlisted": frozenset({"composed", "rejected"}),
     "composed": frozenset({"queued", "gated_fail", "rejected"}),
     "gated_fail": frozenset({"composed", "rejected"}),  # regenerate or give up
-    "queued": frozenset({"approved", "rejected"}),
+    "queued": frozenset({"approved", "delivered", "rejected"}),
     "approved": frozenset({"sent", "rejected"}),
     "sent": frozenset({"closed"}),
+    "delivered": frozenset({"applied", "skipped", "closed"}),
+    "applied": frozenset({"closed"}),
+    "skipped": frozenset({"closed"}),
     "rejected": frozenset(),
     "closed": frozenset(),
 }

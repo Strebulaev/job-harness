@@ -1,0 +1,8 @@
+{
+  "snippet": "Held the CEO role at Acme Corp.",
+  "cited_fact_ids": [
+    "exp.acme"
+  ],
+  "expected_label": "unsupported",
+  "fabrication_type": "title_change"
+}

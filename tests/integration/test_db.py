@@ -20,6 +20,9 @@ EXPECTED_TABLES = {
     "contracts",
     "eval_runs",
     "llm_calls",
+    "secrets",
+    "bot_state",
+    "deliveries",
 }
 
 

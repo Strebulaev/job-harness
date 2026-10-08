@@ -33,7 +33,7 @@ class LLMTemperatures(_Strict):
 
 
 class LLMConfig(_Strict):
-    provider: Literal["anthropic", "fake"] = "anthropic"
+    provider: Literal["anthropic", "openrouter", "fake"] = "anthropic"
     models: LLMModels
     temperature: LLMTemperatures
     max_retries: int = Field(default=3, ge=0)
@@ -117,6 +117,14 @@ class IngestConfig(_Strict):
     email_alerts_label: str | None = None
 
 
+class BotConfig(_Strict):
+    """Telegram bot runtime knobs (plan step 4.1)."""
+
+    search_interval_minutes: int = Field(default=60, ge=1)
+    max_jobs_per_cycle: int = Field(default=20, ge=1)
+    max_deliveries_per_day: int = Field(default=10, ge=1)
+
+
 class Settings(_Strict):
     paths: PathsConfig
     llm: LLMConfig
@@ -127,6 +135,7 @@ class Settings(_Strict):
     capacity: CapacityConfig
     fx: FXConfig
     ingest: IngestConfig | None = None
+    bot: BotConfig = Field(default_factory=BotConfig)
 
     @model_validator(mode="after")
     def _check_rates(self) -> Settings:

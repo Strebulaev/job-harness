@@ -1,0 +1,8 @@
+{
+  "snippet": "Built RAG pipeline over internal docs; reduced support ticket volume by 25%.",
+  "cited_fact_ids": [
+    "exp.acme.b3"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

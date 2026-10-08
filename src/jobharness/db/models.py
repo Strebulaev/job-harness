@@ -15,6 +15,7 @@ from sqlalchemy import (
     ForeignKey,
     Index,
     Integer,
+    LargeBinary,
     String,
     Text,
 )
@@ -236,6 +237,35 @@ class LLMCall(Base):
     error: Mapped[str | None] = mapped_column(Text)
 
 
+class Secret(Base):
+    """Encrypted provider secrets (plan step 3.4). Never stores plaintext."""
+
+    __tablename__ = "secrets"
+
+    name: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
+    ciphertext: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+
+
+class BotState(Base):
+    """Key/value JSON state for the Telegram bot (plan step 4.2)."""
+
+    __tablename__ = "bot_state"
+
+    key: Mapped[str] = mapped_column(String(128), unique=True, nullable=False)
+    value_json: Mapped[str] = mapped_column(Text, nullable=False)
+
+
+class Delivery(Base):
+    """One job delivered to the Principal's chat (plan step 5.2)."""
+
+    __tablename__ = "deliveries"
+
+    job_id: Mapped[int] = mapped_column(Integer, ForeignKey("jobs.id"), index=True)
+    chat_message_id: Mapped[int | None] = mapped_column(Integer)
+    delivered_at: Mapped[str | None] = mapped_column(String(32))
+    outcome: Mapped[str | None] = mapped_column(String(16))  # applied | skipped
+
+
 # Touch all models so Alembic autogenerate and `Base.metadata` see them.
 __all__ = [
     "Base",
@@ -250,4 +280,7 @@ __all__ = [
     "Contract",
     "EvalRun",
     "LLMCall",
+    "Secret",
+    "BotState",
+    "Delivery",
 ]

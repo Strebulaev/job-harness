@@ -1,0 +1,8 @@
+{
+  "snippet": "Holds a Bachelor degree in Computer Science from National University of Civil Engineering.",
+  "cited_fact_ids": [
+    "edu.1"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

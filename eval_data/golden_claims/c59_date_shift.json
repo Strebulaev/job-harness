@@ -1,0 +1,8 @@
+{
+  "snippet": "Earned the AWS Solutions Architect Associate certification in 2020.",
+  "cited_fact_ids": [
+    "cert.1"
+  ],
+  "expected_label": "unsupported",
+  "fabrication_type": "date_shift"
+}

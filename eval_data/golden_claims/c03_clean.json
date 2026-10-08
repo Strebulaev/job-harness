@@ -1,0 +1,8 @@
+{
+  "snippet": "Built the ingestion pipeline for 2M requests per day with event-driven design.",
+  "cited_fact_ids": [
+    "exp.acme.b1"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}

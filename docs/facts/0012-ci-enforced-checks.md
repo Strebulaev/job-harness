@@ -8,4 +8,4 @@ kind: environmental
 governed-by: TBD
 ---
 
-`.github/workflows/ci.yml` runs `ruff check src/ tests/`, `mypy` (strict), `pytest tests/unit tests/integration`, `jh init` + `jh profile validate --path config/profile.example.yaml`, and `jh eval run --suite router --json`.
+`.github/workflows/ci.yml` runs `ruff check src/ tests/`, `mypy` (strict), `pytest tests/unit tests/integration`, `jh init` + `jh profile validate --path config/profile.example.yaml`, `jh eval run --suite all --json` (router + golden claims), pinned Typst 0.13.1 install, `pytest tests/e2e`, and a Docker image build.

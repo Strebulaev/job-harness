@@ -1,0 +1,8 @@
+{
+  "snippet": "Owned payments reconciliation service in Go processing $40M/month.",
+  "cited_fact_ids": [
+    "exp.globex.b1"
+  ],
+  "expected_label": "partial",
+  "fabrication_type": "added_tech"
+}

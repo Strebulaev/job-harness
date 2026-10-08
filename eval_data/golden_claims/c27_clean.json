@@ -1,0 +1,8 @@
+{
+  "snippet": "Working knowledge of RAG, about 3 years.",
+  "cited_fact_ids": [
+    "skill.rag"
+  ],
+  "expected_label": "supported",
+  "fabrication_type": null
+}
