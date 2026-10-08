@@ -208,7 +208,9 @@ def test_skills_jd_required_first_and_weak_skill_gated(
 ) -> None:
     no_k8s = select_skills(profile, _jd(must_have=["Python"]), archetype)
     assert "Kubernetes" not in [s.name for s in no_k8s]  # no evidence, not required
-    with_k8s = select_skills(profile, _jd(must_have=["Kubernetes", "Python"]), archetype)
+    with_k8s = select_skills(
+        profile, _jd(must_have=["Kubernetes", "Python"], nice_to_have=["RAG"]), archetype
+    )
     names = [s.name for s in with_k8s]
     assert "Kubernetes" in names
     # required skills come before archetype nice-to-have; "rag" is nice-to-have only

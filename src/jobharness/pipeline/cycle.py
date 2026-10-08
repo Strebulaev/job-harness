@@ -81,7 +81,7 @@ def tokens_used_today(now: datetime) -> int:
                 LLMCall.created_at.like(f"{day}%")
             )
         ).scalar_one()
-    return int(total)
+    return int(total or 0)
 
 
 def _ensure_sources(names: list[tuple[str, str, str]]) -> None:

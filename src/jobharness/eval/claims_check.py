@@ -19,9 +19,13 @@ _WORD_RE = re.compile(r"[A-Za-z][A-Za-z0-9+#.\-]*")
 _SENT_END = re.compile(r"[.!?:;]\s*$")
 #: Capitalized words that are never treated as entities.
 _COMMON_CAPS = frozenset(
-    "i a an the and or of to in on at for with by from as is are was were it we my our their"
-    " this that these those if so but not no yes dear hello hi regards sincerely thanks thank"
-    " your you present earlier experience skills education".split()
+    [
+        "i", "a", "an", "the", "and", "or", "of", "to", "in", "on", "at", "for", "with", "by",
+        "from", "as", "is", "are", "was", "were", "it", "we", "my", "our", "their", "this",
+        "that", "these", "those", "if", "so", "but", "not", "no", "yes", "dear", "hello", "hi",
+        "regards", "sincerely", "thanks", "thank", "your", "you", "present", "earlier",
+        "experience", "skills", "education",
+    ]
 )
 
 

@@ -107,7 +107,8 @@ async def test_whole_flow(tmp_path: Path, repo_root: Path, caplog: pytest.LogCap
     assert "Search: active" in (await h.say("/status"))[0]
 
     # employers are anonymized in what was sent (positioning), real name never leaks
-    assert "Acme Corp" not in " ".join(texts if not docs[0].path.suffix == ".txt" else texts + [docs[0].path.read_text()])
+    visible = texts + ([docs[0].path.read_text()] if docs[0].path.suffix == ".txt" else [])
+    assert "Acme Corp" not in " ".join(visible)
 
     # owner-only
     sent_before = len(h.messenger.sent)

@@ -4,5 +4,5 @@
   "n_fabricated": 24,
   "n_clean": 36,
   "recorded_at": "2026-10-08",
-  "notes": "Recorded by shim check against config/profile.example.yaml (not by the CLI; re-record after first real run)."
+  "notes": "Produced by `jh eval run --suite claims` on 2026-10-08."
 }

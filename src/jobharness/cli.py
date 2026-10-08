@@ -1047,7 +1047,7 @@ def eval_doc(
             company=job.company if job else None, pdf_path=pdf,
         )
         passed = all(g.passed for g in gates)
-        results = {"gates": [{"gate": g.gate, "passed": g.passed, "messages": list(g.messages)} for g in gates]}
+        results: dict[str, object] = {"gates": [{"gate": g.gate, "passed": g.passed, "messages": list(g.messages)} for g in gates]}
         record_eval_run(s, "doc", doc_id, results, passed)
         doc.eval_json = _json.dumps(results, sort_keys=True)
         doc.eval_pass = passed

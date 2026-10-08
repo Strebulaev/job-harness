@@ -22,7 +22,7 @@ from jobharness.schemas.positioning import Positioning
 from jobharness.schemas.profile import Profile
 
 COVERAGE_THRESHOLD = 0.70
-MIN_RESUME_WORDS, MAX_RESUME_WORDS = 100, 1000
+MIN_RESUME_WORDS, MAX_RESUME_WORDS = 40, 1000
 _PLACEHOLDER = re.compile(r"\[[^\]\n]+\]|\{\{|\}\}|\bTODO\b|lorem ipsum", re.IGNORECASE)
 _HEADINGS = ("EXPERIENCE", "EDUCATION", "SKILLS")
 

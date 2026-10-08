@@ -74,7 +74,9 @@ class WizardRunner:
     ) -> None:
         wiz = self.wizards[name]
         step = wiz.step(first) if first else wiz.steps[0]
-        state = {"wizard": name, "step": step.key, "answers": dict(answers or {}), "history": []}
+        state: dict[str, Any] = {
+            "wizard": name, "step": step.key, "answers": dict(answers or {}), "history": [],
+        }
         ctx.services.state.set(ACTIVE_KEY, state)
         if wiz.intro:
             await ctx.reply(wiz.intro)

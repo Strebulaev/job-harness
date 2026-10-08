@@ -7,7 +7,7 @@ id,title,tags,status
 0005,Overlap filter also runs for onsite jobs,routing,active
 0006,"Unknown compensation with high hours is rejected, not asked",routing,active
 0007,Archetype must_have keywords match whole words only,routing,active
-0008,"Router golden baseline: P=1.0, R=0.833, archetype acc=0.833","routing, eval",active
+0008,"Router golden baseline: P=1.0, R=0.933, archetype acc=0.867","routing, eval",active
 0009,Golden loaders skip baseline.json and expected_downgrades.json,eval,active
 0010,We Work Remotely RSS feed permits programmatic reads,"ingest, compliance",active
 0011,"LLM temperatures: parse/classify/judge 0.0, compose 0.4",llm,active

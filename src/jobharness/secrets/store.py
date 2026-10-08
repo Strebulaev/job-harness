@@ -82,7 +82,7 @@ class SecretStore:
     def status(self) -> dict[str, bool]:
         """Names of stored secrets mapped to True; never exposes values."""
         with self._sf() as s:
-            return {n: True for n in s.execute(select(Secret.name)).scalars().all()}
+            return dict.fromkeys(s.execute(select(Secret.name)).scalars().all(), True)
 
 
 __all__ = [

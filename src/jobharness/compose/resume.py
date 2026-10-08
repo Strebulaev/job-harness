@@ -165,7 +165,8 @@ async def compose_resume(
     user = base_user
     system = load_system_prompt("resume_compose", default_version("resume_compose"))
     if allowed:
-        for iterations in range(1, max_iterations + 2):
+        for attempt in range(1, max_iterations + 2):
+            iterations = attempt
             try:
                 out, _meta = await provider.generate_structured(
                     purpose="resume_compose",
@@ -177,8 +178,8 @@ async def compose_resume(
                     max_tokens=2048,
                     prompt_version=default_version("resume_compose"),
                 )
-            except Exception as e:  # provider failure -> verbatim fallback
-                llm_error = str(e)[:200]
+            except Exception as err:  # provider failure -> verbatim fallback
+                llm_error = str(err)[:200]
                 break
             assert isinstance(out, ResumeDraft)
             errors: list[str] = []
