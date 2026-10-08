@@ -1,0 +1,38 @@
+{
+  "id": "g27_gov_tender",
+  "source": "manual",
+  "url": "https://procurement.example/tender/tech-2026-07",
+  "posted_at": "2026-09-11T08:00:00Z",
+  "jd_raw": "IT Consultant - Contract\n\nContract: public procurement tender (tender ID tech-2026-07).\n- Python backend services, REST APIs, PostgreSQL\n- 25 h/week, $2,800 per month, 12 months\n- B2B contract; remote work; 4h daily overlap with CET\n- Applications go through the official procurement portal; no email applications accepted\nApplication: submit the tender via the procurement portal",
+  "expected_jd_parsed": {
+    "title": "IT Consultant",
+    "company": null,
+    "seniority": "unknown",
+    "engagement_type": "b2b",
+    "exclusivity": "unknown",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "09:00", "end": "13:00"},
+    "hours_per_week": [25, 25],
+    "compensation": {"min": 2800, "max": 2800, "currency": "USD", "period": "month"},
+    "must_have": ["python", "rest api", "postgresql"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "postgresql"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "form",
+    "application_email": null,
+    "evidence_spans": {
+      "engagement_type": "B2B contract",
+      "remote_policy": "remote work",
+      "compensation": "$2,800 per month",
+      "application_method": "Applications go through the official procurement portal"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "b_backend_contractor",
+  "expected_reject_reasons": [],
+  "notes": "Application via procurement portal -> channel=form_manual (application package export, no automated submission). Company name absent -> G6 company-name check N/A."
+}

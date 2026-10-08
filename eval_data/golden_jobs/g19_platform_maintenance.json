@@ -1,0 +1,40 @@
+{
+  "id": "g19_platform_maintenance",
+  "source": "working_nomads",
+  "url": "https://workingnomads.com/jobs/platform-ops-contr-889",
+  "posted_at": "2026-09-21T06:00:00Z",
+  "jd_raw": "Part-time Platform Ops Engineer (contract)\n\nCompany: Shipyard.io\n\nKeep our small infra team's CI/CD and monitoring healthy while we scale to 40 engineers.\n\n- GitLab CI pipelines, Terraform state management\n- Prometheus + Grafana dashboards; Python for tooling\n- Container work: Docker, Kubernetes (EKS)\n\nContract: B2B, 10-15 h/week, $2,000 - $3,000 per month\nRemote: worldwide, overlap 08:00-16:00 UTC\nNo exclusivity; subcontracting allowed with notice\nApplication: apply via Working Nomads profile",
+  "expected_jd_parsed": {
+    "title": "Part-time Platform Ops Engineer",
+    "company": "Shipyard.io",
+    "seniority": "unknown",
+    "engagement_type": "b2b",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "UTC", "start": "08:00", "end": "16:00"},
+    "hours_per_week": [10, 15],
+    "compensation": {"min": 2000, "max": 3000, "currency": "USD", "period": "month"},
+    "must_have": ["gitlab ci", "terraform", "prometheus", "grafana", "python", "kubernetes"],
+    "nice_to_have": ["docker", "eks"],
+    "tech_stack": ["gitlab", "terraform", "prometheus", "grafana", "python", "kubernetes", "docker"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "allowed",
+    "red_flags": [],
+    "application_method": "platform",
+    "application_email": null,
+    "evidence_spans": {
+      "engagement_type": "Contract: B2B",
+      "exclusivity": "No exclusivity",
+      "remote_policy": "Remote: worldwide",
+      "compensation": "$2,000 - $3,000 per month",
+      "subcontracting_policy": "subcontracting allowed with notice",
+      "application_method": "apply via Working Nomads profile"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "d_platform_devops_light",
+  "expected_reject_reasons": [],
+  "notes": "D archetype, lighter hours; profile's architecture/infra tags (exp.acme.b2) are the relevant facts."
+}

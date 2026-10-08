@@ -9,9 +9,9 @@ from __future__ import annotations
 import os
 from logging.config import fileConfig
 
-from alembic import context
 from sqlalchemy import engine_from_config, pool
 
+from alembic import context
 from jobharness.db.models import Base  # noqa: F401  (metadata source)
 
 config = context.config

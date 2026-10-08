@@ -1,0 +1,41 @@
+{
+  "id": "g09_automation_positive",
+  "source": "djinni_alerts",
+  "url": "https://djinni.hn/jobs/767676",
+  "posted_at": "2026-09-22T05:00:00Z",
+  "jd_raw": "Automation & Integration Engineer (contract)\n\nCompany: Delivro (logistics SaaS)\n\nBuild the integration layer between our platform and third-party TMS/ERP systems.\n\n- Python, REST & webhook integrations, Airflow\n- Design ETL pipelines from partner APIs\n- Own reliability: retries, dead-letter handling, monitoring\n\nRequirements: Python, API automation, Airflow or similar orchestrator\nNice to have: n8n, Zapier architecture, Terraform\n\nEngagement: B2B contractor, 15-25 h/week\nRate: $2,000 - $3,500 / month\nRemote: EU timezones; overlap 10:00-18:00 CEST\nNo exclusivity; subcontracting: allowed with disclosure\nAI tools: allowed\nApplication: apply via Djinni profile or write to ops@delivro.example",
+  "expected_jd_parsed": {
+    "title": "Automation & Integration Engineer",
+    "company": "Delivro",
+    "seniority": "unknown",
+    "engagement_type": "b2b",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "10:00", "end": "18:00"},
+    "hours_per_week": [15, 25],
+    "compensation": {"min": 2000, "max": 3500, "currency": "USD", "period": "month"},
+    "must_have": ["python", "api automation", "airflow"],
+    "nice_to_have": ["n8n", "zapier", "terraform"],
+    "tech_stack": ["python", "airflow", "rest", "webhooks"],
+    "ai_tools_policy": "allowed",
+    "subcontracting_policy": "allowed",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "ops@delivro.example",
+    "evidence_spans": {
+      "engagement_type": "B2B contractor",
+      "exclusivity": "No exclusivity",
+      "remote_policy": "Remote: EU timezones",
+      "compensation": "$2,000 - $3,500 / month",
+      "ai_tools_policy": "AI tools: allowed",
+      "subcontracting_policy": "subcontracting: allowed with disclosure",
+      "application_method": "write to ops@delivro.example"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "c_automation_integration",
+  "expected_reject_reasons": [],
+  "notes": "C archetype positive; subcontracting explicitly allowed."
+}

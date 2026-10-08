@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "hires@corpusai.example",
+    "application_method": "email",
+    "company": "CorpusAI",
+    "compensation": {
+      "currency": "USD",
+      "max": 3500,
+      "min": 2500,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "application_method": "write to hires@corpusai.example",
+      "compensation": "$2,500 - $3,500/month",
+      "engagement_type": "B2B",
+      "hours_per_week": "- Contract: B2B, 20 h/week, $2,500 - $3,500/month",
+      "must_have": "- Python, LangChain, vector DBs (Weaviate), evals for RAG outputs",
+      "onsite_required": "- Remote worldwide, 4h overlap with London time",
+      "remote_policy": "Remote worldwide",
+      "tech_stack": "- Python, LangChain, vector DBs (Weaviate), evals for RAG outputs"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      20,
+      20
+    ],
+    "must_have": [
+      "python",
+      "langchain",
+      "weaviate",
+      "rag",
+      "evals"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "langchain",
+      "weaviate"
+    ],
+    "title": "RAG Engineer"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "g03_employee_rejected",
+  "source": "manual",
+  "url": "https://careers.acme-corp.example/jobs/88231",
+  "posted_at": "2026-09-18T08:00:00Z",
+  "jd_raw": "Senior Software Engineer (Full-time)\n\nCompany: Acme Corp\n\nJob ID 88231\n\nWe are looking for a full-time employee to join our platform team. This is a W-2 / payroll position with benefits.\n\nResponsibilities\n- Build and maintain internal platform services in Python\n- Participate in on-call and code review\n- Work closely with product managers\n\nRequirements\n- 4+ years of backend engineering experience\n- Python, SQL, cloud infrastructure\n\nCompensation: $90,000 - $120,000 per year, salary, full benefits\nWork location: hybrid, 3 days in office in Austin, TX\nApplication: apply through this portal (employment application)",
+  "expected_jd_parsed": {
+    "title": "Senior Software Engineer",
+    "company": "Acme Corp",
+    "seniority": "senior",
+    "engagement_type": "employee",
+    "exclusivity": "unknown",
+    "remote_policy": "hybrid",
+    "onsite_required": true,
+    "countries_allowed": ["US"],
+    "required_overlap": null,
+    "hours_per_week": null,
+    "compensation": {"min": 90000, "max": 120000, "currency": "USD", "period": "year"},
+    "must_have": ["python", "sql", "cloud infrastructure"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "sql"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "form",
+    "application_email": null,
+    "evidence_spans": {
+      "engagement_type": "full-time employee",
+      "remote_policy": "hybrid, 3 days in office",
+      "compensation": "$90,000 - $120,000 per year",
+      "application_method": "apply through this portal"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["engagement_type_employee", "onsite_required"],
+  "notes": "Hard filter #1 (employee) and #3 (onsite). Yearly compensation also present."
+}

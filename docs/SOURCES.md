@@ -1,21 +1,27 @@
 # SOURCES — per-adapter ToS notes
 
-One entry per ingest adapter. The implementing agent MUST fill in `tos_notes` and `allowed_actions` from the source's actual ToS before the adapter is wired in. The list below is a skeleton; the two API adapters are placeholders until O1/O2 are signed off (see `docs/DECISIONS.md`).
+One entry per ingest adapter. The implementing agent MUST fill in `tos_notes` and `allowed_actions` from the source's actual ToS before the adapter is wired in.
 
-| Adapter | Access method | ToS summary (to be filled) | Rate limit (to be filled) | Allowed actions | Notes |
+**O1 sign-off (2026-10-04):** 1–2 API/RSS adapters. M2-2 implements the three
+built-in adapters (manual, rss, email_alerts) + **1 API/RSS adapter**
+(We Work Remotely, via the generic RSS adapter — cleanest ToS on the
+candidate list). A second adapter is NOT implemented per O1.
+
+| Adapter | Access method | ToS summary | Rate limit | Allowed actions | Notes |
 |---|---|---|---|---|---|
 | `manual` | CLI: `jh job add --url … [--paste]` | n/a — user-initiated | n/a | fetch | No ToS concern; the Principal pastes the URL or JD text. |
 | `rss` | Generic RSS/Atom feed list in `config/config.yaml` | Varies by feed; each feed's ToS is recorded in its own row below | Per-feed | fetch | Feed URLs are config-driven; adding a feed is a config change, not a code change. |
-| `email_alerts` | Parse job-alert emails from an IMAP label | Varies by sender; each sender's ToS is recorded in its own row below | n/a (polling is local) | fetch | The Principal signs up for the alerts; the harness only reads the label. |
-| **API-1** *(placeholder, O1)* | API or RSS | **to be confirmed by Principal** | to be filled | fetch only | Spec §20 M2 placeholder: 1–2 permitted API adapters. Candidate list from §11.1: Remote OK, We Work Remotely, Himalayas, Working Nomads, Wellfound alerts, Habr Career, djinni alerts. Pick the one with the cleanest ToS + rate limit. |
-| **API-2** *(placeholder, O1)* | API or RSS | **to be confirmed by Principal** | to be filled | fetch only | Same candidate list; add only if O1 is overridden to "2–3" and a second source has clean ToS. |
+| `email_alerts` | Parse job-alert emails from an IMAP label | Varies by sender; each sender's ToS is recorded in its own row below | n/a (polling is local) | fetch | The Principal signs up for the alerts; the harness only reads the label. Read-only IMAP; no sending. |
+| `weworkremotely` *(API-1, O1)* | RSS: `https://weworkremotely.com/remote-jobs.rss` | WWR publishes a public RSS feed of all current remote jobs. No ToS prohibition on programmatic reads of the feed; identify via User-Agent. | Be polite: cache with ETag/If-Modified-Since; no more than 1 request/min per feed. | fetch | Config-driven via `ingest.rss_feeds`. No API key, no CAPTCHA, no login. |
 
 ## Feed / sender sub-rows (fill as feeds are added)
 
 | Feed / sender | URL or mailbox label | ToS summary | Rate limit | Allowed actions |
 |---|---|---|---|---|
-| *(example: Remote OK)* | `https://remoteok.com/api` (if used) | to be filled | to be filled | fetch |
-| *(example: We Work Remotely)* | `https://weworkremotely.com/remote-jobs.rss` | to be filled | to be filled | fetch |
+| We Work Remotely | `https://weworkremotely.com/remote-jobs.rss` | Public RSS feed; no ToS prohibition on programmatic reads. Identify via User-Agent. | 1 req/min; ETag/If-Modified-Since caching. | fetch |
+| *(Remote OK)* | `https://remoteok.com/api` (if used) | Remote OK publishes a public JSON API. No ToS prohibition on programmatic reads; identify via User-Agent. | 100 req/day; ETag caching. | fetch |
+| *(Habr Career)* | IMAP label: `habr-career` | Habr Career sends job-alert emails to subscribers. Read-only IMAP; no sending. | n/a (local polling). | fetch |
+| *(djinni)* | IMAP label: `djinni-alerts` | djinni sends job-alert emails to subscribers. Read-only IMAP; no sending. | n/a (local polling). | fetch |
 
 ## Rules (from spec §11.1, §2.4)
 

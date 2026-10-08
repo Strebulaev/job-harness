@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "form",
+    "company": null,
+    "compensation": {
+      "currency": "USD",
+      "max": 2800,
+      "min": 2800,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "application_method": "Applications go through the official procurement portal",
+      "compensation": "$2,800 per month",
+      "engagement_type": "B2B contract",
+      "hours_per_week": "- 25 h/week, $2,800 per month, 12 months",
+      "must_have": "- Python backend services, REST APIs, PostgreSQL",
+      "onsite_required": "- B2B contract; remote work; 4h daily overlap with CET",
+      "remote_policy": "remote work",
+      "tech_stack": "- Python backend services, REST APIs, PostgreSQL"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      25,
+      25
+    ],
+    "must_have": [
+      "python",
+      "rest api",
+      "postgresql"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "postgresql"
+    ],
+    "title": "IT Consultant"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "allowed",
+    "application_email": "founder@quantio.example",
+    "application_method": "email",
+    "company": "Quantio",
+    "compensation": {
+      "currency": "USD",
+      "max": 3500,
+      "min": 3500,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "ai_tools_policy": "AI tooling: explicitly welcome",
+      "application_method": "email founder",
+      "compensation": "$3,500 per month",
+      "engagement_type": "Contract: B2B",
+      "exclusivity": "ship the MVP end-to-end",
+      "hours_per_week": "Contract: B2B, full effort 30-40 h/week for ~12 weeks",
+      "must_have": "- Python (FastAPI) backend, React/TypeScript frontend",
+      "nice_to_have": "- Python (FastAPI) backend, React/TypeScript frontend",
+      "onsite_required": "Remote: yes, 4h overlap with CET",
+      "remote_policy": "Remote: yes, 4h overlap with CET",
+      "tech_stack": "- Python (FastAPI) backend, React/TypeScript frontend"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      30,
+      40
+    ],
+    "must_have": [
+      "python",
+      "fastapi",
+      "react",
+      "postgresql",
+      "stripe"
+    ],
+    "nice_to_have": [
+      "typescript"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "fastapi",
+      "react",
+      "typescript",
+      "postgresql",
+      "stripe"
+    ],
+    "title": "Full-Stack Engineer - MVP Build"
+  }
+}

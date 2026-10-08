@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "coo@novatech.example",
+    "application_method": "email",
+    "company": "Novatech",
+    "compensation": {
+      "currency": "USD",
+      "max": 4000,
+      "min": 3000,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "application_method": "reply to this letter",
+      "compensation": "$3,000 - $4,000 per month",
+      "engagement_type": "advisory contract (B2B)",
+      "exclusivity": "you may hold multiple advisory roles",
+      "hours_per_week": "Format: advisory contract (B2B), 10-20 h/week",
+      "must_have": "- Technical roadmap: architecture review, AI/ML strategy for our product",
+      "nice_to_have": "- Technical roadmap: architecture review, AI/ML strategy for our product",
+      "onsite_required": "Remote: async-first, weekly sync 10:00 UTC",
+      "remote_policy": "Remote: async-first",
+      "required_overlap": "Remote: async-first, weekly sync 10:00 UTC"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      10,
+      20
+    ],
+    "must_have": [
+      "architecture",
+      "ai strategy",
+      "hiring",
+      "technical leadership"
+    ],
+    "nice_to_have": [
+      "roadmap",
+      "governance"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "10:30",
+      "start": "10:00",
+      "tz": "UTC"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [],
+    "title": "Fractional CTO / Technical Advisor"
+  }
+}

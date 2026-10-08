@@ -13,6 +13,7 @@ from typing import Any
 
 from pydantic import BaseModel
 
+from jobharness.llm import log_llm_call
 from jobharness.llm.hashing import request_hash
 from jobharness.llm.provider import LLMCallMeta, ProviderConfig
 from jobharness.llm.structured import StructuredOutputError, extract_json
@@ -40,6 +41,30 @@ class AnthropicProvider:
 
             self._client = AsyncAnthropic(api_key=self._cfg.api_key)
         return self._client
+
+    def _log_failure(
+        self,
+        purpose: str,
+        model: str,
+        prompt_version: str,
+        system: str,
+        user: str,
+        temperature: float,
+        schema_name: str | None,
+        error: str,
+    ) -> None:
+        meta = self._meta(
+            model=model,
+            prompt_version=prompt_version,
+            system=system,
+            user=user,
+            temperature=temperature,
+            schema_name=schema_name,
+            usage=None,
+            latency_ms=0,
+            cost_usd=0.0,
+        )
+        log_llm_call(purpose, meta, error=error)
 
     def _meta(
         self,
@@ -120,11 +145,16 @@ class AnthropicProvider:
                 latency_ms=latency_ms,
                 cost_usd=0.0,  # cost tracking is wired in M5
             )
+            log_llm_call(purpose, meta)
             return validated, meta
-        raise RuntimeError(
+        err = (
             f"Anthropic structured output failed after "
             f"{self._cfg.max_retries + 1} attempts: {last_err}"
         )
+        self._log_failure(
+            purpose, model, prompt_version, system, user, temperature, schema.__name__, err
+        )
+        raise RuntimeError(err)
 
     async def generate_text(
         self,
@@ -162,4 +192,5 @@ class AnthropicProvider:
             latency_ms=latency_ms,
             cost_usd=0.0,
         )
+        log_llm_call(purpose, meta)
         return text, meta

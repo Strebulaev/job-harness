@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "platform",
+    "company": "CareLink Health",
+    "compensation": {
+      "currency": "USD",
+      "max": 4000,
+      "min": 3000,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "application_method": "only via the Remote OK platform",
+      "compensation": "$3,000 - $4,000 per month",
+      "engagement_type": "B2B contract",
+      "exclusivity": "No exclusivity",
+      "hours_per_week": "B2B contract, 25 h/week, $3,000 - $4,000 per month.",
+      "must_have": "- Python, REST APIs, PostgreSQL",
+      "onsite_required": "- Remote: Europe, overlap 09:00-17:00 CET",
+      "remote_policy": "Remote: Europe",
+      "required_overlap": "- Remote: Europe, overlap 09:00-17:00 CET",
+      "subcontracting_policy": "Subcontracting: not allowed",
+      "tech_stack": "- Python, REST APIs, PostgreSQL"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      25,
+      25
+    ],
+    "must_have": [
+      "python",
+      "rest api",
+      "postgresql"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "17:00",
+      "start": "09:00",
+      "tz": "Europe/Berlin"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "forbidden",
+    "tech_stack": [
+      "python",
+      "postgresql"
+    ],
+    "title": "Backend Engineer"
+  }
+}

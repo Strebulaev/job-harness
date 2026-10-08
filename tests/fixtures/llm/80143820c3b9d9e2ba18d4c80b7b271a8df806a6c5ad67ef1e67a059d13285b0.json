@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "platform",
+    "company": "Shipyard.io",
+    "compensation": {
+      "currency": "USD",
+      "max": 3000,
+      "min": 2000,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "application_method": "apply via Working Nomads profile",
+      "compensation": "$2,000 - $3,000 per month",
+      "engagement_type": "Contract: B2B",
+      "exclusivity": "No exclusivity",
+      "hours_per_week": "Contract: B2B, 10-15 h/week, $2,000 - $3,000 per month",
+      "must_have": "Keep our small infra team's CI/CD and monitoring healthy while we scale to 40 engineers.",
+      "nice_to_have": "- Container work: Docker, Kubernetes (EKS)",
+      "onsite_required": "Remote: worldwide, overlap 08:00-16:00 UTC",
+      "remote_policy": "Remote: worldwide",
+      "required_overlap": "Remote: worldwide, overlap 08:00-16:00 UTC",
+      "subcontracting_policy": "subcontracting allowed with notice",
+      "tech_stack": "- GitLab CI pipelines, Terraform state management"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      10,
+      15
+    ],
+    "must_have": [
+      "gitlab ci",
+      "terraform",
+      "prometheus",
+      "grafana",
+      "python",
+      "kubernetes"
+    ],
+    "nice_to_have": [
+      "docker",
+      "eks"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "16:00",
+      "start": "08:00",
+      "tz": "UTC"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "allowed",
+    "tech_stack": [
+      "gitlab",
+      "terraform",
+      "prometheus",
+      "grafana",
+      "python",
+      "kubernetes",
+      "docker"
+    ],
+    "title": "Part-time Platform Ops Engineer"
+  }
+}

@@ -40,15 +40,13 @@ class Base(DeclarativeBase):
 
 
 class Source(Base):
-    """``sources`` uses ``name`` as its PK (spec §6). It inherits ``Base`` so it
-    shares the same ``MetaData`` as the other 10 tables (required for FK
-    resolution). The inherited integer ``id`` is overridden to nullable so the
-    DDL does not emit an ``id`` column for this table."""
+    """``sources`` uses ``id`` as its PK (for ORM compatibility), with ``name``
+    as a unique natural key (spec §6)."""
 
     __tablename__ = "sources"
 
-    id: Mapped[int | None] = mapped_column(Integer, nullable=True, primary_key=False)  # type: ignore[assignment]
-    name: Mapped[str] = mapped_column(String(128), primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    name: Mapped[str] = mapped_column(String(128), unique=True, nullable=False)
     kind: Mapped[str | None] = mapped_column(String(64))
     tos_notes: Mapped[str | None] = mapped_column(Text)
     enabled: Mapped[bool] = mapped_column(Boolean, default=True)

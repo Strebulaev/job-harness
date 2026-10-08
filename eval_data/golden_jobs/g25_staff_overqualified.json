@@ -1,0 +1,40 @@
+{
+  "id": "g25_staff_overqualified",
+  "source": "wellfound_alerts",
+  "url": "https://wellfound.example/job/99887",
+  "posted_at": "2026-09-25T10:00:00Z",
+  "jd_raw": "Principal Backend Architect (contract)\n\nCompany: Kestrel Cloud\n\nWe are hiring a principal architect to lead our multi-region platform redesign.\n\n- Distributed systems design, event-driven architecture at scale\n- Python/Go; Kafka, Kubernetes, Terraform\n- You will be the final technical authority on the platform team\n\nEngagement: B2B contractor, 30-40 h/week\nRate: $4,500 - $6,000 per month\nRemote: worldwide, 6h overlap with UTC\nApplication: talent@kestrelcloud.example",
+  "expected_jd_parsed": {
+    "title": "Principal Backend Architect",
+    "company": "Kestrel Cloud",
+    "seniority": "principal",
+    "engagement_type": "b2b",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "UTC", "start": "08:00", "end": "14:00"},
+    "hours_per_week": [30, 40],
+    "compensation": {"min": 4500, "max": 6000, "currency": "USD", "period": "month"},
+    "must_have": ["distributed systems", "event-driven", "python", "kafka", "kubernetes", "terraform"],
+    "nice_to_have": ["go"],
+    "tech_stack": ["python", "go", "kafka", "kubernetes", "terraform"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "talent@kestrelcloud.example",
+    "evidence_spans": {
+      "engagement_type": "B2B contractor",
+      "exclusivity": "you will be the final technical authority",
+      "remote_policy": "Remote: worldwide",
+      "compensation": "$4,500 - $6,000 per month",
+      "application_method": "talent@kestrelcloud.example"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "b_backend_contractor",
+  "expected_reject_reasons": [],
+  "expected_flags": ["overqualification_handson_focus"],
+  "notes": "Overqualification edge case: principal-level posting vs senior IC profile -> gap >= 2 -> handson_focus mode, format-rationale sentence in cover letter. Rate max $6,000 is above ceiling but min $4,500 is in band -> score penalty, not hard reject."
+}

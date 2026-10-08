@@ -1,0 +1,39 @@
+{
+  "id": "g16_payments_backend",
+  "source": "himalayas",
+  "url": "https://www.himalayas.app/postings/1002",
+  "posted_at": "2026-09-17T08:30:00Z",
+  "jd_raw": "Backend Engineer - Payments (B2B, 6 months)\n\nCompany: PayHive\n\nContract to build and stabilize our reconciliation service.\n\n- Python services, SQL (Postgres), event-driven design\n- Reconciliation of $10M+/month card volumes; idempotency and audit trails\n- Kafka + PostgreSQL, Redis for state\n\nProfile: 5+ years backend; production payments or high-volume data experience\nRate: 70-85 USD/hour, 20-30 h/week (B2B invoice)\nRemote: EU overlap 08:00-16:00 CEST required\nExclusivity: not required\nApplication: platform apply or mail payments-eng@payhive.example",
+  "expected_jd_parsed": {
+    "title": "Backend Engineer - Payments",
+    "company": "PayHive",
+    "seniority": "senior",
+    "engagement_type": "b2b",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "08:00", "end": "16:00"},
+    "hours_per_week": [20, 30],
+    "compensation": {"min": 70, "max": 85, "currency": "USD", "period": "hour"},
+    "must_have": ["python", "sql", "event-driven", "kafka", "postgresql"],
+    "nice_to_have": ["redis"],
+    "tech_stack": ["python", "kafka", "postgresql", "redis"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "payments-eng@payhive.example",
+    "evidence_spans": {
+      "engagement_type": "B2B invoice",
+      "exclusivity": "Exclusivity: not required",
+      "remote_policy": "Remote: EU overlap 08:00-16:00 CEST",
+      "compensation": "70-85 USD/hour",
+      "application_method": "mail payments-eng@payhive.example"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "b_backend_contractor",
+  "expected_reject_reasons": [],
+  "notes": "Edge case: hourly compensation -> normalizer converts to USD/month; profile fact exp.globex.b1 (payments reconciliation) is the matching proof point."
+}

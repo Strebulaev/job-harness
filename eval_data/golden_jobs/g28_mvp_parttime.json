@@ -1,0 +1,39 @@
+{
+  "id": "g28_mvp_parttime",
+  "source": "manual",
+  "url": "https://indie-startup.example/contract/mvp-12",
+  "posted_at": "2026-09-27T12:00:00Z",
+  "jd_raw": "MVP Builder (part-time contract)\n\nCompany: Loomline (indie SaaS)\n\nWe are building an MVP for a small workflow product and need a part-time builder.\n\n- Python (FastAPI) + React + Postgres\n- You will build features end-to-end: schema to UI\n- Ship bi-weekly releases\n\nContract: B2B, 15 h/week, $1,800 per month\nRemote: async-first, 2h daily overlap with CET\nNo exclusivity; open to subcontracting parts of the work\nApplication: mvp@loomline.example",
+  "expected_jd_parsed": {
+    "title": "MVP Builder",
+    "company": "Loomline",
+    "seniority": "unknown",
+    "engagement_type": "b2b",
+    "exclusivity": "unknown",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "10:00", "end": "12:00"},
+    "hours_per_week": [15, 15],
+    "compensation": {"min": 1800, "max": 1800, "currency": "USD", "period": "month"},
+    "must_have": ["python", "fastapi", "react", "postgresql"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "fastapi", "react", "postgresql"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "allowed",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "mvp@loomline.example",
+    "evidence_spans": {
+      "engagement_type": "Contract: B2B",
+      "remote_policy": "Remote: async-first",
+      "compensation": "$1,800 per month",
+      "subcontracting_policy": "open to subcontracting parts of the work",
+      "application_method": "mvp@loomline.example"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["comp_below_floor"],
+  "notes": "Edge case: rate $1,800 < $2,000 floor; hours 15/week > allow_below_floor_if_hours_leq (10) so the exception does NOT apply -> hard reject on compensation."
+}

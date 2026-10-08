@@ -58,6 +58,17 @@ class AutosendConfig(_Strict):
     allowed_channels: list[str] = Field(default_factory=list)
 
 
+class RouterWeights(_Strict):
+    """Score component weights (spec §11.3, section 5: 'weights in config')."""
+
+    stack_match: float = 30.0
+    rate_fit: float = 20.0
+    tz_overlap: float = 15.0
+    engagement_fit: float = 10.0
+    scope_hours_fit: float = 10.0
+    quality: float = 10.0
+
+
 class RouterConfig(_Strict):
     min_score_to_apply: int = Field(ge=0, le=100)
     rate_floor_usd_month: float
@@ -66,6 +77,7 @@ class RouterConfig(_Strict):
     countries_allow: list[str] = Field(default_factory=list)
     countries_deny: list[str] = Field(default_factory=list)
     engagement_types_allow: list[str] = Field(default_factory=list)
+    weights: RouterWeights = Field(default_factory=RouterWeights)
 
 
 class SendConfig(_Strict):
@@ -96,6 +108,15 @@ class FXConfig(_Strict):
     rates: FXRates
 
 
+class IngestConfig(_Strict):
+    """Config for ingest adapters (spec §11.1)."""
+
+    rss_feeds: list[str] = Field(default_factory=list)
+    user_agent: str = "jobharness/0.1"
+    email_alerts_imap: str | None = None
+    email_alerts_label: str | None = None
+
+
 class Settings(_Strict):
     paths: PathsConfig
     llm: LLMConfig
@@ -105,6 +126,7 @@ class Settings(_Strict):
     followups: FollowupsConfig
     capacity: CapacityConfig
     fx: FXConfig
+    ingest: IngestConfig | None = None
 
     @model_validator(mode="after")
     def _check_rates(self) -> Settings:

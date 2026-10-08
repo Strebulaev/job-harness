@@ -1,0 +1,40 @@
+{
+  "id": "g02_backend_himalayas",
+  "source": "himalayas",
+  "url": "https://www.himalayas.app/postings/1001",
+  "posted_at": "2026-09-21T10:00:00Z",
+  "jd_raw": "Senior Backend Engineer (Freelance / B2B)\n\nCompany: Nordwind Logistics\n\nWe are looking for a senior backend contractor to build our shipment-tracking APIs.\n\nWhat you will do\n- Design and build REST APIs in Python (FastAPI) on top of PostgreSQL\n- Event-driven architecture: Kafka, background workers\n- Observability: structured logging, Prometheus metrics\n\nRequirements\n- 5+ years backend development, Python\n- Strong SQL, API design, caching (Redis)\n- Experience with high-throughput systems\n\nCompensation: 60-90 USD per hour, 20-25 h/week\nEngagement: freelance / B2B contract, 6-12 months\nRemote: EU-friendly timezones, overlap 08:00-16:00 CET\nNo exclusive engagement; other projects allowed.\nApplication: apply via this listing (platform form)",
+  "expected_jd_parsed": {
+    "title": "Senior Backend Engineer",
+    "company": "Nordwind Logistics",
+    "seniority": "senior",
+    "engagement_type": "freelance",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "08:00", "end": "16:00"},
+    "hours_per_week": [20, 25],
+    "compensation": {"min": 60, "max": 90, "currency": "USD", "period": "hour"},
+    "must_have": ["python", "fastapi", "postgresql", "kafka", "sql"],
+    "nice_to_have": ["redis"],
+    "tech_stack": ["python", "fastapi", "postgresql", "kafka", "redis"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "platform",
+    "application_email": null,
+    "evidence_spans": {
+      "engagement_type": "freelance / B2B contract",
+      "remote_policy": "Remote: EU-friendly timezones",
+      "required_overlap": "overlap 08:00-16:00 CET",
+      "compensation": "60-90 USD per hour",
+      "application_method": "apply via this listing",
+      "exclusivity": "No exclusive engagement"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "b_backend_contractor",
+  "expected_reject_reasons": [],
+  "notes": "Edge case: hourly compensation -> normalizer must convert to USD/month (120 h default) with low confidence."
+}

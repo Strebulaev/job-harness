@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "allowed",
+    "application_email": "data@growthstack.example",
+    "application_method": "email",
+    "company": "GrowthStack",
+    "compensation": {
+      "currency": "USD",
+      "max": 3500,
+      "min": 2500,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "contractor",
+    "evidence_spans": {
+      "ai_tools_policy": "AI tools allowed",
+      "application_method": "data@growthstack.example",
+      "compensation": "$2,500 - $3,500 per month",
+      "engagement_type": "contractor (B2B)",
+      "exclusivity": "No exclusivity",
+      "hours_per_week": "Engagement: contractor (B2B), 20-25 h/week, $2,500 - $3,500 per month",
+      "must_have": "- Python (Django services + data jobs), Airflow",
+      "nice_to_have": "- ETL from Postgres + partner APIs into ClickHouse",
+      "onsite_required": "Remote: EU, 4h overlap with CET",
+      "remote_policy": "Remote: EU, 4h overlap with CET",
+      "tech_stack": "- Python (Django services + data jobs), Airflow"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      20,
+      25
+    ],
+    "must_have": [
+      "python",
+      "django",
+      "airflow",
+      "etl",
+      "sql"
+    ],
+    "nice_to_have": [
+      "clickhouse"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "django",
+      "airflow",
+      "clickhouse",
+      "postgresql"
+    ],
+    "title": "Backend & Data Engineer"
+  }
+}

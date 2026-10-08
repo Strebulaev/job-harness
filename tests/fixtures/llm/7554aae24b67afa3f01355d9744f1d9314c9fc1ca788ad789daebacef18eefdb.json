@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "talent@fintechx.example",
+    "application_method": "email",
+    "company": "FintechX",
+    "compensation": {
+      "currency": "USD",
+      "max": 3200,
+      "min": 3200,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "contractor",
+    "evidence_spans": {
+      "application_method": "reply to this email thread",
+      "compensation": "$3,200 per month",
+      "engagement_type": "Contract",
+      "exclusivity": "Exclusive engagement: all working hours are devoted to FintechX",
+      "hours_per_week": "- B2B invoicing, 30-40 h/week",
+      "must_have": "- Python, PostgreSQL, Kafka",
+      "onsite_required": "- Remote, overlap 09:00-18:00 ET",
+      "remote_policy": "Remote, overlap 09:00-18:00 ET",
+      "required_overlap": "- Remote, overlap 09:00-18:00 ET",
+      "tech_stack": "- Python, PostgreSQL, Kafka"
+    },
+    "exclusivity": "required",
+    "hours_per_week": [
+      30,
+      40
+    ],
+    "must_have": [
+      "python",
+      "postgresql",
+      "kafka"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "18:00",
+      "start": "09:00",
+      "tz": "America/New_York"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "postgresql",
+      "kafka"
+    ],
+    "title": "Backend Engineer"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "g05_low_rate_rejected",
+  "source": "weworkremotely",
+  "url": "https://weworkremotely.com/remote-jobs/987654",
+  "posted_at": "2026-09-10T07:00:00Z",
+  "jd_raw": "Junior Backend Developer (part-time contract)\n\nCompany: Seedling Apps\n\nLooking for a junior backend developer for a small project maintenance contract.\n\n- Python, basic APIs\n- 10 h/week, $800 per month total\n- Remote, flexible hours, no overlap requirement stated\nEngagement: project-based contractor\nApplication: apply on the site",
+  "expected_jd_parsed": {
+    "title": "Junior Backend Developer",
+    "company": "Seedling Apps",
+    "seniority": "junior",
+    "engagement_type": "contractor",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": null,
+    "hours_per_week": [10, 10],
+    "compensation": {"min": 800, "max": 800, "currency": "USD", "period": "month"},
+    "must_have": ["python", "api"],
+    "nice_to_have": [],
+    "tech_stack": ["python"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "platform",
+    "application_email": null,
+    "evidence_spans": {
+      "engagement_type": "project-based contractor",
+      "remote_policy": "Remote, flexible hours",
+      "compensation": "$800 per month total",
+      "application_method": "apply on the site",
+      "exclusivity": "part-time contract"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["comp_below_floor"],
+  "notes": "Hard filter #6: max $800 < $2,000 floor. Exception (allow_below_floor_if_hours_leq: 10) is borderline at exactly 10h; reject is the expected default interpretation."
+}

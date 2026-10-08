@@ -1,0 +1,40 @@
+{
+  "id": "g10_platform_devops_positive",
+  "source": "remoteok",
+  "url": "https://remoteok.com/7654321",
+  "posted_at": "2026-09-19T11:00:00Z",
+  "jd_raw": "Platform Engineer, part-time (contract)\n\nCompany: Cloudmill\n\nWe run a small Kubernetes fleet and need a part-time platform engineer to keep CI/CD and observability healthy.\n\n- GitLab CI, Terraform, Prometheus/Grafana\n- Python for tooling and dashboards\n- Incident response (on-call rotation, part-time share)\n\nYou: experienced with K8s, Terraform, and observability stacks\n\nEngagement: contractor, 10-20 h/week, long-term\nRate: $2,500 - $3,500 per month\nRemote: worldwide, overlap 07:00-15:00 UTC\nApplication: submit resume via this platform",
+  "expected_jd_parsed": {
+    "title": "Platform Engineer, part-time",
+    "company": "Cloudmill",
+    "seniority": "unknown",
+    "engagement_type": "contractor",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "UTC", "start": "07:00", "end": "15:00"},
+    "hours_per_week": [10, 20],
+    "compensation": {"min": 2500, "max": 3500, "currency": "USD", "period": "month"},
+    "must_have": ["kubernetes", "terraform", "prometheus", "python"],
+    "nice_to_have": ["grafana"],
+    "tech_stack": ["kubernetes", "terraform", "gitlab ci", "prometheus", "grafana", "python"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "platform",
+    "application_email": null,
+    "evidence_spans": {
+      "engagement_type": "contractor, 10-20 h/week",
+      "remote_policy": "Remote: worldwide",
+      "required_overlap": "overlap 07:00-15:00 UTC",
+      "compensation": "$2,500 - $3,500 per month",
+      "application_method": "submit resume via this platform",
+      "exclusivity": "part-time"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "d_platform_devops_light",
+  "expected_reject_reasons": [],
+  "notes": "D archetype positive. Note: Kubernetes is in the profile only as a `weak` skill (no evidence) — G4 coverage must treat it as uncoverable, not blocking."
+}

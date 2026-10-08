@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "platform",
+    "company": "RookieHQ",
+    "compensation": {
+      "currency": "USD",
+      "max": 1200,
+      "min": 1200,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "employee",
+    "evidence_spans": {
+      "application_method": "apply on the platform",
+      "compensation": "$1,200 per month",
+      "engagement_type": "Paid internship",
+      "hours_per_week": "- 40 h/week, $1,200 per month",
+      "must_have": "- Python, basic REST APIs, Postgres",
+      "onsite_required": "- Office in Belgrade, 5 days on-site",
+      "remote_policy": "Office in Belgrade, 5 days on-site",
+      "seniority": "Backend Engineer - Internship (paid)",
+      "tech_stack": "- Python, basic REST APIs, Postgres"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      40,
+      40
+    ],
+    "must_have": [
+      "python",
+      "rest api",
+      "postgres"
+    ],
+    "nice_to_have": [],
+    "onsite_required": true,
+    "red_flags": [],
+    "remote_policy": "onsite",
+    "required_overlap": null,
+    "seniority": "intern",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "postgres"
+    ],
+    "title": "Backend Engineer - Internship"
+  }
+}

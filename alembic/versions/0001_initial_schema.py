@@ -5,9 +5,9 @@ Revises:
 Create Date: 2026-10-03
 """
 
-from alembic import op
 import sqlalchemy as sa
 
+from alembic import op
 
 revision = "0001"
 down_revision = None
@@ -18,7 +18,8 @@ depends_on = None
 def upgrade() -> None:
     op.create_table(
         "sources",
-        sa.Column("name", sa.String(128), primary_key=True),
+        sa.Column("id", sa.Integer(), primary_key=True, autoincrement=True),
+        sa.Column("name", sa.String(128), unique=True, nullable=False),
         sa.Column("kind", sa.String(64)),
         sa.Column("tos_notes", sa.Text()),
         sa.Column("enabled", sa.Boolean(), server_default="1"),

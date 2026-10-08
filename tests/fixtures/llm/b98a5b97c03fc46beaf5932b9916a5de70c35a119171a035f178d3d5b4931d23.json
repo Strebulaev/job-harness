@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "allowed",
+    "application_email": "jobs@beaconanalytics.example",
+    "application_method": "email",
+    "company": "Beacon Analytics",
+    "compensation": {
+      "currency": "USD",
+      "max": 4000,
+      "min": 2500,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "contractor",
+    "evidence_spans": {
+      "ai_tools_policy": "AI tools: allowed",
+      "application_method": "email your CV to jobs@beaconanalytics.example",
+      "compensation": "$2,500 - $4,000 per month",
+      "engagement_type": "independent contractor (B2B)",
+      "exclusivity": "No exclusivity",
+      "hours_per_week": "Compensation: $2,500 - $4,000 per month, 20-30 h/week",
+      "must_have": "- Python; FastAPI; background jobs with Celery",
+      "nice_to_have": "Nice to have: LangChain, vector DB ops, MCP tooling",
+      "onsite_required": "Remote: worldwide; overlap 09:00-17:00 UTC",
+      "remote_policy": "Remote: worldwide",
+      "required_overlap": "overlap 09:00-17:00 UTC",
+      "tech_stack": "- Python; FastAPI; background jobs with Celery"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      20,
+      30
+    ],
+    "must_have": [
+      "python",
+      "rag",
+      "llm",
+      "postgresql"
+    ],
+    "nice_to_have": [
+      "langchain",
+      "vector db ops",
+      "mcp"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "17:00",
+      "start": "09:00",
+      "tz": "UTC"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "fastapi",
+      "celery",
+      "pinecone",
+      "pgvector"
+    ],
+    "title": "RAG/LLM Engineer"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "g20_mvp_django",
+  "source": "manual",
+  "url": "https://venture-fund.example/contract/mvp-50",
+  "posted_at": "2026-09-24T11:00:00Z",
+  "jd_raw": "MVP Developer (contract, 3 months)\n\nCompany: FinEdge (YC-backed, US)\n\nWe need one contractor to ship an internal MVP for a fintech product.\n\n- Django or FastAPI backend, TypeScript/React frontend\n- Postgres; Stripe webhooks; basic auth (Clerk or Auth0)\n- Deploy on AWS (ECS); basic CI\n- Ship weekly demos to the team\n\nContract: B2B, 30 h/week, $3,000 per month x 3 months\nRemote: US-friendly, 4h overlap with EST\nAI tools: allowed and encouraged\nApplication: founder@finedge.example",
+  "expected_jd_parsed": {
+    "title": "MVP Developer",
+    "company": "FinEdge",
+    "seniority": "unknown",
+    "engagement_type": "b2b",
+    "exclusivity": "unknown",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "America/New_York", "start": "09:00", "end": "13:00"},
+    "hours_per_week": [30, 30],
+    "compensation": {"min": 3000, "max": 3000, "currency": "USD", "period": "month"},
+    "must_have": ["django", "fastapi", "react", "postgresql", "stripe", "aws"],
+    "nice_to_have": ["typescript", "clerk", "auth0"],
+    "tech_stack": ["python", "django", "fastapi", "react", "typescript", "postgresql", "stripe", "aws"],
+    "ai_tools_policy": "allowed",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "founder@finedge.example",
+    "evidence_spans": {
+      "engagement_type": "Contract: B2B",
+      "remote_policy": "Remote: US-friendly",
+      "compensation": "$3,000 per month x 3 months",
+      "ai_tools_policy": "AI tools: allowed and encouraged",
+      "application_method": "founder@finedge.example"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": "f_fullstack_mvp",
+  "expected_reject_reasons": ["overlap_below_min"],
+  "notes": "F archetype; profile's full-stack backend experience (exp.acme) maps well; Django is not in the profile -> G4 coverage must list it as uncoverable, not fabricated."
+}

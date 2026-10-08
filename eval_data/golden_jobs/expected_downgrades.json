@@ -1,0 +1,57 @@
+{
+  "g01_rag_remote_ok": [
+    "seniority"
+  ],
+  "g06_no_overlap_rejected": [
+    "countries_allowed"
+  ],
+  "g08_unpaid_trial_rejected": [
+    "compensation"
+  ],
+  "g11_advisor_positive": [
+    "seniority"
+  ],
+  "g12_fullstack_mvp_positive": [
+    "required_overlap"
+  ],
+  "g14_ai_forbidden_rejected": [
+    "seniority"
+  ],
+  "g15_llm_evals_mcp": [
+    "required_overlap",
+    "seniority"
+  ],
+  "g16_payments_backend": [
+    "seniority"
+  ],
+  "g18_rag_newsletter": [
+    "required_overlap"
+  ],
+  "g20_mvp_django": [
+    "required_overlap",
+    "tech_stack"
+  ],
+  "g22_python_automation_2": [
+    "required_overlap"
+  ],
+  "g23_advisory_high_rate_rejected": [
+    "required_overlap",
+    "seniority"
+  ],
+  "g24_rookie_rejected": [
+    "countries_allowed"
+  ],
+  "g26_django_etl": [
+    "required_overlap",
+    "seniority"
+  ],
+  "g27_gov_tender": [
+    "required_overlap"
+  ],
+  "g28_mvp_parttime": [
+    "required_overlap"
+  ],
+  "g30_integration_webhooks": [
+    "seniority"
+  ]
+}

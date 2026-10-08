@@ -1,0 +1,40 @@
+{
+  "id": "g15_llm_evals_mcp",
+  "source": "manual",
+  "url": "https://llm-labs.example/jobs/eval-21",
+  "posted_at": "2026-09-25T09:30:00Z",
+  "jd_raw": "LLM Evaluation Engineer (contract, long-term)\n\nCompany: LLM Labs\n\nWe build evaluation infrastructure for LLM applications and need a contractor.\n\n- Design LLM-as-judge harnesses; build citation-accuracy and groundedness metrics\n- RAG pipeline debugging; prompt regression testing at scale\n- Python, Pydantic, FastAPI, pgvector; embeddings and chunking\n- Experience with agents and MCP tool integrations is a plus\n\nRequirements: strong Python; experience with LLM evals or RAG in production\nRate: $2,800 - $4,000 per month, 25 h/week\nRemote: anywhere; 3h overlap with UTC+2\nEngagement: independent contractor, AI tools allowed, no exclusivity\nApplication: apply here or write to evals@llmlabs.example",
+  "expected_jd_parsed": {
+    "title": "LLM Evaluation Engineer",
+    "company": "LLM Labs",
+    "seniority": "senior",
+    "engagement_type": "contractor",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "UTC+02:00", "start": "09:00", "end": "18:00"},
+    "hours_per_week": [25, 25],
+    "compensation": {"min": 2800, "max": 4000, "currency": "USD", "period": "month"},
+    "must_have": ["python", "llm evals", "rag", "fastapi", "pgvector"],
+    "nice_to_have": ["agents", "mcp"],
+    "tech_stack": ["python", "pydantic", "fastapi", "pgvector", "embeddings"],
+    "ai_tools_policy": "allowed",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "evals@llmlabs.example",
+    "evidence_spans": {
+      "engagement_type": "independent contractor",
+      "exclusivity": "no exclusivity",
+      "remote_policy": "Remote: anywhere",
+      "compensation": "$2,800 - $4,000 per month",
+      "ai_tools_policy": "AI tools allowed",
+      "application_method": "write to evals@llmlabs.example"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "a_ai_llm_engineer",
+  "expected_reject_reasons": [],
+  "notes": "Strong A match: evals + RAG + citations map directly to profile fact exp.acme.b3 and prj.1."
+}

@@ -1,0 +1,41 @@
+{
+  "id": "g01_rag_remote_ok",
+  "source": "remoteok",
+  "url": "https://remoteok.com/1234567",
+  "posted_at": "2026-09-20T09:00:00Z",
+  "jd_raw": "We are hiring a RAG/LLM Engineer (contract)\n\nCompany: Beacon Analytics\n\nAbout the role\n- Build and tune RAG pipelines over our internal documentation corpus\n- Prompt engineering and evaluation of LLM outputs (LLM-as-judge harnesses)\n- Integrate OpenAI/Claude APIs; work with vector databases (Pinecone, pgvector)\n- Python; FastAPI; background jobs with Celery\n\nRequirements\n- 3+ years Python, backend APIs\n- Experience with LLMs: RAG, agents, prompt evaluation\n- PostgreSQL\n\nNice to have: LangChain, vector DB ops, MCP tooling\n\nCompensation: $2,500 - $4,000 per month, 20-30 h/week\nEngagement: independent contractor (B2B), long-term\nRemote: worldwide; overlap 09:00-17:00 UTC\nAI tools: allowed. Subcontracting: not required. No exclusivity.\nApplication: email your CV to jobs@beaconanalytics.example\n\nTags: ai, llm, rag, python, backend",
+  "expected_jd_parsed": {
+    "title": "RAG/LLM Engineer",
+    "company": "Beacon Analytics",
+    "seniority": "senior",
+    "engagement_type": "contractor",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "UTC", "start": "09:00", "end": "17:00"},
+    "hours_per_week": [20, 30],
+    "compensation": {"min": 2500, "max": 4000, "currency": "USD", "period": "month"},
+    "must_have": ["python", "rag", "llm", "postgresql"],
+    "nice_to_have": ["langchain", "vector db ops", "mcp"],
+    "tech_stack": ["python", "fastapi", "celery", "pinecone", "pgvector"],
+    "ai_tools_policy": "allowed",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "jobs@beaconanalytics.example",
+    "evidence_spans": {
+      "engagement_type": "independent contractor (B2B)",
+      "remote_policy": "Remote: worldwide",
+      "required_overlap": "overlap 09:00-17:00 UTC",
+      "compensation": "$2,500 - $4,000 per month",
+      "application_method": "email your CV to jobs@beaconanalytics.example",
+      "ai_tools_policy": "AI tools: allowed",
+      "exclusivity": "No exclusivity"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "a_ai_llm_engineer",
+  "expected_reject_reasons": [],
+  "notes": "Clean positive: ICA, in-band rate, 8h overlap, AI allowed."
+}

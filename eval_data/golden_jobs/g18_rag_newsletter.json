@@ -1,0 +1,38 @@
+{
+  "id": "g18_rag_newsletter",
+  "source": "email_alerts",
+  "url": "https://newsletter.example/jobs/rag-303",
+  "posted_at": "2026-09-26T07:00:00Z",
+  "jd_raw": "RAG Engineer (newsletter pick)\n\nCompany: CorpusAI\n\nFrom the job alert: they are hiring a RAG engineer to improve groundedness of their support assistant.\n\n- Python, LangChain, vector DBs (Weaviate), evals for RAG outputs\n- You will tune chunking, retrieval, and citation quality\n- Contract: B2B, 20 h/week, $2,500 - $3,500/month\n- Remote worldwide, 4h overlap with London time\nApplication: click the link in the email or write to hires@corpusai.example",
+  "expected_jd_parsed": {
+    "title": "RAG Engineer",
+    "company": "CorpusAI",
+    "seniority": "unknown",
+    "engagement_type": "b2b",
+    "exclusivity": "unknown",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/London", "start": "09:00", "end": "18:00"},
+    "hours_per_week": [20, 20],
+    "compensation": {"min": 2500, "max": 3500, "currency": "USD", "period": "month"},
+    "must_have": ["python", "langchain", "weaviate", "rag", "evals"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "langchain", "weaviate"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "hires@corpusai.example",
+    "evidence_spans": {
+      "engagement_type": "B2B",
+      "remote_policy": "Remote worldwide",
+      "compensation": "$2,500 - $3,500/month",
+      "application_method": "write to hires@corpusai.example"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "a_ai_llm_engineer",
+  "expected_reject_reasons": [],
+  "notes": "Ingested via email_alerts adapter; typical alert-email JD with weaker structure than platform postings."
+}

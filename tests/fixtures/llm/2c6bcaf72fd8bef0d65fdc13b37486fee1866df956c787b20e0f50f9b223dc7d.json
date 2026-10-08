@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "allowed",
+    "application_email": "engineering@vendorbridge.example",
+    "application_method": "email",
+    "company": "VendorBridge",
+    "compensation": {
+      "currency": "USD",
+      "max": 3500,
+      "min": 2500,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "ai_tools_policy": "AI tools: allowed",
+      "application_method": "write to engineering@vendorbridge.example",
+      "compensation": "$2,500 - $3,500 per month",
+      "engagement_type": "Contract: B2B",
+      "exclusivity": "No exclusivity",
+      "hours_per_week": "We connect 200+ vendor APIs to our marketplace and need a contractor to build and harden the integration layer.",
+      "must_have": "- Python, webhooks, REST, message queues (RabbitMQ/Kafka)",
+      "nice_to_have": "- Build the new Shopify + Amazon SP-API integrations",
+      "onsite_required": "Remote: worldwide, 4h overlap with UTC",
+      "remote_policy": "Remote: worldwide",
+      "required_overlap": "Remote: worldwide, 4h overlap with UTC",
+      "subcontracting_policy": "Subcontracting: allowed with disclosure",
+      "tech_stack": "- Python, webhooks, REST, message queues (RabbitMQ/Kafka)"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      20,
+      30
+    ],
+    "must_have": [
+      "python",
+      "webhooks",
+      "rest",
+      "message queue",
+      "rabbitmq",
+      "kafka"
+    ],
+    "nice_to_have": [
+      "shopify",
+      "amazon sp-api"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "13:00",
+      "start": "09:00",
+      "tz": "UTC"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "allowed",
+    "tech_stack": [
+      "python",
+      "rabbitmq",
+      "kafka",
+      "webhooks"
+    ],
+    "title": "Integration Engineer - Marketplace"
+  }
+}

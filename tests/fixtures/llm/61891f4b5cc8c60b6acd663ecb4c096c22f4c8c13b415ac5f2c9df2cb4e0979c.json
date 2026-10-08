@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "form",
+    "company": "Acme Corp",
+    "compensation": {
+      "currency": "USD",
+      "max": 120000,
+      "min": 90000,
+      "period": "year"
+    },
+    "countries_allowed": [
+      "US"
+    ],
+    "engagement_type": "employee",
+    "evidence_spans": {
+      "application_method": "apply through this portal",
+      "compensation": "$90,000 - $120,000 per year",
+      "countries_allowed": "Work location: hybrid, 3 days in office in Austin, TX",
+      "engagement_type": "full-time employee",
+      "must_have": "- Build and maintain internal platform services in Python",
+      "onsite_required": "Work location: hybrid, 3 days in office in Austin, TX",
+      "remote_policy": "hybrid, 3 days in office",
+      "seniority": "Senior Software Engineer (Full-time)",
+      "tech_stack": "- Build and maintain internal platform services in Python"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": null,
+    "must_have": [
+      "python",
+      "sql",
+      "cloud infrastructure"
+    ],
+    "nice_to_have": [],
+    "onsite_required": true,
+    "red_flags": [],
+    "remote_policy": "hybrid",
+    "required_overlap": null,
+    "seniority": "senior",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "sql"
+    ],
+    "title": "Senior Software Engineer"
+  }
+}

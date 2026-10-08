@@ -1,0 +1,37 @@
+{
+  "id": "g08_unpaid_trial_rejected",
+  "source": "manual",
+  "url": "https://fasttrack-agency.example/jobs/77889",
+  "posted_at": "2026-09-08T09:00:00Z",
+  "jd_raw": "Full-Stack Developer (paid, after trial)\n\nFastTrack Agency is looking for a full-stack developer to build client MVPs.\n\nProcess: a 2-week unpaid trial project first (you build a sample dashboard for us). Successful candidates are offered a monthly retainer of $2,000 - $3,500.\n- Python/Django or Node, React\n- Remote, flexible hours\nApplication: email portfolio to projects@fasttrack-agency.example",
+  "expected_jd_parsed": {
+    "title": "Full-Stack Developer",
+    "company": "FastTrack Agency",
+    "seniority": "unknown",
+    "engagement_type": "unknown",
+    "exclusivity": "unknown",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": null,
+    "hours_per_week": null,
+    "compensation": {"min": 2000, "max": 3500, "currency": "USD", "period": "month"},
+    "must_have": ["python", "django", "react"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "django", "react", "node"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": ["unpaid_trial"],
+    "application_method": "email",
+    "application_email": "projects@fasttrack-agency.example",
+    "evidence_spans": {
+      "remote_policy": "Remote, flexible hours",
+      "application_method": "email portfolio to projects@fasttrack-agency.example",
+      "red_flag_unpaid_trial": "a 2-week unpaid trial project first"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["red_flag_unpaid_trial"],
+  "notes": "Hard filter #8: red-flag blocklist (unpaid trial)."
+}

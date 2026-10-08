@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "projects@fasttrack-agency.example",
+    "application_method": "email",
+    "company": "FastTrack Agency",
+    "compensation": null,
+    "countries_allowed": [],
+    "engagement_type": "unknown",
+    "evidence_spans": {
+      "application_method": "email portfolio to projects@fasttrack-agency.example",
+      "must_have": "- Python/Django or Node, React",
+      "onsite_required": "- Remote, flexible hours",
+      "red_flag_unpaid_trial": "a 2-week unpaid trial project first",
+      "red_flags": "Full-Stack Developer (paid, after trial)",
+      "remote_policy": "Remote, flexible hours",
+      "tech_stack": "- Python/Django or Node, React"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": null,
+    "must_have": [
+      "python",
+      "django",
+      "react"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [
+      "unpaid_trial"
+    ],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "django",
+      "react",
+      "node"
+    ],
+    "title": "Full-Stack Developer"
+  }
+}

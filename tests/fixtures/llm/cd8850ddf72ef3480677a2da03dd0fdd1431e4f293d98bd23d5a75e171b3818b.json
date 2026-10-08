@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "form",
+    "company": null,
+    "compensation": {
+      "currency": "USD",
+      "max": 3500,
+      "min": 3500,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "contractor",
+    "evidence_spans": {
+      "application_method": "submit your CV",
+      "compensation": "$3,500/month",
+      "engagement_type": "contract) - Elite Clients",
+      "hours_per_week": "Role: Python, microservices, AWS; remote; 30 h/week; $3,500/month",
+      "must_have": "Role: Python, microservices, AWS; remote; 30 h/week; $3,500/month",
+      "onsite_required": "Role: Python, microservices, AWS; remote; 30 h/week; $3,500/month",
+      "red_flag_pay_to_apply": "pays a $150 application assessment fee",
+      "red_flags": "Our agency places engineers with top clients. To proceed, every candidate pays a $150 application assessment fee (non-refundable, per our candidate agreement).",
+      "remote_policy": "remote",
+      "seniority": "Senior Backend Engineer (contract) - Elite Clients",
+      "tech_stack": "Role: Python, microservices, AWS; remote; 30 h/week; $3,500/month"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      30,
+      30
+    ],
+    "must_have": [
+      "python",
+      "microservices",
+      "aws"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [
+      "pay_to_apply"
+    ],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "senior",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "aws"
+    ],
+    "title": "Senior Backend Engineer"
+  }
+}

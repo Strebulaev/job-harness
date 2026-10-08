@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "allowed",
+    "application_email": "ops@delivro.example",
+    "application_method": "email",
+    "company": "Delivro",
+    "compensation": {
+      "currency": "USD",
+      "max": 3500,
+      "min": 2000,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "ai_tools_policy": "AI tools: allowed",
+      "application_method": "write to ops@delivro.example",
+      "compensation": "$2,000 - $3,500 / month",
+      "engagement_type": "B2B contractor",
+      "exclusivity": "No exclusivity",
+      "hours_per_week": "Engagement: B2B contractor, 15-25 h/week",
+      "must_have": "- Python, REST & webhook integrations, Airflow",
+      "nice_to_have": "Nice to have: n8n, Zapier architecture, Terraform",
+      "onsite_required": "Remote: EU timezones; overlap 10:00-18:00 CEST",
+      "remote_policy": "Remote: EU timezones",
+      "required_overlap": "Remote: EU timezones; overlap 10:00-18:00 CEST",
+      "subcontracting_policy": "subcontracting: allowed with disclosure",
+      "tech_stack": "- Python, REST & webhook integrations, Airflow"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      15,
+      25
+    ],
+    "must_have": [
+      "python",
+      "api automation",
+      "airflow"
+    ],
+    "nice_to_have": [
+      "n8n",
+      "zapier",
+      "terraform"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "18:00",
+      "start": "10:00",
+      "tz": "Europe/Berlin"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "allowed",
+    "tech_stack": [
+      "python",
+      "airflow",
+      "rest",
+      "webhooks"
+    ],
+    "title": "Automation & Integration Engineer"
+  }
+}

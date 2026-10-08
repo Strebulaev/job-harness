@@ -1,0 +1,40 @@
+{
+  "id": "g26_django_etl",
+  "source": "himalayas",
+  "url": "https://www.himalayas.app/postings/1003",
+  "posted_at": "2026-09-23T07:30:00Z",
+  "jd_raw": "Backend & Data Engineer (contract, 4 months)\n\nCompany: GrowthStack\n\nBuild the data pipeline that powers our customer analytics.\n\n- Python (Django services + data jobs), Airflow\n- ETL from Postgres + partner APIs into ClickHouse\n- API design for the analytics frontend\n\nProfile: 4+ years Python; data pipelines; SQL\nEngagement: contractor (B2B), 20-25 h/week, $2,500 - $3,500 per month\nRemote: EU, 4h overlap with CET\nNo exclusivity; AI tools allowed\nApplication: data@growthstack.example",
+  "expected_jd_parsed": {
+    "title": "Backend & Data Engineer",
+    "company": "GrowthStack",
+    "seniority": "mid",
+    "engagement_type": "contractor",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "09:00", "end": "13:00"},
+    "hours_per_week": [20, 25],
+    "compensation": {"min": 2500, "max": 3500, "currency": "USD", "period": "month"},
+    "must_have": ["python", "django", "airflow", "etl", "sql"],
+    "nice_to_have": ["clickhouse"],
+    "tech_stack": ["python", "django", "airflow", "clickhouse", "postgresql"],
+    "ai_tools_policy": "allowed",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "data@growthstack.example",
+    "evidence_spans": {
+      "engagement_type": "contractor (B2B)",
+      "exclusivity": "No exclusivity",
+      "remote_policy": "Remote: EU, 4h overlap with CET",
+      "compensation": "$2,500 - $3,500 per month",
+      "ai_tools_policy": "AI tools allowed",
+      "application_method": "data@growthstack.example"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "c_automation_integration",
+  "expected_reject_reasons": [],
+  "notes": "C archetype (data pipelines / ETL). Mid-seniority posting; profile overqualification gap = 0 -> no handson_focus."
+}

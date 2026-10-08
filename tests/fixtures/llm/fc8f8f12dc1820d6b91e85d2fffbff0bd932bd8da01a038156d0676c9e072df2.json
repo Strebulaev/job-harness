@@ -1,0 +1,4 @@
+{
+  "meta": {"input_tokens": 10, "output_tokens": 5, "latency_ms": 1, "cost_usd": 0.0},
+  "object": {"echo": "usertext"}
+}

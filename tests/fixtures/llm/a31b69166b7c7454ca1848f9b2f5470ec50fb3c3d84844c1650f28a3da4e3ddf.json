@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "founders@brightline.example",
+    "application_method": "email",
+    "company": "Brightline",
+    "compensation": null,
+    "countries_allowed": [],
+    "engagement_type": "unknown",
+    "evidence_spans": {
+      "application_method": "send a short video pitch",
+      "hours_per_week": "- Remote, 40 h/week",
+      "must_have": "- Full-stack, Python or JS",
+      "onsite_required": "- Remote, 40 h/week",
+      "red_flag_equity_only": "No salary at this stage — compensation is 5% equity",
+      "red_flags": "Co-founder Engineer (equity only)",
+      "remote_policy": "Remote, 40 h/week",
+      "tech_stack": "- Full-stack, Python or JS"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      40,
+      40
+    ],
+    "must_have": [
+      "full-stack"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [
+      "equity_only"
+    ],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "javascript"
+    ],
+    "title": "Co-founder Engineer"
+  }
+}

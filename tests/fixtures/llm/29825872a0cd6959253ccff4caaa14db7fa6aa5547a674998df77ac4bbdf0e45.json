@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "forbidden",
+    "application_email": "recruitment@eurobank.example",
+    "application_method": "email",
+    "company": "EuroBank",
+    "compensation": {
+      "currency": "USD",
+      "max": 3500,
+      "min": 3500,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "ai_tools_policy": "AI tools or AI-generated code is FORBIDDEN",
+      "application_method": "recruitment@eurobank.example",
+      "compensation": "$3,500/month",
+      "engagement_type": "B2B",
+      "hours_per_week": "Contract: 12 months, B2B, 30 h/week, $3,500/month.",
+      "must_have": "- Python, gRPC, event-driven payments core",
+      "onsite_required": "- Remote, overlap 09:00-17:00 CET",
+      "remote_policy": "Remote, overlap 09:00-17:00 CET",
+      "required_overlap": "- Remote, overlap 09:00-17:00 CET",
+      "tech_stack": "- Python, gRPC, event-driven payments core"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      30,
+      30
+    ],
+    "must_have": [
+      "python",
+      "grpc",
+      "event-driven"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "17:00",
+      "start": "09:00",
+      "tz": "Europe/Berlin"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "grpc"
+    ],
+    "title": "Backend Engineer - Payments Core"
+  }
+}

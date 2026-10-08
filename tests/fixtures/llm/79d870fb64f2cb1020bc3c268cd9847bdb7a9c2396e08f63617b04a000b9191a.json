@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "talent@kestrelcloud.example",
+    "application_method": "email",
+    "company": "Kestrel Cloud",
+    "compensation": {
+      "currency": "USD",
+      "max": 6000,
+      "min": 4500,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "application_method": "talent@kestrelcloud.example",
+      "compensation": "$4,500 - $6,000 per month",
+      "engagement_type": "B2B contractor",
+      "exclusivity": "you will be the final technical authority",
+      "hours_per_week": "Engagement: B2B contractor, 30-40 h/week",
+      "must_have": "- Distributed systems design, event-driven architecture at scale",
+      "nice_to_have": "- Python/Go; Kafka, Kubernetes, Terraform",
+      "onsite_required": "Remote: worldwide, 6h overlap with UTC",
+      "remote_policy": "Remote: worldwide",
+      "required_overlap": "Remote: worldwide, 6h overlap with UTC",
+      "seniority": "Principal Backend Architect (contract)",
+      "tech_stack": "- Python/Go; Kafka, Kubernetes, Terraform"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      30,
+      40
+    ],
+    "must_have": [
+      "distributed systems",
+      "event-driven",
+      "python",
+      "kafka",
+      "kubernetes",
+      "terraform"
+    ],
+    "nice_to_have": [
+      "go"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "14:00",
+      "start": "08:00",
+      "tz": "UTC"
+    },
+    "seniority": "principal",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "go",
+      "kafka",
+      "kubernetes",
+      "terraform"
+    ],
+    "title": "Principal Backend Architect"
+  }
+}

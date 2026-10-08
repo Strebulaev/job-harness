@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "hr@mystery-co.example",
+    "application_method": "email",
+    "company": "Mystery Co",
+    "compensation": null,
+    "countries_allowed": [],
+    "engagement_type": "unknown",
+    "evidence_spans": {
+      "application_method": "send CV to hr@mystery-co.example",
+      "hours_per_week": "Hours: 20-30 h/week",
+      "must_have": "Backend Engineer - Python (Mystery Co)",
+      "onsite_required": "- The team works remote-first",
+      "remote_policy": "remote-first",
+      "tech_stack": "Backend Engineer - Python (Mystery Co)"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      20,
+      30
+    ],
+    "must_have": [
+      "python",
+      "rest api",
+      "postgresql"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "postgresql"
+    ],
+    "title": "Backend Engineer - Python"
+  }
+}

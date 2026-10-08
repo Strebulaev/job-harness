@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "allowed",
+    "application_email": "founder@finedge.example",
+    "application_method": "email",
+    "company": "FinEdge",
+    "compensation": {
+      "currency": "USD",
+      "max": 3000,
+      "min": 3000,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "ai_tools_policy": "AI tools: allowed and encouraged",
+      "application_method": "founder@finedge.example",
+      "compensation": "$3,000 per month x 3 months",
+      "engagement_type": "Contract: B2B",
+      "hours_per_week": "Contract: B2B, 30 h/week, $3,000 per month x 3 months",
+      "must_have": "- Django or FastAPI backend, TypeScript/React frontend",
+      "nice_to_have": "- Django or FastAPI backend, TypeScript/React frontend",
+      "onsite_required": "Remote: US-friendly, 4h overlap with EST",
+      "remote_policy": "Remote: US-friendly"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      30,
+      30
+    ],
+    "must_have": [
+      "django",
+      "fastapi",
+      "react",
+      "postgresql",
+      "stripe",
+      "aws"
+    ],
+    "nice_to_have": [
+      "typescript",
+      "clerk",
+      "auth0"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [],
+    "title": "MVP Developer"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "g07_ambiguous_engineer",
+  "source": "manual",
+  "url": "https://jobs.mystery-co.example/career/31415",
+  "posted_at": "2026-09-14T14:00:00Z",
+  "jd_raw": "Backend Engineer - Python (Mystery Co)\n\nMystery Co is growing and needs a backend engineer.\n\n- Python services, REST APIs, PostgreSQL\n- Some collaboration with the team in Lisbon\n- The team works remote-first\n\nCompensation: not specified in this listing; will be discussed at interview\nHours: 20-30 h/week\nEngagement type: not specified\nApplication: send CV to hr@mystery-co.example",
+  "expected_jd_parsed": {
+    "title": "Backend Engineer - Python",
+    "company": "Mystery Co",
+    "seniority": "unknown",
+    "engagement_type": "unknown",
+    "exclusivity": "unknown",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": null,
+    "hours_per_week": [20, 30],
+    "compensation": null,
+    "must_have": ["python", "rest api", "postgresql"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "postgresql"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "hr@mystery-co.example",
+    "evidence_spans": {
+      "remote_policy": "remote-first",
+      "application_method": "send CV to hr@mystery-co.example"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": "b_backend_contractor",
+  "expected_reject_reasons": ["comp_below_floor"],
+  "expected_flags": ["verify_engagement", "ask_rate"],
+  "notes": "Ambiguous: engagement unknown -> keep with penalty + verify_engagement flag; compensation unknown -> ask_rate flag. Parser must NOT guess a value that lacks an evidence span."
+}

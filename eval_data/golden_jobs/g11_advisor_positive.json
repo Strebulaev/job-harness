@@ -1,0 +1,39 @@
+{
+  "id": "g11_advisor_positive",
+  "source": "manual",
+  "url": "https://advisory.example/engage/2026-042",
+  "posted_at": "2026-09-23T09:00:00Z",
+  "jd_raw": "Fractional CTO / Technical Advisor\n\nCompany: Novatech (seed-stage, AI product, 12 people)\n\nWe are looking for a fractional technical leader for 6 months.\n\nMandate\n- Technical roadmap: architecture review, AI/ML strategy for our product\n- Hiring: tech stack decisions, interview loop for 2 senior engineers\n- Governance: code quality bar, delivery process, security basics\n\nProfile: hands-on CTO/Staff background; you must still be able to write code weekly\n\nFormat: advisory contract (B2B), 10-20 h/week\nFee: $3,000 - $4,000 per month\nRemote: async-first, weekly sync 10:00 UTC\nNo exclusivity; you may hold multiple advisory roles\nApplication: reply to this letter (coo@novatech.example)",
+  "expected_jd_parsed": {
+    "title": "Fractional CTO / Technical Advisor",
+    "company": "Novatech",
+    "seniority": "principal",
+    "engagement_type": "b2b",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "UTC", "start": "10:00", "end": "10:30"},
+    "hours_per_week": [10, 20],
+    "compensation": {"min": 3000, "max": 4000, "currency": "USD", "period": "month"},
+    "must_have": ["architecture", "ai strategy", "hiring", "technical leadership"],
+    "nice_to_have": ["roadmap", "governance"],
+    "tech_stack": [],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "coo@novatech.example",
+    "evidence_spans": {
+      "engagement_type": "advisory contract (B2B)",
+      "exclusivity": "you may hold multiple advisory roles",
+      "remote_policy": "Remote: async-first",
+      "compensation": "$3,000 - $4,000 per month",
+      "application_method": "reply to this letter"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": "e_technical_advisor",
+  "expected_reject_reasons": ["overlap_below_min"],
+  "notes": "E archetype positive; principal-level posting (overqualification module gap=0)."
+}

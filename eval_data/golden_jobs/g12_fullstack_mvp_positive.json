@@ -1,0 +1,40 @@
+{
+  "id": "g12_fullstack_mvp_positive",
+  "source": "manual",
+  "url": "https://startups.example/contract/911",
+  "posted_at": "2026-09-24T13:00:00Z",
+  "jd_raw": "Full-Stack Engineer - MVP Build (contract)\n\nCompany: Quantio (pre-seed, Berlin)\n\nWe have validated our idea and need one engineer to ship the MVP end-to-end in 3 months.\n\n- Python (FastAPI) backend, React/TypeScript frontend\n- Postgres, basic auth, Stripe billing\n- You own the whole stack: API design to deploy\n\nContract: B2B, full effort 30-40 h/week for ~12 weeks\nPayment: $3,500 per month (total retainer, 3 months)\nRemote: yes, 4h overlap with CET\nAI tooling: explicitly welcome\nApplication: email founder (founder@quantio.example)",
+  "expected_jd_parsed": {
+    "title": "Full-Stack Engineer - MVP Build",
+    "company": "Quantio",
+    "seniority": "unknown",
+    "engagement_type": "b2b",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "09:00", "end": "13:00"},
+    "hours_per_week": [30, 40],
+    "compensation": {"min": 3500, "max": 3500, "currency": "USD", "period": "month"},
+    "must_have": ["python", "fastapi", "react", "postgresql", "stripe"],
+    "nice_to_have": ["typescript"],
+    "tech_stack": ["python", "fastapi", "react", "typescript", "postgresql", "stripe"],
+    "ai_tools_policy": "allowed",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "founder@quantio.example",
+    "evidence_spans": {
+      "engagement_type": "Contract: B2B",
+      "remote_policy": "Remote: yes, 4h overlap with CET",
+      "compensation": "$3,500 per month",
+      "ai_tools_policy": "AI tooling: explicitly welcome",
+      "application_method": "email founder",
+      "exclusivity": "ship the MVP end-to-end"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "f_fullstack_mvp",
+  "expected_reject_reasons": [],
+  "notes": "F archetype positive; short fixed-term project."
+}

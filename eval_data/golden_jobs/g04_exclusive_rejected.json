@@ -1,0 +1,39 @@
+{
+  "id": "g04_exclusive_rejected",
+  "source": "wellfound_alerts",
+  "url": "https://wellfound.example/job/55443",
+  "posted_at": "2026-09-15T12:00:00Z",
+  "jd_raw": "Backend Engineer (Contract, exclusive)\n\nCompany: FintechX\n\nWe are seeking a contractor for a 9-month exclusive engagement building our ledger service.\n\nDetails\n- Python, PostgreSQL, Kafka\n- Exclusive engagement: all working hours are devoted to FintechX; no other clients during the term\n- B2B invoicing, 30-40 h/week\n- Rate: $3,200 per month (fixed)\n- Remote, overlap 09:00-18:00 ET\nApplication: reply to this email thread (talent@fintechx.example)",
+  "expected_jd_parsed": {
+    "title": "Backend Engineer",
+    "company": "FintechX",
+    "seniority": "unknown",
+    "engagement_type": "contractor",
+    "exclusivity": "required",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "America/New_York", "start": "09:00", "end": "18:00"},
+    "hours_per_week": [30, 40],
+    "compensation": {"min": 3200, "max": 3200, "currency": "USD", "period": "month"},
+    "must_have": ["python", "postgresql", "kafka"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "postgresql", "kafka"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "talent@fintechx.example",
+    "evidence_spans": {
+      "engagement_type": "Contract",
+      "exclusivity": "Exclusive engagement: all working hours are devoted to FintechX",
+      "remote_policy": "Remote, overlap 09:00-18:00 ET",
+      "compensation": "$3,200 per month",
+      "application_method": "reply to this email thread"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["exclusivity_required"],
+  "notes": "Hard filter #2: exclusivity required."
+}

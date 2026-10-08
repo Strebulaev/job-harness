@@ -1,0 +1,4 @@
+{
+  "meta": {"input_tokens": 10, "output_tokens": 8, "latency_ms": 2, "cost_usd": 0.0},
+  "text": "hello world"
+}

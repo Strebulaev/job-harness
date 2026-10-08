@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "platform",
+    "company": "Seedling Apps",
+    "compensation": {
+      "currency": "USD",
+      "max": 800,
+      "min": 800,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "contractor",
+    "evidence_spans": {
+      "application_method": "apply on the site",
+      "compensation": "$800 per month total",
+      "engagement_type": "project-based contractor",
+      "exclusivity": "part-time contract",
+      "hours_per_week": "- 10 h/week, $800 per month total",
+      "must_have": "- Python, basic APIs",
+      "onsite_required": "- Remote, flexible hours, no overlap requirement stated",
+      "remote_policy": "Remote, flexible hours",
+      "seniority": "Junior Backend Developer (part-time contract)",
+      "tech_stack": "- Python, basic APIs"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      10,
+      10
+    ],
+    "must_have": [
+      "python",
+      "api"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "junior",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python"
+    ],
+    "title": "Junior Backend Developer"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "g21_pay_to_apply_rejected",
+  "source": "manual",
+  "url": "https://elites-recruiting.example/role/pta-9",
+  "posted_at": "2026-09-03T10:00:00Z",
+  "jd_raw": "Senior Backend Engineer (contract) - Elite Clients\n\nOur agency places engineers with top clients. To proceed, every candidate pays a $150 application assessment fee (non-refundable, per our candidate agreement).\n\nRole: Python, microservices, AWS; remote; 30 h/week; $3,500/month\nApplication: pay the assessment fee at the link and submit your CV",
+  "expected_jd_parsed": {
+    "title": "Senior Backend Engineer",
+    "company": null,
+    "seniority": "senior",
+    "engagement_type": "contractor",
+    "exclusivity": "unknown",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": null,
+    "hours_per_week": [30, 30],
+    "compensation": {"min": 3500, "max": 3500, "currency": "USD", "period": "month"},
+    "must_have": ["python", "microservices", "aws"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "aws"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": ["pay_to_apply"],
+    "application_method": "form",
+    "application_email": null,
+    "evidence_spans": {
+      "remote_policy": "remote",
+      "compensation": "$3,500/month",
+      "application_method": "submit your CV",
+      "engagement_type": "contract) - Elite Clients",
+      "red_flag_pay_to_apply": "pays a $150 application assessment fee"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["red_flag_pay_to_apply"],
+  "notes": "Hard filter #8: pay-to-apply red flag. Company is null (agency posting without a named client) -> G6 company-name check N/A."
+}

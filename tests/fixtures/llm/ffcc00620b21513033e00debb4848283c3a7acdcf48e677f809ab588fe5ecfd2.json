@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "payments-eng@payhive.example",
+    "application_method": "email",
+    "company": "PayHive",
+    "compensation": {
+      "currency": "USD",
+      "max": 85,
+      "min": 70,
+      "period": "hour"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "application_method": "mail payments-eng@payhive.example",
+      "compensation": "70-85 USD/hour",
+      "engagement_type": "B2B invoice",
+      "exclusivity": "Exclusivity: not required",
+      "hours_per_week": "Rate: 70-85 USD/hour, 20-30 h/week (B2B invoice)",
+      "must_have": "- Python services, SQL (Postgres), event-driven design",
+      "nice_to_have": "- Kafka + PostgreSQL, Redis for state",
+      "onsite_required": "Remote: EU overlap 08:00-16:00 CEST required",
+      "remote_policy": "Remote: EU overlap 08:00-16:00 CEST",
+      "required_overlap": "Remote: EU overlap 08:00-16:00 CEST required",
+      "tech_stack": "- Python services, SQL (Postgres), event-driven design"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      20,
+      30
+    ],
+    "must_have": [
+      "python",
+      "sql",
+      "event-driven",
+      "kafka",
+      "postgresql"
+    ],
+    "nice_to_have": [
+      "redis"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "16:00",
+      "start": "08:00",
+      "tz": "Europe/Berlin"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "kafka",
+      "postgresql",
+      "redis"
+    ],
+    "title": "Backend Engineer - Payments"
+  }
+}

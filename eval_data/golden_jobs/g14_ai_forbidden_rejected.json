@@ -1,0 +1,39 @@
+{
+  "id": "g14_ai_forbidden_rejected",
+  "source": "manual",
+  "url": "https://bank-corp.example/career/ai-404",
+  "posted_at": "2026-09-07T08:00:00Z",
+  "jd_raw": "Backend Engineer - Payments Core (B2B engagement)\n\nCompany: EuroBank (regulated)\n\nContract: 12 months, B2B, 30 h/week, $3,500/month.\n\n- Python, gRPC, event-driven payments core\n- Remote, overlap 09:00-17:00 CET\n- STRICT security policy: use of any AI tools or AI-generated code is FORBIDDEN in all deliverables and in the development process. Sign an addendum confirming zero AI tool usage before start.\nApplication: recruitment@eurobank.example",
+  "expected_jd_parsed": {
+    "title": "Backend Engineer - Payments Core",
+    "company": "EuroBank",
+    "seniority": "senior",
+    "engagement_type": "b2b",
+    "exclusivity": "unknown",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "09:00", "end": "17:00"},
+    "hours_per_week": [30, 30],
+    "compensation": {"min": 3500, "max": 3500, "currency": "USD", "period": "month"},
+    "must_have": ["python", "grpc", "event-driven"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "grpc"],
+    "ai_tools_policy": "forbidden",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "recruitment@eurobank.example",
+    "evidence_spans": {
+      "engagement_type": "B2B",
+      "remote_policy": "Remote, overlap 09:00-17:00 CET",
+      "compensation": "$3,500/month",
+      "ai_tools_policy": "AI tools or AI-generated code is FORBIDDEN",
+      "application_method": "recruitment@eurobank.example"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["ai_tools_forbidden"],
+  "notes": "Hard filter #7: ai_tools_policy == forbidden (configurable default reject)."
+}

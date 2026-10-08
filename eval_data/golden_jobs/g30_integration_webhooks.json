@@ -1,0 +1,41 @@
+{
+  "id": "g30_integration_webhooks",
+  "source": "wellfound_alerts",
+  "url": "https://wellfound.example/job/12321",
+  "posted_at": "2026-09-26T05:00:00Z",
+  "jd_raw": "Integration Engineer - Marketplace (contract)\n\nCompany: VendorBridge\n\nWe connect 200+ vendor APIs to our marketplace and need a contractor to build and harden the integration layer.\n\n- Python, webhooks, REST, message queues (RabbitMQ/Kafka)\n- Idempotent ingestion, retries, dead-letter handling\n- Build the new Shopify + Amazon SP-API integrations\n\nContract: B2B, 20-30 h/week, $2,500 - $3,500 per month\nRemote: worldwide, 4h overlap with UTC\nAI tools: allowed. Subcontracting: allowed with disclosure. No exclusivity.\nApplication: write to engineering@vendorbridge.example",
+  "expected_jd_parsed": {
+    "title": "Integration Engineer - Marketplace",
+    "company": "VendorBridge",
+    "seniority": "senior",
+    "engagement_type": "b2b",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "UTC", "start": "09:00", "end": "13:00"},
+    "hours_per_week": [20, 30],
+    "compensation": {"min": 2500, "max": 3500, "currency": "USD", "period": "month"},
+    "must_have": ["python", "webhooks", "rest", "message queue", "rabbitmq", "kafka"],
+    "nice_to_have": ["shopify", "amazon sp-api"],
+    "tech_stack": ["python", "rabbitmq", "kafka", "webhooks"],
+    "ai_tools_policy": "allowed",
+    "subcontracting_policy": "allowed",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "engineering@vendorbridge.example",
+    "evidence_spans": {
+      "engagement_type": "Contract: B2B",
+      "exclusivity": "No exclusivity",
+      "remote_policy": "Remote: worldwide",
+      "compensation": "$2,500 - $3,500 per month",
+      "ai_tools_policy": "AI tools: allowed",
+      "subcontracting_policy": "Subcontracting: allowed with disclosure",
+      "application_method": "write to engineering@vendorbridge.example"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "c_automation_integration",
+  "expected_reject_reasons": [],
+  "notes": "C archetype: webhook/integration focus maps to exp.acme.b1 (event-driven pipeline) and exp.globex.b2 (rollout process)."
+}

@@ -55,3 +55,9 @@ fx:
     USD: 1.0
     RUB: 0.011
     UAH: 0.025
+ingest:
+  rss_feeds:
+    - "https://weworkremotely.com/remote-jobs.rss"
+  user_agent: "jobharness/0.1"
+  email_alerts_imap: null
+  email_alerts_label: null

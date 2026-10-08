@@ -1,0 +1,39 @@
+{
+  "id": "g22_python_automation_2",
+  "source": "rss",
+  "url": "https://feeds.example/automation-pipeline-42",
+  "posted_at": "2026-09-22T04:00:00Z",
+  "jd_raw": "Python Automation Engineer (RSS feed)\n\nCompany: Logistream\n\nContract to automate our warehouse data flows.\n\n- Python, REST API integrations, webhooks\n- Airflow DAGs; ETL into ClickHouse\n- Build monitoring and alerts for pipeline failures\n\nRequirements: Python, ETL, API automation; experience with logistics data\nEngagement: contractor, 15-20 h/week, $2,000 - $3,000/month\nRemote: EU timezones, 3h overlap with CET\nSubcontracting: not required, no exclusivity\nApplication: link in the RSS item or mail ops@logistream.example",
+  "expected_jd_parsed": {
+    "title": "Python Automation Engineer",
+    "company": "Logistream",
+    "seniority": "unknown",
+    "engagement_type": "contractor",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "09:00", "end": "12:00"},
+    "hours_per_week": [15, 20],
+    "compensation": {"min": 2000, "max": 3000, "currency": "USD", "period": "month"},
+    "must_have": ["python", "rest api", "webhooks", "airflow", "etl"],
+    "nice_to_have": ["clickhouse"],
+    "tech_stack": ["python", "airflow", "clickhouse"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "ops@logistream.example",
+    "evidence_spans": {
+      "engagement_type": "contractor, 15-20 h/week",
+      "exclusivity": "no exclusivity",
+      "remote_policy": "Remote: EU timezones",
+      "compensation": "$2,000 - $3,000/month",
+      "application_method": "mail ops@logistream.example"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "c_automation_integration",
+  "expected_reject_reasons": [],
+  "notes": "Ingested via generic rss adapter; C archetype."
+}

@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "partner-ops@bigcorpdigital.example",
+    "application_method": "email",
+    "company": "BigCorp Digital",
+    "compensation": {
+      "currency": "USD",
+      "max": 8000,
+      "min": 8000,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "application_method": "partner-ops@bigcorpdigital.example",
+      "compensation": "$8,000 per month",
+      "engagement_type": "fractional CTO",
+      "exclusivity": "exclusive engagement (this is the only engagement you may hold)",
+      "hours_per_week": "- 40 h/week, exclusive engagement (this is the only engagement you may hold)",
+      "must_have": "- Architecture governance, AI strategy, delivery maturity",
+      "onsite_required": "- Remote, US timezones",
+      "remote_policy": "Remote, US timezones"
+    },
+    "exclusivity": "required",
+    "hours_per_week": [
+      40,
+      40
+    ],
+    "must_have": [
+      "architecture governance",
+      "ai strategy",
+      "delivery maturity"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [],
+    "title": "Technical Advisor / Fractional CTO"
+  }
+}

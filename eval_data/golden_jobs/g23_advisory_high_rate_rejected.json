@@ -1,0 +1,39 @@
+{
+  "id": "g23_advisory_high_rate_rejected",
+  "source": "manual",
+  "url": "https://consulting-gig.example/role/advisory-66",
+  "posted_at": "2026-09-02T09:00:00Z",
+  "jd_raw": "Technical Advisor / Fractional CTO (exclusive, 6 months)\n\nCompany: BigCorp Digital\n\nWe are running a 6-month transformation program and need a dedicated fractional CTO.\n\n- Architecture governance, AI strategy, delivery maturity\n- 40 h/week, exclusive engagement (this is the only engagement you may hold)\n- Fee: $8,000 per month\n- Remote, US timezones\nApplication: partner-ops@bigcorpdigital.example",
+  "expected_jd_parsed": {
+    "title": "Technical Advisor / Fractional CTO",
+    "company": "BigCorp Digital",
+    "seniority": "principal",
+    "engagement_type": "b2b",
+    "exclusivity": "required",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "America/New_York", "start": "09:00", "end": "18:00"},
+    "hours_per_week": [40, 40],
+    "compensation": {"min": 8000, "max": 8000, "currency": "USD", "period": "month"},
+    "must_have": ["architecture governance", "ai strategy", "delivery maturity"],
+    "nice_to_have": [],
+    "tech_stack": [],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "email",
+    "application_email": "partner-ops@bigcorpdigital.example",
+    "evidence_spans": {
+      "engagement_type": "fractional CTO",
+      "exclusivity": "exclusive engagement (this is the only engagement you may hold)",
+      "remote_policy": "Remote, US timezones",
+      "compensation": "$8,000 per month",
+      "application_method": "partner-ops@bigcorpdigital.example"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["exclusivity_required"],
+  "notes": "Hard filter #2. Rate is above ceiling (informational: over-band), but the blocking reason is exclusivity."
+}

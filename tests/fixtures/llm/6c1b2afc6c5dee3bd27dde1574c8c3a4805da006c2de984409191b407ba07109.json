@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "platform",
+    "company": "Sakha Group",
+    "compensation": {
+      "currency": "USD",
+      "max": 4000,
+      "min": 4000,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "contractor",
+    "evidence_spans": {
+      "application_method": "apply on the platform",
+      "compensation": "$4,000 per month",
+      "engagement_type": "external developer (outsourcing contract)",
+      "hours_per_week": "Terms: B2B, 40 h/week, $4,000 per month.",
+      "must_have": "Python Automation Engineer (outsourcing)",
+      "onsite_required": "Working hours: full-time in-office in Novosibirsk, 10:00-19:00 NOK (Asia/Novosibirsk). Hybrid work is not available.",
+      "remote_policy": "full-time in-office in Novosibirsk",
+      "required_overlap": "Working hours: full-time in-office in Novosibirsk, 10:00-19:00 NOK (Asia/Novosibirsk). Hybrid work is not available.",
+      "tech_stack": "Python Automation Engineer (outsourcing)"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      40,
+      40
+    ],
+    "must_have": [
+      "python",
+      "airflow",
+      "postgresql"
+    ],
+    "nice_to_have": [],
+    "onsite_required": true,
+    "red_flags": [],
+    "remote_policy": "onsite",
+    "required_overlap": {
+      "end": "19:00",
+      "start": "10:00",
+      "tz": "Asia/Novosibirsk"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "airflow",
+      "postgresql"
+    ],
+    "title": "Python Automation Engineer"
+  }
+}

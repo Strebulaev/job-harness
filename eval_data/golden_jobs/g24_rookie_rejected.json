@@ -1,0 +1,38 @@
+{
+  "id": "g24_rookie_rejected",
+  "source": "manual",
+  "url": "https://rookie.dev/jobs/100001",
+  "posted_at": "2026-09-01T08:00:00Z",
+  "jd_raw": "Backend Engineer - Internship (paid)\n\nCompany: RookieHQ\n\nPaid internship, 6 months.\n\n- Python, basic REST APIs, Postgres\n- 40 h/week, $1,200 per month\n- Office in Belgrade, 5 days on-site\nApplication: apply on the platform",
+  "expected_jd_parsed": {
+    "title": "Backend Engineer - Internship",
+    "company": "RookieHQ",
+    "seniority": "intern",
+    "engagement_type": "employee",
+    "exclusivity": "unknown",
+    "remote_policy": "onsite",
+    "onsite_required": true,
+    "countries_allowed": ["RS"],
+    "required_overlap": null,
+    "hours_per_week": [40, 40],
+    "compensation": {"min": 1200, "max": 1200, "currency": "USD", "period": "month"},
+    "must_have": ["python", "rest api", "postgres"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "postgres"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "platform",
+    "application_email": null,
+    "evidence_spans": {
+      "engagement_type": "Paid internship",
+      "remote_policy": "Office in Belgrade, 5 days on-site",
+      "compensation": "$1,200 per month",
+      "application_method": "apply on the platform"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["engagement_type_employee", "onsite_required", "comp_below_floor"],
+  "notes": "Triple reject: employee, on-site, below rate floor. Seniority intern."
+}

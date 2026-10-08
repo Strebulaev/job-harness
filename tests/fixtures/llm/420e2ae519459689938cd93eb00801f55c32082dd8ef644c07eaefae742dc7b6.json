@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "platform",
+    "company": "Nordwind Logistics",
+    "compensation": {
+      "currency": "USD",
+      "max": 90,
+      "min": 60,
+      "period": "hour"
+    },
+    "countries_allowed": [],
+    "engagement_type": "freelance",
+    "evidence_spans": {
+      "application_method": "apply via this listing",
+      "compensation": "60-90 USD per hour",
+      "engagement_type": "freelance / B2B contract",
+      "exclusivity": "No exclusive engagement",
+      "hours_per_week": "Compensation: 60-90 USD per hour, 20-25 h/week",
+      "must_have": "- Design and build REST APIs in Python (FastAPI) on top of PostgreSQL",
+      "nice_to_have": "- Strong SQL, API design, caching (Redis)",
+      "onsite_required": "Remote: EU-friendly timezones, overlap 08:00-16:00 CET",
+      "remote_policy": "Remote: EU-friendly timezones",
+      "required_overlap": "overlap 08:00-16:00 CET",
+      "seniority": "Senior Backend Engineer (Freelance / B2B)",
+      "tech_stack": "- Design and build REST APIs in Python (FastAPI) on top of PostgreSQL"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      20,
+      25
+    ],
+    "must_have": [
+      "python",
+      "fastapi",
+      "postgresql",
+      "kafka",
+      "sql"
+    ],
+    "nice_to_have": [
+      "redis"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "16:00",
+      "start": "08:00",
+      "tz": "Europe/Berlin"
+    },
+    "seniority": "senior",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "fastapi",
+      "postgresql",
+      "kafka",
+      "redis"
+    ],
+    "title": "Senior Backend Engineer"
+  }
+}

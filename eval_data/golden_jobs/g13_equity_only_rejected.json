@@ -1,0 +1,37 @@
+{
+  "id": "g13_equity_only_rejected",
+  "source": "manual",
+  "url": "https://founders-only.example/role/eq-17",
+  "posted_at": "2026-09-05T10:00:00Z",
+  "jd_raw": "Co-founder Engineer (equity only)\n\nCompany: Brightline (idea stage)\n\nJoin as a founding engineer. No salary at this stage — compensation is 5% equity plus future profit share.\n- Full-stack, Python or JS\n- Remote, 40 h/week\nApplication: send a short video pitch to founders@brightline.example",
+  "expected_jd_parsed": {
+    "title": "Co-founder Engineer",
+    "company": "Brightline",
+    "seniority": "unknown",
+    "engagement_type": "unknown",
+    "exclusivity": "unknown",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": null,
+    "hours_per_week": [40, 40],
+    "compensation": null,
+    "must_have": ["full-stack"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "javascript"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": ["equity_only"],
+    "application_method": "email",
+    "application_email": "founders@brightline.example",
+    "evidence_spans": {
+      "remote_policy": "Remote, 40 h/week",
+      "application_method": "send a short video pitch",
+      "red_flag_equity_only": "No salary at this stage — compensation is 5% equity"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["red_flag_equity_only", "comp_below_floor"],
+  "notes": "Hard filter #8: equity-only red flag; comp unknown/below floor."
+}

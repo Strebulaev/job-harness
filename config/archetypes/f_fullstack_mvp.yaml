@@ -2,7 +2,7 @@ id: f_fullstack_mvp
 name: "Full-Stack MVP Builder"
 headline_templates:
   - "Full-Stack Engineer — ship MVPs end-to-end (frontend + backend)"
-must_have_keywords: [python, frontend, fullstack, mvp]
+must_have_keywords: [python, frontend, fullstack, mvp, react, fastapi]
 nice_to_have_keywords: [react, nextjs, typescript, fastapi, tailwind]
 jd_match_signals: [fullstack, full-stack, mvp, frontend, product, "end-to-end"]
 fact_selection:

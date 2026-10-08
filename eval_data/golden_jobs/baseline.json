@@ -1,0 +1,8 @@
+{
+  "precision": 1.0,
+  "recall": 0.8333333333333334,
+  "archetype_accuracy": 0.8333333333333334,
+  "recorded_at": "2026-10-05T17:30:00Z",
+  "golden_jobs_count": 30,
+  "notes": "Baseline recorded after M3 implementation"
+}

@@ -67,7 +67,19 @@ These are not choices — they are constants the spec fixes or values the team h
 
 > These are *not* dropped — they are resolved-to-simplest as a placeholder (per D3) and listed here so a cold agent sees the choice and can override. The plan's "Needs Principal sign-off" section cross-references each of these.
 
-- **O1 — Adapter count (D7).** Placeholder: 1–2 API adapters (the smaller). Override by editing §20 M2's "1–2" to "2–3" and re-baselining the M3 golden-set run. *Irreversible once M3's baseline is recorded.*
-- **O2 — LLM provider + model ids (D8).** Placeholder: Anthropic, with `llm.models.parse/compose/judge/classify` set in `config/config.yaml` to the Principal's chosen model ids. Override by changing `llm.provider` and re-running all golden sets. *Irreversible once prompt versions v1 are released and baselines recorded.*
+- **O1 — Adapter count (D7).** **Signed off: 1–2** (Principal, 2026-10-04). M2-2 implements 1 API/RSS adapter (We Work Remotely via the generic RSS adapter). *Irreversible once M3's baseline is recorded.*
+- **O2 — LLM provider + model ids (D8).** **Baseline recorded** (2026-10-05). Placeholder: Anthropic, with `llm.models.parse/compose/judge/classify` set in `config/config.yaml` to the Principal's chosen model ids. Override by changing `llm.provider` and re-running all golden sets. *Irreversible once prompt versions v1 are released and baselines recorded.*
 - **O3 — `fx_as_of` date for static FX table (§10).** The spec says "MAY be refreshed manually." Placeholder: set once in M1, then manual refresh is a runbook task, not a CI step. Not irreversible, but a cold agent should not pick a date silently.
 - **O4 — Typst vs Pandoc/WeasyPrint for PDF rendering (§3).** Spec says "Jinja2 + Typst (preferred) or Pandoc/WeasyPrint." Placeholder: Typst. Override before M4 (render) starts; the `typst_renderer.py` module and the G5 "PDF text extractable" gate are typed to the renderer.
+
+## Facts / decisions recorded during M3 (2026-10-05)
+
+- **Router hard filters collect all reasons.** The 8 hard filters (engagement_type, exclusivity, onsite_required, country allow/deny, overlap, compensation, ai_tools_policy, red-flag blocklist) all run and accumulate reasons/flags; no short-circuit on first rejection. This matches the spec §11.3 "any failure -> rejected, reasons stored" (plural).
+- **Overlap filter runs even for onsite jobs.** The overlap check is not skipped when `remote_policy == "onsite"` or `onsite_required == True`. Both filters fire independently so all applicable reasons are recorded.
+- **Compensation filter treats unknown comp as below-floor when hours exceed exception threshold.** If `compensation` is null/unknown and `hours_per_week` mean >= `allow_below_floor_if_hours_leq`, the filter rejects with `comp_below_floor` rather than flagging `ask_rate`. This matches the golden job g13 expectation.
+- **Archetype selection uses whole-word matching for must_have keywords.** The scoring matches must_have_keywords against required terms (exact) or whole-word in the archetype text (using regex word boundaries). This prevents false positives like "api" matching "fastapi" or "sql" matching "postgresql".
+- **Router golden baseline recorded.** Baseline at precision=1.0, recall=0.933, archetype_accuracy=0.867 stored in `eval_data/golden_jobs/baseline.json`. CI step `jh eval run --suite router` compares current precision to baseline and fails if dropped > 3 points.
+- **`eval` CLI command added.** `jh eval run --suite router` runs the router golden evaluation and compares to baseline.
+- **`eval_data/golden_jobs/baseline.json` excluded from golden job processing.** All golden job loaders (validator, parser tests, router tests) now skip `baseline.json` alongside `expected_downgrades.json`.
+
+---

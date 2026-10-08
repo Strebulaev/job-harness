@@ -18,6 +18,7 @@ from typing import Any
 
 from pydantic import BaseModel
 
+from jobharness.llm import log_llm_call
 from jobharness.llm.hashing import request_hash
 from jobharness.llm.provider import LLMCallMeta
 
@@ -65,6 +66,10 @@ class FakeProvider:
         meta = data.get("meta", {})
         obj = data.get("object", data)  # allow flat or nested
         validated = schema.model_validate(obj)
+        # Defensive re-wrap: if the fixture passed validation but the schema
+        # rejects re-validation of its own dump (should not happen), surface
+        # it now rather than later in the post-check.
+        schema.model_validate(validated.model_dump())
         meta_obj = LLMCallMeta(
             model=model,
             prompt_version=prompt_version,
@@ -76,6 +81,7 @@ class FakeProvider:
             ok=True,
             raw=meta,
         )
+        log_llm_call(purpose, meta_obj)
         return validated, meta_obj
 
     async def generate_text(
@@ -111,4 +117,5 @@ class FakeProvider:
             ok=True,
             raw=meta,
         )
+        log_llm_call(purpose, meta_obj)
         return text, meta_obj

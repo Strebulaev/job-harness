@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "mvp@loomline.example",
+    "application_method": "email",
+    "company": "Loomline",
+    "compensation": {
+      "currency": "USD",
+      "max": 1800,
+      "min": 1800,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "b2b",
+    "evidence_spans": {
+      "application_method": "mvp@loomline.example",
+      "compensation": "$1,800 per month",
+      "engagement_type": "Contract: B2B",
+      "hours_per_week": "Contract: B2B, 15 h/week, $1,800 per month",
+      "must_have": "- Python (FastAPI) + React + Postgres",
+      "onsite_required": "Remote: async-first, 2h daily overlap with CET",
+      "remote_policy": "Remote: async-first",
+      "subcontracting_policy": "open to subcontracting parts of the work",
+      "tech_stack": "- Python (FastAPI) + React + Postgres"
+    },
+    "exclusivity": "unknown",
+    "hours_per_week": [
+      15,
+      15
+    ],
+    "must_have": [
+      "python",
+      "fastapi",
+      "react",
+      "postgresql"
+    ],
+    "nice_to_have": [],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "allowed",
+    "tech_stack": [
+      "python",
+      "fastapi",
+      "react",
+      "postgresql"
+    ],
+    "title": "MVP Builder"
+  }
+}

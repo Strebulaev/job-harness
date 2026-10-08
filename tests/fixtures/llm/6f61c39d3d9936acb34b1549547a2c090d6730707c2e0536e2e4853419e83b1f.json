@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": null,
+    "application_method": "platform",
+    "company": "Cloudmill",
+    "compensation": {
+      "currency": "USD",
+      "max": 3500,
+      "min": 2500,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "contractor",
+    "evidence_spans": {
+      "application_method": "submit resume via this platform",
+      "compensation": "$2,500 - $3,500 per month",
+      "engagement_type": "contractor, 10-20 h/week",
+      "exclusivity": "part-time",
+      "hours_per_week": "Engagement: contractor, 10-20 h/week, long-term",
+      "must_have": "We run a small Kubernetes fleet and need a part-time platform engineer to keep CI/CD and observability healthy.",
+      "nice_to_have": "- GitLab CI, Terraform, Prometheus/Grafana",
+      "onsite_required": "Remote: worldwide, overlap 07:00-15:00 UTC",
+      "remote_policy": "Remote: worldwide",
+      "required_overlap": "overlap 07:00-15:00 UTC",
+      "tech_stack": "We run a small Kubernetes fleet and need a part-time platform engineer to keep CI/CD and observability healthy."
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      10,
+      20
+    ],
+    "must_have": [
+      "kubernetes",
+      "terraform",
+      "prometheus",
+      "python"
+    ],
+    "nice_to_have": [
+      "grafana"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": {
+      "end": "15:00",
+      "start": "07:00",
+      "tz": "UTC"
+    },
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "kubernetes",
+      "terraform",
+      "gitlab ci",
+      "prometheus",
+      "grafana",
+      "python"
+    ],
+    "title": "Platform Engineer, part-time"
+  }
+}

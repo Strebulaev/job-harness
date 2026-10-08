@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "unknown",
+    "application_email": "ops@logistream.example",
+    "application_method": "email",
+    "company": "Logistream",
+    "compensation": {
+      "currency": "USD",
+      "max": 3000,
+      "min": 2000,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "contractor",
+    "evidence_spans": {
+      "application_method": "mail ops@logistream.example",
+      "compensation": "$2,000 - $3,000/month",
+      "engagement_type": "contractor, 15-20 h/week",
+      "exclusivity": "no exclusivity",
+      "hours_per_week": "Engagement: contractor, 15-20 h/week, $2,000 - $3,000/month",
+      "must_have": "Python Automation Engineer (RSS feed)",
+      "nice_to_have": "- Airflow DAGs; ETL into ClickHouse",
+      "onsite_required": "Remote: EU timezones, 3h overlap with CET",
+      "remote_policy": "Remote: EU timezones",
+      "tech_stack": "Python Automation Engineer (RSS feed)"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      15,
+      20
+    ],
+    "must_have": [
+      "python",
+      "rest api",
+      "webhooks",
+      "airflow",
+      "etl"
+    ],
+    "nice_to_have": [
+      "clickhouse"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "airflow",
+      "clickhouse"
+    ],
+    "title": "Python Automation Engineer"
+  }
+}

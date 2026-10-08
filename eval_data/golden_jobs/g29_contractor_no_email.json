@@ -1,0 +1,40 @@
+{
+  "id": "g29_contractor_no_email",
+  "source": "remoteok",
+  "url": "https://remoteok.com/3322110",
+  "posted_at": "2026-09-16T09:00:00Z",
+  "jd_raw": "Backend Engineer (contract) - CareLink\n\nCompany: CareLink Health\n\nB2B contract, 25 h/week, $3,000 - $4,000 per month.\n\n- Python, REST APIs, PostgreSQL\n- Build the appointment-sync service\n- Remote: Europe, overlap 09:00-17:00 CET\nNo exclusivity. Subcontracting: not allowed.\nApplication: only via the Remote OK platform (no email applications).",
+  "expected_jd_parsed": {
+    "title": "Backend Engineer",
+    "company": "CareLink Health",
+    "seniority": "unknown",
+    "engagement_type": "b2b",
+    "exclusivity": "none",
+    "remote_policy": "remote",
+    "onsite_required": false,
+    "countries_allowed": [],
+    "required_overlap": {"tz": "Europe/Berlin", "start": "09:00", "end": "17:00"},
+    "hours_per_week": [25, 25],
+    "compensation": {"min": 3000, "max": 4000, "currency": "USD", "period": "month"},
+    "must_have": ["python", "rest api", "postgresql"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "postgresql"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "forbidden",
+    "red_flags": [],
+    "application_method": "platform",
+    "application_email": null,
+    "evidence_spans": {
+      "engagement_type": "B2B contract",
+      "exclusivity": "No exclusivity",
+      "remote_policy": "Remote: Europe",
+      "compensation": "$3,000 - $4,000 per month",
+      "subcontracting_policy": "Subcontracting: not allowed",
+      "application_method": "only via the Remote OK platform"
+    }
+  },
+  "expected_apply": "yes",
+  "expected_archetype": "b_backend_contractor",
+  "expected_reject_reasons": [],
+  "notes": "Channel edge case: no application email -> channel=platform_manual (application package export). Subcontracting forbidden must be recorded on the contract record when accepted."
+}

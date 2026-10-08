@@ -1,0 +1,38 @@
+{
+  "id": "g06_no_overlap_rejected",
+  "source": "habr_career",
+  "url": "https://habr.career.ru/vacancy/44556/",
+  "posted_at": "2026-09-12T06:00:00Z",
+  "jd_raw": "Python Automation Engineer (outsourcing)\n\nCompany: Sakha Group\n\nPosition: external developer (outsourcing contract).\n\nTasks: build ETL automations and integrations between internal systems; Python, Airflow, PostgreSQL.\n\nTerms: B2B, 40 h/week, $4,000 per month.\nWorking hours: full-time in-office in Novosibirsk, 10:00-19:00 NOK (Asia/Novosibirsk). Hybrid work is not available.\nApplication: call HR or apply on the platform",
+  "expected_jd_parsed": {
+    "title": "Python Automation Engineer",
+    "company": "Sakha Group",
+    "seniority": "unknown",
+    "engagement_type": "contractor",
+    "exclusivity": "unknown",
+    "remote_policy": "onsite",
+    "onsite_required": true,
+    "countries_allowed": ["RU"],
+    "required_overlap": {"tz": "Asia/Novosibirsk", "start": "10:00", "end": "19:00"},
+    "hours_per_week": [40, 40],
+    "compensation": {"min": 4000, "max": 4000, "currency": "USD", "period": "month"},
+    "must_have": ["python", "airflow", "postgresql"],
+    "nice_to_have": [],
+    "tech_stack": ["python", "airflow", "postgresql"],
+    "ai_tools_policy": "unknown",
+    "subcontracting_policy": "unknown",
+    "red_flags": [],
+    "application_method": "platform",
+    "application_email": null,
+    "evidence_spans": {
+      "engagement_type": "external developer (outsourcing contract)",
+      "remote_policy": "full-time in-office in Novosibirsk",
+      "compensation": "$4,000 per month",
+      "application_method": "apply on the platform"
+    }
+  },
+  "expected_apply": "no",
+  "expected_archetype": null,
+  "expected_reject_reasons": ["onsite_required", "country_deny"],
+  "notes": "Hard filters #3 + #5: on-site in Novosibirsk; principal window 09:00-18:00 Europe/Kiev vs 10:00-19:00 NOK gives only 5h... actually 09:00-18:00 Kiev UTC+3 = 06:00-15:00 UTC; NOK 10:00-19:00 UTC+7 = 03:00-12:00 UTC -> overlap 06:00-12:00 UTC = 6h. Primary reject is onsite_required."
+}

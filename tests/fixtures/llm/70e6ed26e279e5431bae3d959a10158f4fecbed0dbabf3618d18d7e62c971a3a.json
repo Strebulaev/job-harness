@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "cost_usd": 0.0,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "object": {
+    "ai_tools_policy": "allowed",
+    "application_email": "evals@llmlabs.example",
+    "application_method": "email",
+    "company": "LLM Labs",
+    "compensation": {
+      "currency": "USD",
+      "max": 4000,
+      "min": 2800,
+      "period": "month"
+    },
+    "countries_allowed": [],
+    "engagement_type": "contractor",
+    "evidence_spans": {
+      "ai_tools_policy": "AI tools allowed",
+      "application_method": "write to evals@llmlabs.example",
+      "compensation": "$2,800 - $4,000 per month",
+      "engagement_type": "independent contractor",
+      "exclusivity": "no exclusivity",
+      "hours_per_week": "Rate: $2,800 - $4,000 per month, 25 h/week",
+      "must_have": "- Python, Pydantic, FastAPI, pgvector; embeddings and chunking",
+      "nice_to_have": "- Experience with agents and MCP tool integrations is a plus",
+      "onsite_required": "Remote: anywhere; 3h overlap with UTC+2",
+      "remote_policy": "Remote: anywhere",
+      "tech_stack": "- Python, Pydantic, FastAPI, pgvector; embeddings and chunking"
+    },
+    "exclusivity": "none",
+    "hours_per_week": [
+      25,
+      25
+    ],
+    "must_have": [
+      "python",
+      "llm evals",
+      "rag",
+      "fastapi",
+      "pgvector"
+    ],
+    "nice_to_have": [
+      "agents",
+      "mcp"
+    ],
+    "onsite_required": false,
+    "red_flags": [],
+    "remote_policy": "remote",
+    "required_overlap": null,
+    "seniority": "unknown",
+    "subcontracting_policy": "unknown",
+    "tech_stack": [
+      "python",
+      "pydantic",
+      "fastapi",
+      "pgvector",
+      "embeddings"
+    ],
+    "title": "LLM Evaluation Engineer"
+  }
+}

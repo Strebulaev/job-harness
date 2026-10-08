@@ -41,3 +41,8 @@ jobs:
           uv run jh init
           uv run jh profile validate --path config/profile.example.yaml
         shell: bash
+
+      - name: Router golden baseline check
+        run: |
+          uv run jh eval run --suite router --json
+        shell: bash
