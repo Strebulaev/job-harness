@@ -29,7 +29,7 @@ Maps each human-facing doc section to what it describes and the paths whose chan
 | docs/PROMPTS.md | Versioning rules and catalogue | Prompt immutability, schemas, eval coverage | src/jobharness/llm/, src/jobharness/llm/prompts/ | |
 | docs/PROMPTS.md | Roles → model mapping | Decision 0008; fact 0011 | config/config.example.yaml, src/jobharness/settings.py | |
 | docs/PROMPTS.md | FakeProvider | Offline test provider | src/jobharness/llm/fake_provider.py, tests/fixtures/llm/ | |
-| docs/RUNBOOK.md | Daily / Weekly / When something is off | Chat workflow (decision 0014) | src/jobharness/bot/ | |
+| docs/RUNBOOK.md | Daily / Weekly / Operations / Troubleshooting / Live smoke test | Chat workflow and host operations (decision 0014) | src/jobharness/bot/, Dockerfile, docker-compose.yml, .env.example | |
 | docs/RUNBOOK.md | Safety reminders | Spec §2 | spec.md | |
 | docs/plans/changeset-implementation-plan.md | M1–M8 steps, sign-off list, matrix | Decisions 0001, 0004, 0005 | spec.md, src/jobharness/ | |
 | docs/plans/mvp.md | all steps | MVP plan; decisions 0012, 0014, 0015; guardrails mvp-gates-offline-only, provider-keys-never-persisted-in-clear | spec.md, docs/decisions/0014-mvp-is-single-user-telegram-pipeline.md, src/jobharness/ | |
